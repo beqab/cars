@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Head from "next/head";
+import Header from "./header/header";
 
 export class BaceLayout extends Component {
   render() {
@@ -15,7 +16,7 @@ export class BaceLayout extends Component {
             integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
           ></link>
         </Head>
-
+        <Header></Header>
         {this.props.children}
       </>
     );
