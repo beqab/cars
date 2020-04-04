@@ -1,7 +1,8 @@
 @import "_bootstrap.scss";
-@import "_test.scss";
-$brandColor: #0c91d4;
-$mainColor: #4eccb9;
+@import "_variables.scss";
+@import "_header.scss";
+@import "_authorizhation.scss";
+@import "_home.scss";
 
 @font-face {
   font-family: "BPG WEB 001 Caps";
@@ -21,5 +22,14 @@ $mainColor: #4eccb9;
 }
 
 * {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  text-decoration: none;
+  box-sizing: border-box;
   font-family: "BPG WEB 001 Caps";
+}
+
+a:hover {
+  text-decoration: none;
 }

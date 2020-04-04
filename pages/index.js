@@ -2,12 +2,14 @@ import React from "react";
 import "../style/style.scss";
 // import "../style/bootstrap.scss";
 import BaceLayout from "../components/baceLayout/baceLayout";
-
-const Home = () => (
+import Home from "./home/Home";
+import Authorization from "./authorization/Authorizhation";
+const App = () => (
   <BaceLayout>
-    <h1>აქანწ ჩაჩენდება ფეიჯები</h1>
+    <Authorization></Authorization>
+    {/* <Home></Home> */}
   </BaceLayout>
 );
 //
 
-export default Home;
+export default App;
