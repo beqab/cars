@@ -1,0 +1,138 @@
+#authorizathion {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 5%;
+  background-color: #fff4e5;
+}
+
+.authorization_box {
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0px 1px 14.4px 0.6px rgba(39, 39, 39, 0.66);
+  max-width: 370px;
+  margin: 0 auto 0;
+
+  .auth_title {
+    background-color: $main-color;
+    text-align: center;
+    padding: 15px 0;
+    h3 {
+      color: #272727;
+      font-size: 16px;
+      margin: 0;
+    }
+  }
+}
+
+.auth_inputs {
+  .input_box {
+    margin-top: 15px;
+  }
+  label {
+    color: $main-color;
+    display: block;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  input {
+    color: $brand-color;
+    font-size: 14px;
+    padding: 5px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 100%;
+    &:focus {
+      border-color: $main-color;
+    }
+  }
+  input::placeholder {
+    color: #6a6968;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+  }
+}
+
+.social_auth {
+  margin: 15px 0 0;
+  img {
+    height: 25px;
+    width: 24px;
+    object-fit: contain;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  a {
+    flex: 0 0 47%;
+    max-width: 47%;
+    border-radius: 15px;
+    padding: 7px 10px;
+    transition: all 0.4s;
+    &:hover {
+      transform: translateY(-1px);
+    }
+
+    span {
+      font-size: 14px;
+      padding-left: 5px;
+    }
+  }
+}
+.google_auth_social {
+  background-color: #fff;
+
+  span {
+    color: $brand-color;
+  }
+}
+.facebook_auth_social {
+  background-color: #39579a;
+  span {
+    color: #fff;
+  }
+}
+
+#auth_form {
+  padding: 5px 40px 30px;
+  background-color: $brand-color;
+}
+
+#login_box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  #login_button {
+    background-color: $main-color;
+    color: $brand-color;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-radius: 18px;
+    padding: 9px 20px 6px;
+    cursor: pointer;
+    transition: all 0.4s;
+    &:hover {
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.auth_footer {
+  margin-top: 25px;
+  a {
+    color: #fff;
+    margin-top: 5px;
+    font-size: 13px;
+    font-family: "Conv_bpg-arial-webfont";
+    display: block;
+    transition: all 0.4s;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
