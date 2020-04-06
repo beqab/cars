@@ -1,6 +1,35 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { Link } from "react-dom";
+import JVTdecode from "jwt-decode";
 class Authorization extends Component {
+  state = {
+    email: "",
+    password: "",
+  };
+
+  inputHandler = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  hangleLogIn = (e) => {
+    e.preventDefault();
+
+    axios
+      .post("http://localhost:5000/api/auth", {
+        email: this.state.email,
+        password: this.state.password,
+      })
+      .then((res) => {
+        let test = JVTdecode(res.data.token);
+        console.log(test);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   render() {
     return (
       <div id="authorizathion">
@@ -9,12 +38,13 @@ class Authorization extends Component {
             <h3>ავტორიზაცია</h3>
           </div>
 
-          <form id="auth_form">
+          <form onSubmit={this.hangleLogIn} id="auth_form">
             <div className="auth_inputs">
               <div className="input_box">
                 <label htmlFor="email">მეილი</label>
                 <input
-                  id="email"
+                  onChange={this.inputHandler}
+                  name="email"
                   type="mail"
                   placeholder="YourEmail@gmail.com"
                 />
@@ -22,7 +52,8 @@ class Authorization extends Component {
               <div className="input_box">
                 <label htmlFor="password">პაროლი</label>
                 <input
-                  id="password"
+                  onChange={this.inputHandler}
+                  name="password"
                   type="password"
                   placeholder="* * * * * * *"
                 />
