@@ -3,6 +3,8 @@ import axios from "axios";
 import JVTdecode from "jwt-decode";
 import { loginValidation } from "../../validator/validation";
 import classname from "classnames";
+import { connect } from "react-redux";
+import { setCurrentUser } from "../../../redux/auth/authActions";
 class Authorization extends Component {
   state = {
     email: "",
@@ -57,9 +59,25 @@ class Authorization extends Component {
             .then((res) => {
               let test = JVTdecode(res.data.token);
               console.log(test);
+              this.setState({
+                errors: [],
+              });
+              this.props.setCurrentUser({
+                user: res.data.user,
+                token: res.data.token,
+              });
+              // this.props.setCurrentUser({
+              //   user: res.data.user,
+              //   token: res.data.token
+              // });
             })
             .catch((err) => {
-              console.log(err);
+              console.log(err, "errrr");
+              // if (err.response.status != 500) {
+              //   this.setState({
+              //     loginerrors: { email: "მეილი ან პარალლი არაწორია" },
+              //   });
+              // }
             });
         }
       );
@@ -138,4 +156,4 @@ class Authorization extends Component {
   }
 }
 
-export default Authorization;
+export default connect(null, { setCurrentUser })(Authorization);

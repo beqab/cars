@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-dom";
+import { connect } from "react-redux";
 class Header extends Component {
   render() {
     return (
@@ -28,6 +29,7 @@ class Header extends Component {
                   d="m282.667969 256h-181.335938c-55.871093 0-101.332031 45.460938-101.332031 101.332031v74.667969c0 8.832031 7.167969 16 16 16h352c8.832031 0 16-7.167969 16-16v-74.667969c0-55.871093-45.460938-101.332031-101.332031-101.332031zm0 0"
                 />
               </svg>
+              {this.props.user && this.props.user.name}
             </a>
 
             <a id="language" href="">
@@ -58,4 +60,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default connect((state) => ({ user: state.auth.user }))(Header);
