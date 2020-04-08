@@ -1,8 +1,13 @@
 import React from "react";
 import "../style/style.scss";
 // import "../style/bootstrap.scss";
+import Recovery from "../components/passwordRecovery/passwordRecovery";
 import BaceLayout from "../components/baceLayout/baceLayout";
-const App = () => <BaceLayout>index page</BaceLayout>;
+const App = () => (
+  <BaceLayout>
+    <Recovery></Recovery>
+  </BaceLayout>
+);
 //
 
 export default App;
