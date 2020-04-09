@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-dom";
+import Link from "next/link";
+
 import { connect } from "react-redux";
+import { authLogout } from "../../../redux/auth/authActions";
 class Header extends Component {
   render() {
     return (
@@ -31,6 +33,13 @@ class Header extends Component {
               </svg>
               {this.props.user && this.props.user.name}
             </a>
+            {this.props.isAuth ? (
+              <button onClick={this.props.logout}>გამოსვლა</button>
+            ) : (
+              <Link href="/login">
+                <a>შესვლა</a>
+              </Link>
+            )}
 
             <a id="language" href="">
               En
@@ -39,18 +48,24 @@ class Header extends Component {
           <nav>
             <ul>
               <li>
-                <a href="" className="active">
-                  მთავარი გვერდი
-                </a>
+                <Link href="/">
+                  <a className="active">მთავარი გვერდი</a>
+                </Link>
               </li>
               <li>
-                <a href="">მანქანის გაქირავება</a>
+                <Link href="/carrent">
+                  <a>მანქანის გაქირავება</a>
+                </Link>
               </li>
               <li>
-                <a href="">ჩემი გვერდი</a>
+                <Link href="/mypage">
+                  <a>ჩემი გვერდი</a>
+                </Link>
               </li>
               <li>
-                <a href="">კონტაქტი</a>
+                <Link href="/contactus">
+                  <a>კონტაქტი</a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -60,4 +75,9 @@ class Header extends Component {
   }
 }
 
-export default connect((state) => ({ user: state.auth.user }))(Header);
+export default connect(
+  (state) => ({ user: state.auth.user, isAuth: state.auth.isAuth }),
+  (dispatch) => ({
+    logout: () => dispatch(authLogout()),
+  })
+)(Header);

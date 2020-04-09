@@ -8,7 +8,6 @@ import axios from "axios";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
-    debugger;
     if (!process.browser) {
       const currentTime = Date.now() / 1000;
       const expiresAt = getCookesFromReq(ctx.req, "expiresAt");
