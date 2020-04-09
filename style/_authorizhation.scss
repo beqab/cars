@@ -23,7 +23,17 @@
     }
   }
 }
-
+#authorizathion {
+  form {
+    background-color: $brand-color;
+    padding: 20px 30px;
+  }
+  .input_box {
+    margin: 0;
+  }
+  .auth_inputs {
+  }
+}
 .auth_inputs {
   .input_box {
     margin-top: 15px;
@@ -95,17 +105,22 @@
   }
 }
 
-#auth_form {
+#auth_form,
+#recovery_form {
   padding: 5px 40px 30px;
   background-color: $brand-color;
 }
-
-#login_box {
+.auth_footer.inline {
+  display: flex;
+  border-top: 1px solid #fff;
+  justify-content: space-between;
+}
+#rec_box {
   width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 15px;
-  #login_button {
+  #recover_button {
     background-color: $main-color;
     color: $brand-color;
     font-size: 16px;
@@ -122,6 +137,7 @@
 }
 
 .auth_footer {
+  background-color: $brand-color;
   margin-top: 25px;
   a {
     color: #fff;
