@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import JVTdecode from "jwt-decode";
 import { loginValidation } from "../../validator/validation";
-
 import classname from "classnames";
 import { connect } from "react-redux";
 import { setCurrentUser } from "../../../redux/auth/authActions";
@@ -12,6 +11,7 @@ class Authorization extends Component {
     password: "",
     errors: [],
     validated: false,
+    butDisable: false,
   };
 
   inputHandler = (e) => {
@@ -50,6 +50,7 @@ class Authorization extends Component {
       this.setState(
         {
           errors: [],
+          butDisable: true,
         },
         () => {
           axios
@@ -62,6 +63,7 @@ class Authorization extends Component {
               console.log(test);
               this.setState({
                 errors: [],
+                butDisable: false,
               });
               this.props.setCurrentUser({
                 user: res.data.user,
@@ -74,6 +76,9 @@ class Authorization extends Component {
             })
             .catch((err) => {
               console.log(err, "errrr");
+              this.setState({
+                butDisable: false,
+              });
               // if (err.response.status != 500) {
               //   this.setState({
               //     loginerrors: { email: "მეილი ან პარალლი არაწორია" },
@@ -129,9 +134,21 @@ class Authorization extends Component {
                   {this.state.errors.password}
                 </span>
               </div>
-
+              <div
+                className={classname("loader_box", {
+                  hide: !this.state.butDisable,
+                })}
+              >
+                <div className="loader" id="loader-1"></div>
+              </div>
               <div id="login_box">
-                <button id="login_button">შესვლა</button>
+                <button
+                  className="load"
+                  disabled={this.state.butDisable}
+                  id="login_button"
+                >
+                  შესვლა
+                </button>
               </div>
             </div>
             <div className="social_auth">

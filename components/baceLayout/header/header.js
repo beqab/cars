@@ -8,9 +8,9 @@ class Header extends Component {
     return (
       <header>
         <div id="logo_socials">
-          <a href="">
+          <Link href="/">
             <img src="/imgs/logo.png" alt="" />
-          </a>
+          </Link>
         </div>
 
         <div className="header_navigation">
