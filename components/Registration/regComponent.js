@@ -62,13 +62,13 @@ class Registration extends Component {
         },
         () => {
           axios
-            .post("http://localhost:5000/api/auth", {
+            .post("http://localhost:5000/api/users", {
               email: this.state.email,
               password: this.state.password,
-              repeatPasword: this.state.repeatPasword,
               name: this.state.name,
             })
             .then((res) => {
+              console.log(res);
               let test = JVTdecode(res.data.token);
               console.log(test);
               this.setState({
@@ -124,7 +124,7 @@ class Registration extends Component {
                     type="text"
                     placeholder="სახელი"
                     className={classname("form-control", {
-                      "is-invalid": this.state.errors.name,
+                      "is-invalid": this.state.errors.email,
                     })}
                   />
                   <span className="invalid-feedback">
@@ -155,7 +155,7 @@ class Registration extends Component {
                     type="password"
                     placeholder="* * * * * * *"
                     className={classname("form-control", {
-                      "is-invalid": this.state.errors.password,
+                      "is-invalid": this.state.errors.email,
                     })}
                   />
                   <span className="invalid-feedback">
@@ -170,7 +170,7 @@ class Registration extends Component {
                     type="password"
                     placeholder="* * * * * * *"
                     className={classname("form-control", {
-                      "is-invalid": this.state.errors.repeatPasword,
+                      "is-invalid": this.state.errors.email,
                     })}
                   />
                   <span className="invalid-feedback">
@@ -186,9 +186,7 @@ class Registration extends Component {
               </div>
 
               <div className="auth_footer">
-                <Link href="/login">
-                  <a>უკვე ხართ რეგისტრირებული?</a>
-                </Link>
+                <a href="">უკვე ხართ რეგისტრირებული?</a>
               </div>
             </form>
           </div>
