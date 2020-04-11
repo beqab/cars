@@ -30,10 +30,8 @@ export const regValidation = (data) => {
 
   if (!validator.isLength(data.repeatPasword, { min: 6, max: 30 })) {
     errors.repeatPasword = "გაიმეორეთ პაროლი - მინიმუმ 6 სიმბოლო";
-  } else {
-    if (data.password !== data.repeatPasword) {
-      errors.repeatPasword = "გამეორებული პაროლი არასწორია";
-    }
+  } else if (data.password !== data.repeatPasword) {
+    errors.repeatPasword = "გამეორებული პაროლი არასწორია";
   }
 
   return {

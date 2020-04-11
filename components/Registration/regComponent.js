@@ -22,26 +22,26 @@ class Registration extends Component {
     this.setState(
       {
         [event.target.name]: event.target.value,
+      },
+      () => {
+        if (this.state.validated) {
+          let { errors, isValid } = regValidation({
+            email: this.state.email,
+            password: this.state.password,
+            name: this.state.name,
+            repeatPasword: this.state.repeatPasword,
+          });
+          if (isValid) {
+            this.setState({
+              errors: [],
+            });
+          } else {
+            this.setState({
+              errors: errors,
+            });
+          }
+        }
       }
-      // () => {
-      //   if (this.state.validated) {
-      //     let { errors, isValid } = regValidation({
-      //       email: this.state.email,
-      //       password: this.state.password,
-      //       name: this.state.name,
-      //       repeatPasword: this.state.repeatPasword,
-      //     });
-      //     if (isValid) {
-      //       this.setState({
-      //         errors: [],
-      //       });
-      //     } else {
-      //       this.setState({
-      //         errors: errors,
-      //       });
-      //     }
-      //   }
-      // }
     );
   };
 
@@ -124,7 +124,7 @@ class Registration extends Component {
                     type="text"
                     placeholder="სახელი"
                     className={classname("form-control", {
-                      "is-invalid": this.state.errors.email,
+                      "is-invalid": this.state.errors.name,
                     })}
                   />
                   <span className="invalid-feedback">
@@ -155,7 +155,7 @@ class Registration extends Component {
                     type="password"
                     placeholder="* * * * * * *"
                     className={classname("form-control", {
-                      "is-invalid": this.state.errors.email,
+                      "is-invalid": this.state.errors.password,
                     })}
                   />
                   <span className="invalid-feedback">
@@ -170,7 +170,7 @@ class Registration extends Component {
                     type="password"
                     placeholder="* * * * * * *"
                     className={classname("form-control", {
-                      "is-invalid": this.state.errors.email,
+                      "is-invalid": this.state.errors.repeatPasword,
                     })}
                   />
                   <span className="invalid-feedback">
@@ -186,7 +186,9 @@ class Registration extends Component {
               </div>
 
               <div className="auth_footer">
-                <a href="">უკვე ხართ რეგისტრირებული?</a>
+                <Link href="/login">
+                  <a>უკვე ხართ რეგისტრირებული?</a>
+                </Link>
               </div>
             </form>
           </div>
