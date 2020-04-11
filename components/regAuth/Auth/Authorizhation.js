@@ -5,6 +5,9 @@ import { loginValidation } from "../../validator/validation";
 import classname from "classnames";
 import { connect } from "react-redux";
 import { setCurrentUser } from "../../../redux/auth/authActions";
+import Link from "next/link";
+import FBLogin from "./Fblogin";
+
 class Authorization extends Component {
   state = {
     email: "",
@@ -156,16 +159,14 @@ class Authorization extends Component {
                 <img src="/imgs/google.png" alt="" />
                 <span>by Google</span>
               </a>
-
-              <a href="" className="facebook_auth_social">
-                <img src="/imgs/facebook.svg" alt="" />
-                <span>by Facebook</span>
-              </a>
+              <FBLogin />
             </div>
 
             <div className="auth_footer">
               <a href="">დარეგისტრირდი</a>
-              <a href="">დაგავიწყდათ პაროლი?</a>
+              <Link href="roceverpass">
+                <a>დაგავიწყდათ პაროლი?</a>
+              </Link>
             </div>
           </form>
         </div>
