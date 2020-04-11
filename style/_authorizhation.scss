@@ -4,8 +4,14 @@
   padding-top: 5%;
   background-color: #fff4e5;
 }
-
-.authorization_box {
+.form-control:focus {
+  box-shadow: unset !important;
+}
+.reg_box .input_box {
+  margin-bottom: 10px !important;
+}
+.authorization_box,
+.reg_box {
   overflow: hidden;
   border-radius: 5px;
   box-shadow: 0px 1px 14.4px 0.6px rgba(39, 39, 39, 0.66);
@@ -195,7 +201,8 @@
   border: 10px solid transparent;
   border-top-color: #272727;
 }
-.authorization_box {
+.authorization_box,
+.reg_box {
   position: relative;
   .loader_box {
     position: absolute;
