@@ -18,7 +18,7 @@ class Recovery extends Component {
   seandEmail = async (e) => {
     e.preventDefault();
     try {
-      const res = axios.post("http://localhost:5000/api/users/recoverpass", {
+      const res = axios.post("users/recoverpass", {
         email: this.state.email,
       });
       console.log(res);

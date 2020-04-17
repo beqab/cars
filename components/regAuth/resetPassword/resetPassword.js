@@ -20,13 +20,10 @@ class ResetPassword extends Component {
     console.log("passs");
     e.preventDefault();
     try {
-      const res = await axios.post(
-        "http://localhost:5000/api/users/resetpass",
-        {
-          token: this.props.token,
-          newPassword: this.state.password,
-        }
-      );
+      const res = await axios.post("users/resetpass", {
+        token: this.props.token,
+        newPassword: this.state.password,
+      });
       console.log(res);
     } catch (err) {
       console.log(err);

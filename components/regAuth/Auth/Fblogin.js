@@ -28,7 +28,7 @@ class FbLoginButton extends Component {
     };
     // console.log(res, userData);
     axios
-      .post("http://localhost:5000/api/users/fbLogin", { userData })
+      .post("users/fbLogin", { userData })
       .then((res) => {
         console.log("aqedan daalogineb....", res);
         this.props.setCurrentUser({

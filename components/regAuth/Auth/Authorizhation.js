@@ -57,7 +57,7 @@ class Authorization extends Component {
         },
         () => {
           axios
-            .post("http://localhost:5000/api/auth", {
+            .post("auth", {
               email: this.state.email,
               password: this.state.password,
             })
