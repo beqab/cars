@@ -1,7 +1,63 @@
 import React, { Component } from "react";
 import AddStatement from "./addStatement";
+import classnames from "classnames";
 
 class ProfileFluid extends Component {
+  state = {
+    imgs: [],
+    defaultImgIndex: 0,
+  };
+  fileInput = React.createRef();
+
+  fileSelectedHandler = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      let imgUp = event.target.files[0];
+      this.setState((prev) => {
+        return {
+          imgs: [
+            ...prev.imgs,
+            {
+              selectedFile: imgUp,
+              uploadedImg: [URL.createObjectURL(imgUp)],
+            },
+          ],
+        };
+      });
+    }
+  };
+
+  fileUpload = (file = null) => {
+    // let fd = new FormData();
+    // fd.append("image", this.state.selectedFile, this.state.selectedFile.name);
+  };
+  setEsDefault = (i) => {
+    this.setState({
+      defaultImgIndex: i,
+    });
+  };
+  getImgs = () => {
+    let imgs = [];
+
+    for (let index = 0; index < 6; index++) {
+      if (index < this.state.imgs.length) {
+        imgs.push(
+          <div
+            onClick={() => this.setEsDefault(index)}
+            key={index}
+            className={classnames("uploded", {
+              active: index === this.state.defaultImgIndex,
+            })}
+          >
+            <img src={this.state.imgs[index].uploadedImg} />
+          </div>
+        );
+      } else {
+        imgs.push(<div key={index} className="uploded"></div>);
+      }
+    }
+
+    return imgs;
+  };
   render() {
     return (
       <>
@@ -119,6 +175,24 @@ class ProfileFluid extends Component {
                 <option>1</option>
               </select>
             </div>
+          </div>
+
+          <div className="imageUploadContainer d-flex mt-5">
+            <div
+              className="imgUload"
+              onClick={() => {
+                let a = this.fileInput.current;
+                a.click();
+              }}
+            >
+              <input
+                ref={this.fileInput}
+                style={{ display: "none" }}
+                type="file"
+                onChange={this.fileSelectedHandler}
+              />
+            </div>
+            {this.getImgs()}
           </div>
         </div>
       </>
