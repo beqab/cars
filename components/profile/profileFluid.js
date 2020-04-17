@@ -17,6 +17,7 @@ class ProfileFluid extends Component {
 
           <div className="profile_main_inputs">
             <div className="profile_input_box">
+              <label>კატეგორია</label>
               <select>
                 <option>კატეგორია</option>
                 <option>კატეგორია</option>
@@ -26,6 +27,7 @@ class ProfileFluid extends Component {
             </div>
 
             <div className="profile_input_box">
+              <label>კატეგორია</label>
               <select>
                 <option>მწარმოებელი</option>
                 <option>კატეგორია</option>
@@ -35,6 +37,7 @@ class ProfileFluid extends Component {
             </div>
 
             <div className="profile_input_box">
+              <label>კატეგორია</label>
               <select>
                 <option>მოდელი</option>
                 <option>კატეგორია</option>
@@ -44,8 +47,9 @@ class ProfileFluid extends Component {
             </div>
 
             <div className="profile_input_box">
+              <label>ადგილმდებარეობა</label>
               <select>
-                <option>ადგილმდებარეობა</option>
+                <option>თბილისი</option>
                 <option>კატეგორია</option>
                 <option>კატეგორია</option>
                 <option>კატეგორია</option>
@@ -53,6 +57,7 @@ class ProfileFluid extends Component {
             </div>
 
             <div className="profile_input_box">
+              <label>კატეგორია</label>
               <select>
                 <option>ფასი</option>
                 <option>კატეგორია</option>
@@ -62,17 +67,17 @@ class ProfileFluid extends Component {
             </div>
 
             <div className="profile_input_box">
+              <label> პირთა ტევადობა</label>
               <select>
-                <option selected="true" disabled="disabled">
-                  პირთა ტევადობა
-                </option>
+                <option>1</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
               </select>
             </div>
             <div className="profile_input_box">
-              <select class="select_with_img drive_select">
+              <label className="select_with_img drive_select">მძღოლი</label>
+              <select>
                 <option selected="true" disabled="disabled">
                   მძღოლი
                 </option>
@@ -82,9 +87,12 @@ class ProfileFluid extends Component {
               </select>
             </div>
             <div className="profile_input_box">
-              <select class="select_with_img engine_select">
+              <label className="select_with_img engine_select">
+                ძრავის მოცულობა
+              </label>
+              <select>
                 <option selected="true" disabled="disabled">
-                  ძრავის მოცულობა
+                  4
                 </option>
                 <option>1.0</option>
                 <option>2.2</option>
@@ -93,10 +101,9 @@ class ProfileFluid extends Component {
             </div>
 
             <div className="profile_input_box">
-              <select class="select_with_img flue_select">
-                <option selected="true" disabled="disabled">
-                  საწვავის ტიპი
-                </option>
+              <label className="flue_select">საწვავის ტიპი</label>
+              <select>
+                <option>დიზელი</option>
                 <option>დიზელი</option>
                 <option>ბენზინი</option>
                 <option>3.4</option>
@@ -104,13 +111,12 @@ class ProfileFluid extends Component {
             </div>
 
             <div className="profile_input_box">
-              <select class="select_with_img door_select">
-                <option selected="true" disabled="disabled">
-                  კარის რაოდენობა
-                </option>
-                <option>დიზელი</option>
-                <option>ბენზინი</option>
-                <option>3.4</option>
+              <label className="door_select"> კარის რაოდენობა</label>
+              <select>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>1</option>
               </select>
             </div>
           </div>
