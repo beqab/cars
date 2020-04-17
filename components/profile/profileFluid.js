@@ -120,6 +120,52 @@ class ProfileFluid extends Component {
               </select>
             </div>
           </div>
+
+          <div className="contact_info_fluid">
+            <div>
+              <div className="contact_info_box">
+                <div className="contact_info_title">
+                  <span>საკონტაქტო ინფორმაცია</span>
+                </div>
+                <div className="contact_info">
+                  <div className="contact_label">
+                    <label>
+                      <img src="/imgs/pp.png" />
+                    </label>
+                    <input type="text" placeholder="სახელი გვარი" />
+                  </div>
+
+                  <div className="contact_label">
+                    <label>
+                      <img src="/imgs/phone.png" />
+                    </label>
+                    <input type="text" placeholder="ტელეფონი" />
+                  </div>
+
+                  <div className="contact_label">
+                    <label>
+                      <img src="/imgs/ma.png" />
+                    </label>
+                    <input type="email" placeholder="მეილი" />
+                  </div>
+
+                  <div className="contact_label">
+                    <label>
+                      <img src="/imgs/loc.png" />
+                    </label>
+                    <input type="text" placeholder="ლოკაცია" />
+                  </div>
+                </div>
+              </div>
+              <div className="profile_textarea">
+                <span>სხვა მახასიათებლები</span>
+                <textarea placeholder="სხვა მახასიათებლები"></textarea>
+              </div>
+            </div>
+            <div>
+              <button></button>
+            </div>
+          </div>
         </div>
       </>
     );
