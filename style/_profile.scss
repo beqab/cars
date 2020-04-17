@@ -147,7 +147,7 @@
     color: #0f1e0e;
     max-width: 280px;
     width: 100%;
-    padding: 10px 14px;
+    padding: 10px 24px;
     background-image: url("/imgs/menu.png");
     cursor: pointer;
     background-position: 96% 17px;
@@ -161,4 +161,19 @@
 select {
   -moz-appearance: window;
   -webkit-appearance: none;
+}
+
+.select_with_img {
+  &.drive_select {
+    background-image: url("/imgs/Untitled-1.png"), url("/imgs/menu.png");
+    background-position: 2% 12px, 96% 17px;
+  }
+  &.engine_select {
+    background-image: url("/imgs/Untitled-1hf.png"), url("/imgs/menu.png");
+    background-position: 2% 12px, 96% 17px;
+  }
+  &.flue_select {
+    background-image: url("/imgs/Untitled-1gh.png"), url("/imgs/menu.png");
+    background-position: 2% 12px, 96% 17px;
+  }
 }
