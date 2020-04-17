@@ -71,6 +71,48 @@ class ProfileFluid extends Component {
                 <option>3</option>
               </select>
             </div>
+            <div className="profile_input_box">
+              <select class="select_with_img drive_select">
+                <option selected="true" disabled="disabled">
+                  მძღოლი
+                </option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div className="profile_input_box">
+              <select class="select_with_img engine_select">
+                <option selected="true" disabled="disabled">
+                  ძრავის მოცულობა
+                </option>
+                <option>1.0</option>
+                <option>2.2</option>
+                <option>3.4</option>
+              </select>
+            </div>
+
+            <div className="profile_input_box">
+              <select class="select_with_img flue_select">
+                <option selected="true" disabled="disabled">
+                  საწვავის ტიპი
+                </option>
+                <option>დიზელი</option>
+                <option>ბენზინი</option>
+                <option>3.4</option>
+              </select>
+            </div>
+
+            <div className="profile_input_box">
+              <select class="select_with_img door_select">
+                <option selected="true" disabled="disabled">
+                  კარის რაოდენობა
+                </option>
+                <option>დიზელი</option>
+                <option>ბენზინი</option>
+                <option>3.4</option>
+              </select>
+            </div>
           </div>
         </div>
       </>
