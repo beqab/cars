@@ -37,7 +37,7 @@ class profileLayout extends Component {
         <div className="profile_fluid">
           <div className="profile_left_tabs_wrappper">
             <div className="profile_username_info">
-              <span onClick={this.getSum}>მომხმარებელი:</span>
+              <span>მომხმარებელი:</span>
               <span className="profile_username">თორნიკე ჟიჟიაშვილი</span>
             </div>
 
