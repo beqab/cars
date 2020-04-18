@@ -9,10 +9,12 @@ import Link from "next/link";
 import axios from "axios";
 import Cookies from "js-cookie";
 import MyStatements from "./myStatements";
+import PersonalInfo from "./personalInfo";
 
 class profileLayout extends Component {
   state = {
     statementSum: 0,
+    pageType: null,
   };
   componentDidMount() {
     let token = Cookies.get("token");
@@ -30,9 +32,20 @@ class profileLayout extends Component {
       });
   }
 
+  redirectHadler = (e = null, path) => {
+    if (e) e.preventDefault();
+    window.history.pushState("object or string", "Page Title", path);
+    this.setState({
+      pageType: path.split("/").reverse()[0],
+    });
+  };
+
   render() {
     console.log(this.props);
-    const { pageType } = this.props;
+    let { pageType } = this.props;
+    if (this.state.pageType) {
+      pageType = this.state.pageType;
+    }
     return (
       <div>
         <div className="profile_fluid">
@@ -41,52 +54,58 @@ class profileLayout extends Component {
               <span>მომხმარებელი:</span>
               <span className="profile_username">თორნიკე ჟიჟიაშვილი</span>
             </div>
-
             <div className="profile_left_tabs">
               <ul>
                 <li>
-                  <Link href="/profile/addStatement">
-                    <a
-                      className={Classnames({
-                        active: pageType === "addStatement",
-                      })}
-                    >
-                      <span>განცადების დამატება</span>
-                      <img src="/imgs/pp.png" alt />
-                    </a>
-                  </Link>
+                  {/* <Link href="/profile/addStatement"> */}
+                  <a
+                    onClick={(e) =>
+                      this.redirectHadler(e, "/profile/addStatement")
+                    }
+                    className={Classnames({
+                      active: pageType === "addStatement",
+                    })}
+                  >
+                    <span>განცადების დამატება</span>
+                    <img src="/imgs/pp.png" alt />
+                  </a>
+                  {/* </Link> */}
                 </li>
                 <li>
-                  <Link href="/profile/allStatement">
-                    <a
-                      className={Classnames({
-                        active: pageType === "allStatement",
-                      })}
-                    >
-                      <span>ჩემი განცხადებები</span>
-                      <span className="right_circle">
-                        {this.state.statementSum}
-                      </span>
-                    </a>
-                  </Link>
+                  {/* <Link href="/profile/allStatement"> */}
+                  <a
+                    onClick={(e) =>
+                      this.redirectHadler(e, "/profile/allStatement")
+                    }
+                    className={Classnames({
+                      active: pageType === "allStatement",
+                    })}
+                  >
+                    <span>ჩემი განცხადებები</span>
+                    <span className="right_circle">
+                      {this.state.statementSum}
+                    </span>
+                  </a>
+                  {/* </Link> */}
                 </li>
-                <li>
+                {/* <li>
                   <a href="">
                     <span>ბალანსის შევსება</span>
                     <span className="right_price_circle">20 ლ</span>
                   </a>
-                </li>
+                </li> */}
                 <li>
-                  <Link href="/profile/editProfile">
-                    <a
-                      className={Classnames({
-                        active: pageType === "editProfile",
-                      })}
-                    >
-                      <span>პარამეტრები</span>
-                      <img src="" alt />
-                    </a>
-                  </Link>
+                  {/* <Link href="/profile/info"> */}
+                  <a
+                    onClick={(e) => this.redirectHadler(e, "/profile/info")}
+                    className={Classnames({
+                      active: pageType === "info",
+                    })}
+                  >
+                    <span>პარამეტრები</span>
+                    <img src="" alt />
+                  </a>
+                  {/* </Link> */}
                 </li>
               </ul>
             </div>
@@ -95,10 +114,10 @@ class profileLayout extends Component {
             <ProfileFluid />
           ) : pageType === "allStatement" ? (
             <MyStatements />
-          ) : pageType === "editProfile" ? (
-            "profilis redaqtierba"
+          ) : pageType === "info" ? (
+            <PersonalInfo />
           ) : (
-            "sxva page"
+            "ups :/"
           )}
         </div>
       </div>
