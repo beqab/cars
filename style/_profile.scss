@@ -244,6 +244,8 @@ select {
     border-radius: 20px;
     padding: 20px;
     margin-top: 15px;
+    font-size: 14px;
+    color: $brand-color;
   }
 }
 
@@ -266,4 +268,82 @@ select {
     background-color: transparent;
     border-bottom: 1px solid $main-color;
   }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.imageUploadContainer::-webkit-scrollbar {
+  width: 10px;
+  height: 13px;
+}
+
+/* Track */
+.imageUploadContainer::-webkit-scrollbar-track {
+  background: #f7f7f7;
+  border-radius: 10px;
+  border: 2px solid #b4b4b4;
+}
+.imageUploadContainer::-webkit-scrollbar-thumb {
+  background: #b4b4b4;
+  border-radius: 10px;
+}
+.imageUploadContainer {
+  margin-bottom: 30px;
+  margin-bottom: 30px;
+  max-width: 650px;
+  overflow-x: scroll;
+  .imgUload {
+    cursor: cell;
+    background-image: url("/imgs/add_photo.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  div {
+    width: 90px;
+    height: 65px;
+    flex: 0 0 90px;
+    border-radius: 3px;
+    border: solid 1px #b4b4b4;
+    background-color: #ebebeb;
+    margin-right: 3px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+.up_button {
+  background-color: #f5bd1f;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 9px 20px 6px;
+  cursor: pointer;
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: #f2ab00;
+  }
+}
+
+.up_button_fluid {
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.disable-upload {
+  cursor: no-drop !important;
 }
