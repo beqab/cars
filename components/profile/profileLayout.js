@@ -8,6 +8,7 @@ import { compose } from "redux";
 import Link from "next/link";
 import axios from "axios";
 import Cookies from "js-cookie";
+import MyStatements from "./myStatements";
 
 class profileLayout extends Component {
   state = {
@@ -93,7 +94,7 @@ class profileLayout extends Component {
           {pageType === "addStatement" ? (
             <ProfileFluid />
           ) : pageType === "allStatement" ? (
-            "yvela gancaxdeba"
+            <MyStatements />
           ) : pageType === "editProfile" ? (
             "profilis redaqtierba"
           ) : (
