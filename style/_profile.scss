@@ -1,7 +1,7 @@
 .profile_fluid {
   display: flex;
-  max-width: 1200px;
-  width: 95%;
+  max-width: 1250px;
+  width: 98%;
   margin: 40px auto;
 }
 
@@ -44,6 +44,7 @@
         justify-content: space-between;
         transition: all 0.3s;
         position: relative;
+        cursor: pointer;
         img {
           height: 18px;
         }
@@ -149,7 +150,7 @@
     display: flex;
     align-items: center;
     padding-left: 25px;
-    max-width: 180px;
+    max-width: 192px;
     width: 100%;
     background-repeat: no-repeat;
     background-position: 1% 12px;
@@ -161,9 +162,9 @@
     font-family: "Conv_bpg-arial-webfont";
     font-size: 14px;
     color: #0f1e0e;
-    max-width: 142px;
+    max-width: 173px;
     width: 100%;
-    padding: 10px 24px;
+    padding: 10px 15px;
     background-image: url(/imgs/menu.png);
     cursor: pointer;
     background-position: 95% 13px;
@@ -346,4 +347,182 @@ input[type="number"] {
 
 .disable-upload {
   cursor: no-drop !important;
+}
+
+.our_statement_fluid {
+  margin-top: 43px;
+  border-top: 2px solid $main-color;
+  padding-top: 15px;
+}
+
+.common_car_box {
+  border-radius: 5px;
+  border: 1px solid #b4b4b4;
+  background-color: #f7f7f7;
+  margin-bottom: 25px;
+  position: relative;
+  .vip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .common_box_img {
+    padding: 15px 15px 0;
+    a {
+      display: block;
+      width: 100%;
+
+      img {
+        height: 150px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 3px;
+      }
+    }
+  }
+}
+
+.common_box_body {
+  padding: 0px 15px;
+  h2 {
+    a {
+      color: #2a2a2a;
+      font-size: 14px;
+    }
+  }
+}
+
+.car_common_properties {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid #b4b4b4;
+  border-bottom: 1px solid #b4b4b4;
+  padding-top: 5px;
+  & > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+
+    &:not(:last-child) {
+      border-right: 1px solid #b4b4b4;
+      margin-right: 5px;
+      padding-right: 5px;
+    }
+
+    img {
+      height: 18px;
+      width: 18px;
+      object-fit: contain;
+    }
+
+    span {
+      font-size: 12px;
+      color: #2a2a2a;
+    }
+  }
+}
+
+.common_car_price_fluid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+  .common_car_price {
+    span {
+      color: #2a2a2a;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}
+
+.common_car_days {
+  & > div {
+    background-color: #ebebeb;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    span {
+      color: #2a2a2a;
+      font-size: 13px;
+      flex: 0 0 24px;
+      width: 24px;
+      text-align: center;
+    }
+  }
+
+  .common_car_up {
+    background-color: #0054a6;
+    span {
+      color: #fff;
+    }
+  }
+}
+
+.common_box_footer {
+  background-color: $main-color;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  position: relative;
+
+  &:hover {
+    .period_days {
+      span {
+        color: #fff !important;
+      }
+    }
+
+    .edit_box {
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+
+  .delete_edit {
+    position: absolute;
+    border: 2px solid #f5bd1f;
+    display: flex;
+    flex-direction: column;
+    top: 100%;
+    right: 10px;
+
+    a {
+      font-family: "Conv_bpg-arial-webfont";
+      font-size: 14px;
+      color: $brand-color;
+      background-color: #ebebeb;
+      padding: 5px 9px;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: $main-color;
+        color: #fff;
+      }
+    }
+  }
+  .period_days {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      font-size: 14px;
+      color: #2a2a2a;
+      font-family: "Conv_bpg-arial-webfont";
+      transition: all 0.2s;
+    }
+  }
+
+  .edit_box {
+    span {
+      cursor: pointer;
+      img {
+        height: 30px;
+        transition: all 0.2s;
+      }
+    }
+  }
 }
