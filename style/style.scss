@@ -1,9 +1,24 @@
 @import "_bootstrap.scss";
 @import "_variables.scss";
 @import "_header.scss";
+@import "_carrInner.scss";
 @import "_authorizhation.scss";
 @import "_profile.scss";
 @import "_home.scss";
+@font-face {
+  font-family: "Albertus Extra";
+  src: url("/fonts/AlbertusExtraBold.woff2") format("woff2"),
+    url("/fonts/AlbertusExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Abril Fatface";
+  src: url("/fonts/AbrilFatface-Regular.woff2") format("woff2"),
+    url("/fonts/AbrilFatface-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @font-face {
   font-family: "BPG WEB 001 Caps";
