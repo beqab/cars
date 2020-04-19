@@ -150,7 +150,7 @@
     display: flex;
     align-items: center;
     padding-left: 25px;
-    max-width: 192px;
+    max-width: 172px;
     width: 100%;
     background-repeat: no-repeat;
     background-position: 1% 12px;
@@ -162,7 +162,7 @@
     font-family: "Conv_bpg-arial-webfont";
     font-size: 14px;
     color: #0f1e0e;
-    max-width: 173px;
+    max-width: 193px;
     width: 100%;
     padding: 10px 15px;
     background-image: url(/imgs/menu.png);
@@ -524,5 +524,108 @@ input[type="number"] {
         transition: all 0.2s;
       }
     }
+  }
+}
+
+.personal_info_fluid {
+  margin-top: 43px;
+  border-top: 2px solid #f5bd1f;
+  width: 100%;
+  padding-top: 50px;
+}
+.personal_info_container {
+  border: 2px solid $main-color;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  padding: 20px 25px 55px 25px;
+}
+
+.personal_info_container {
+  max-width: 522px;
+  label {
+    font-size: 14px;
+    color: #000;
+    margin-right: 25px;
+    width: 170px;
+    text-align: right;
+    margin-bottom: 0;
+  }
+  input {
+    color: $brand-color;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid $main-color;
+    font-size: 13px;
+    padding: 5px;
+    border-right: 1px solid transparent;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    transition: all 0.3s;
+    &:focus {
+      border-right: 1px solid $main-color;
+      border-top: 1px solid $main-color;
+      border-left: 1px solid $main-color;
+    }
+  }
+}
+
+.personal_top_info,
+.personal_bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 2px solid #f5bd1f;
+  padding: 5px 10px 20px 5px;
+
+  & > div {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.personal_bottom {
+  border: none;
+  padding-top: 30px;
+
+  input {
+    background-color: #fff;
+    border: 1px solid $main-color;
+
+    &::placeholder {
+      color: #ccc;
+    }
+  }
+}
+
+.personal_buttons {
+  display: flex;
+  justify-content: center;
+
+  button {
+    background-color: #f5bd1f;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    padding: 9px 20px 6px;
+
+    cursor: pointer;
+    transition: all 0.4s;
+    outline: none;
+    box-shadow: 0px 4px 7.5px 0.5px rgba(73, 86, 103, 0.23);
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+
+  .interupt {
+    background-color: #fff;
+    color: $main-color;
+    border: 1px solid $main-color;
+    margin-right: 20px;
   }
 }
