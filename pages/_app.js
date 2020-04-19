@@ -6,7 +6,8 @@ import { getCookesFromReq } from "../helpers/utils";
 import Cookies from "js-cookie";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:5000/api/";
+// axios.defaults.baseURL = "http://localhost:5000/api/";
+axios.defaults.baseURL = "http://167.172.109.81:5000/api/";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
