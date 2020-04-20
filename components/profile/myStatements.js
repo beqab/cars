@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
+import Link from "next/link";
 
 class myStatements extends Component {
   state = {
@@ -100,12 +101,14 @@ class myStatements extends Component {
                         <img src="/imgs/vip.png" alt="" />
                       </div>
                       <div className="common_box_img">
-                        <a href="">
-                          <img
-                            src="https://images.unsplash.com/photo-1505592225030-dad7a0531844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=755&q=80"
-                            alt=""
-                          />
-                        </a>
+                        <Link href={`/statement/${el._id}`}>
+                          <a>
+                            <img
+                              src="https://images.unsplash.com/photo-1505592225030-dad7a0531844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=755&q=80"
+                              alt=""
+                            />
+                          </a>
+                        </Link>
                       </div>
                       <div className="common_box_body">
                         <div>

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import ImageGallery from "react-image-gallery";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 const images = [
   {
@@ -21,6 +23,27 @@ const images = [
 ];
 
 class carrInnerFluid extends Component {
+  state = {
+    curentStatement: null,
+  };
+
+  componentDidMount() {
+    let token = Cookies.get("token");
+    axios
+      .get("statement/", {
+        params: { statementId: this.props.id },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        this.setState({
+          curentStatement: res.data,
+        });
+      });
+  }
+
   render() {
     return (
       <div className="carrinner_fluid">
