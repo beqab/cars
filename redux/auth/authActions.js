@@ -15,7 +15,7 @@ export const setCurrentUser = ({ user, token }) => {
   Cookies.set("token", token);
   Cookies.set("expiresAt", decoded.exp);
   // Check for expired token
-  Router.push("/profile");
+  Router.push("/profile/addStatement");
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
   return {
     type: "LOGIN_USER",
