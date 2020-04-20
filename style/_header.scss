@@ -32,6 +32,8 @@ header {
   margin-top: -3px;
   a {
     color: #fff;
+    display: flex;
+    align-items: flex-start;
   }
 
   #language {
@@ -76,6 +78,81 @@ nav {
           }
         }
       }
+    }
+  }
+}
+
+.home-car_section {
+  border-top: 3px solid $main-color;
+  padding: 40px 10px 30px 10px;
+
+  .col-12 {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+  .common_box_body {
+    padding: 0px 15px 10px;
+  }
+  .see_more_col {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 20px;
+
+    a {
+      background-color: $main-color;
+      color: $brand-color;
+      font-size: 16px;
+      padding: 10px;
+      font-family: "Conv_bpg-arial-webfont";
+      border-radius: 5px;
+    }
+  }
+}
+
+footer {
+  border-top: 3px solid $main-color;
+  background-color: $brand-color;
+  padding: 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > div:not(:last-child) {
+    margin-right: 50px;
+  }
+
+  .footer_logo {
+    img {
+      width: 100px;
+    }
+  }
+
+  .footer_nav {
+    ul {
+      li {
+        a {
+          color: #fff;
+          font-size: 12px;
+          font-family: "Conv_bpg-arial-webfont";
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  .footer_contact {
+    display: flex;
+    flex-direction: column;
+    span {
+      margin-bottom: 5px;
+    }
+    * {
+      color: #fff;
+      font-size: 12px;
     }
   }
 }

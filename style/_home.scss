@@ -6,4 +6,173 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5% 10%;
+}
+
+.filters {
+  max-width: 450px;
+  width: 100%;
+  form {
+    background-color: $brand-color;
+    border-radius: 10px;
+    padding: 30px 30px;
+
+    .top_search {
+      display: flex;
+      align-items: center;
+
+      input {
+        outline: none;
+        border: navajowhite;
+        padding: 8px;
+        width: calc(100% - 55px);
+        border-radius: 5px 0 0 5px;
+        border: 1px solid $main-color;
+      }
+
+      button {
+        border: none;
+        background-color: $main-color;
+        height: 42px;
+        width: 80px;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.2s;
+
+        &:hover {
+          background-color: #fab800;
+        }
+
+        img {
+          height: 32px;
+          filter: brightness(0) invert(1);
+        }
+      }
+    }
+  }
+}
+
+.filter_body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+  border-top: 1px solid $main-color;
+  padding-top: 15px;
+
+  .price_filter {
+    div {
+      display: flex;
+
+      input:first-child {
+        outline: none;
+        padding: 8px;
+        width: 50%;
+        border-radius: 5px 0px 0px 5px;
+        border: 1px solid #f5bd1f;
+      }
+      input:last-child {
+        outline: none;
+        padding: 8px;
+        width: 50%;
+        border-radius: 0px 5px 5px 0px;
+        border: 1px solid #f5bd1f;
+        border-left: unset;
+        font-family: "Conv_bpg-arial-webfont";
+      }
+      input {
+        color: #2a2a2a;
+        height: 35px;
+
+        &::placeholder {
+          color: #2a2a2a;
+          font-family: "Conv_bpg-arial-webfont";
+        }
+      }
+    }
+  }
+
+  & > div {
+    flex: 0 0 47%;
+    max-width: 47%;
+    margin-bottom: 10px;
+    label {
+      width: 100%;
+      color: $main-color;
+      font-size: 14px;
+    }
+
+    select {
+      width: 100%;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 5px 8px;
+      border: 1px solid $main-color;
+      background-image: url("/imgs/menu.png");
+      cursor: pointer;
+      font-family: "Conv_bpg-arial-webfont";
+      background-size: 14px;
+      background-repeat: no-repeat;
+      background-position: 95% 9px;
+      background-color: #fbfbfa;
+    }
+  }
+}
+
+.filter_button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  button {
+    background-color: #f5bd1f;
+    color: #2a2a2a;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 9px 30px 6px;
+    cursor: pointer;
+    transition: all 0.4s;
+    outline: none;
+
+    &:hover {
+      background-color: #ffbd01;
+      transform: translateY(-3px);
+    }
+  }
+}
+
+.home_main_text {
+  flex-grow: 1;
+  margin-left: 7%;
+
+  h2 {
+    font-size: 70px;
+    font-family: "Abril Fatface";
+    span {
+      display: block;
+      font-family: "Abril Fatface";
+      &:first-child {
+        border-bottom: 2px solid $main-color;
+      }
+    }
+  }
+}
+
+#login {
+  & ~ button {
+    border: none;
+    margin: 0 10px;
+    background: #f5bd1f;
+    color: #fff;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+  }
 }

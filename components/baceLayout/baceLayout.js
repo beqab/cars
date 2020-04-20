@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Head from "next/head";
 import Header from "./header/header";
+import Footer from "./Footer/Footer";
 
 export class BaceLayout extends Component {
   render() {
@@ -18,6 +19,8 @@ export class BaceLayout extends Component {
         </Head>
         <Header></Header>
         {this.props.children}
+
+        <Footer></Footer>
       </>
     );
   }
