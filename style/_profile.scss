@@ -629,3 +629,23 @@ input[type="number"] {
     margin-right: 20px;
   }
 }
+.confirmModal {
+  position: fixed;
+  left: 50%;
+  top: 50vh;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 40px;
+  z-index: 5;
+  box-shadow: 0 0 20px 11px #00000073;
+  button {
+    border: none;
+    padding: 2px 10px;
+    border-radius: 4px;
+    background-color: #28bf28;
+    font-size: 17px;
+    &.deleteBtn {
+      background-color: #c64c4c;
+    }
+  }
+}

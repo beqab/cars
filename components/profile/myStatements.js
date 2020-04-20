@@ -7,6 +7,7 @@ class myStatements extends Component {
     myStatements: [],
     hide: false,
     curenCardId: null,
+    onfirmModal: false,
   };
 
   componentDidMount() {
@@ -37,9 +38,57 @@ class myStatements extends Component {
     });
   };
 
+  openConirmModal = (e = null, bool) => {
+    if (e) e.preventDefault();
+
+    this.setState({
+      onfirmModal: bool,
+    });
+  };
+
+  deleteStatement = async () => {
+    try {
+      await axios.post("statement/delete", {
+        statementId: this.state.curenCardId,
+      });
+
+      console.log(
+        this.state.myStatements.filter((el) => {
+          console.log(el._id != this.state.curenCardId, this.state.curenCardId);
+          return el._id != this.state.curenCardId;
+        })
+      );
+      this.openConirmModal(null, false);
+      this.setState((prev) => ({
+        myStatements: prev.myStatements.filter((el) => {
+          console.log(el._id != prev.curenCardId, prev.curenCardId);
+          return el._id != prev.curenCardId;
+        }),
+      }));
+      this.props.changeStaenmansSum("delete");
+    } catch (err) {
+      this.openConirmModal(null, false);
+      console.log(err);
+    }
+  };
+
   render() {
     return (
       <div className="w-100">
+        {this.state.onfirmModal && (
+          <div onClick={(e) => e.stopPropagation()} className="confirmModal">
+            <p>დარწმუნებული ხარ რო გინდა წაშლა?</p>
+            <div className="d-flex mt-5 justify-content-around">
+              <button onClick={this.deleteStatement} className="deleteBtn">
+                წაშლა
+              </button>
+              <button onClick={(e) => this.openConirmModal(e, false)}>
+                გაუქმება
+              </button>
+            </div>
+          </div>
+        )}
+
         <div className="our_statement_fluid">
           <div className="container">
             <div className="row">
@@ -122,7 +171,12 @@ class myStatements extends Component {
                         </div>
                         {this.state.curenCardId === el._id ? (
                           <div className="delete_edit">
-                            <a href="">წაშლა</a>
+                            <a
+                              onClick={(e) => this.openConirmModal(e, true)}
+                              href=""
+                            >
+                              წაშლა
+                            </a>
                             <a href="">რედაქტირება</a>
                           </div>
                         ) : null}

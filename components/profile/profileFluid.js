@@ -130,7 +130,8 @@ class ProfileFluid extends Component {
     };
 
     axios.post("statement", reqData).then((res) => {
-      console.log(res);
+      this.props.changeStaenmansSum("add");
+      alert("added");
     });
   };
 

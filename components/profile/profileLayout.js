@@ -40,6 +40,18 @@ class profileLayout extends Component {
     });
   };
 
+  changeStaenmansSum = (type) => {
+    if (type === "add") {
+      this.setState((prev) => ({
+        statementSum: ++prev.statementSum,
+      }));
+    } else if (type === "delete") {
+      this.setState((prev) => ({
+        statementSum: --prev.statementSum,
+      }));
+    }
+  };
+
   render() {
     console.log(this.props);
     let { pageType } = this.props;
@@ -111,9 +123,13 @@ class profileLayout extends Component {
             </div>
           </div>
           {pageType === "addStatement" ? (
-            <ProfileFluid />
+            <ProfileFluid
+              changeStaenmansSum={(type) => this.changeStaenmansSum(type)}
+            />
           ) : pageType === "allStatement" ? (
-            <MyStatements />
+            <MyStatements
+              changeStaenmansSum={(type) => this.changeStaenmansSum(type)}
+            />
           ) : pageType === "info" ? (
             <PersonalInfo />
           ) : (
