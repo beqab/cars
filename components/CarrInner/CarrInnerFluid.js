@@ -45,181 +45,171 @@ class carrInnerFluid extends Component {
   }
 
   render() {
-    return (
-      <div className="carrinner_fluid">
-        <div className="carrinner_wrapper">
-          <div className="carosel_wrapper">
-            <div className="carr_iner_carousel">
-              <ImageGallery showPlayButton={false} items={images} />
+    let carInfo;
 
-              <div className="main_carousel_bottom_info">
-                <div className="common_car_price_fluid">
-                  <div className="common_car_price">
-                    <span>20ლ</span>
-                  </div>
-                  <div className="common_car_days">
-                    <div className="common_car_up">
-                      <span>დ</span>
-                      <span>1-3</span>
-                      <span>4-7</span>
-                      <span>>7</span>
+    if (this.state.curentStatement) {
+      carInfo = (
+        <div className="carrinner_fluid">
+          <div className="carrinner_wrapper">
+            <div className="carosel_wrapper">
+              <div className="carr_iner_carousel">
+                <ImageGallery showPlayButton={false} items={images} />
+
+                <div className="main_carousel_bottom_info">
+                  <div className="common_car_price_fluid">
+                    <div className="common_car_price">
+                      {this.state.curentStatement.price ? (
+                        <span>{this.state.curentStatement.price}</span>
+                      ) : (
+                        {}
+                      )}
                     </div>
-                    <div className="common_car_down">
-                      <span>ლ</span>
-                      <span>50</span>
-                      <span>50</span>
-                      <span>80</span>
+                    <div className="common_car_days">
+                      <div className="common_car_up">
+                        <span>დ</span>
+                        <span>1-3</span>
+                        <span>4-7</span>
+                        <span>>7</span>
+                      </div>
+                      <div className="common_car_down">
+                        <span>ლ</span>
+                        <span>50</span>
+                        <span>50</span>
+                        <span>80</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <div className="carosel_right_info">
+                <div className="car_title">
+                  {this.state.curentStatement.producer &&
+                  this.state.curentStatement.carModel ? (
+                    <h2>
+                      {this.state.curentStatement.producer} -{" "}
+                      {this.state.curentStatement.carModel}
+                    </h2>
+                  ) : (
+                    {}
+                  )}
+                </div>
+                <div className="car_list_box">
+                  <ul>
+                    {this.state.curentStatement.engin ? (
+                      <li>
+                        <span>
+                          <img src="/imgs/Untitled-1gh.png"></img>
+
+                          <span>ძრავის მოცულობა</span>
+                        </span>
+                        <span>{this.state.curentStatement.engin}</span>
+                      </li>
+                    ) : (
+                      {}
+                    )}
+
+                    {this.state.curentStatement.carAge ? (
+                      <li>
+                        <span>
+                          <img src="/imgs/Untitled-1gh.png"></img>
+
+                          <span>გამოშვების წელი</span>
+                        </span>
+                        <span>{this.state.curentStatement.carAge}</span>
+                      </li>
+                    ) : (
+                      {}
+                    )}
+                    {this.state.curentStatement.category ? (
+                      <li>
+                        <span>
+                          <img src="/imgs/Untitled-1gh.png"></img>
+
+                          <span>კატეგორია</span>
+                        </span>
+                        <span>{this.state.curentStatement.category}</span>
+                      </li>
+                    ) : (
+                      {}
+                    )}
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            <div className="carosel_right_info">
-              <div className="car_title">
-                <h2>MITSUBISH E40</h2>
+            <div className="contact_info_box">
+              <div className="contact_info_title">
+                <span>საკონტაქტო ინფორმაცია</span>
               </div>
-              <div className="car_list_box">
-                <ul>
-                  <li>
-                    <span>
-                      <img src="/imgs/Untitled-1gh.png"></img>
-                      <span>ძრავის მოცულობა</span>
-                    </span>
-                    <span>4.0</span>
-                  </li>
-                  <li>
-                    <span>
-                      <img src="/imgs/Untitled-1gh.png"></img>
-                      <span>საწვავის ტიპი</span>
-                    </span>
-                    <span>დიზელი</span>
-                  </li>
-                  <li>
-                    <span>
-                      <img src="/imgs/Untitled-1gh.png"></img>
-                      <span>ძრავის მოცულობა</span>
-                    </span>
-                    <span>4.0</span>
-                  </li>
-                  <li>
-                    <span>
-                      <img src="/imgs/Untitled-1gh.png"></img>
-                      <span>ძრავის მოცულობა</span>
-                    </span>
-                    <span>4.0</span>
-                  </li>
-                  <li>
-                    <span>
-                      <img src="/imgs/Untitled-1gh.png"></img>
-                      <span>ძრავის მოცულობა</span>
-                    </span>
-                    <span>4.0</span>
-                  </li>
-                  <li>
-                    <span>
-                      <img src="/imgs/Untitled-1gh.png"></img>
-                      <span>ძრავის მოცულობა</span>
-                    </span>
-                    <span>4.0</span>
-                  </li>
-                  <li>
-                    <span>
-                      <img src="/imgs/Untitled-1gh.png"></img>
-                      <span>ძრავის მოცულობა</span>
-                    </span>
-                    <span>4.0</span>
-                  </li>
-                  <li>
-                    <span>
-                      <img src="/imgs/Untitled-1gh.png"></img>
-                      <span>ძრავის მოცულობა</span>
-                    </span>
-                    <span>4.0</span>
-                  </li>
-                  <li>
-                    <span>
-                      <img src="/imgs/Untitled-1gh.png"></img>
-                      <span>ძრავის მოცულობა</span>
-                    </span>
-                    <span>4.0</span>
-                  </li>
-                  <li>
-                    <span>
-                      <img src="/imgs/Untitled-1gh.png"></img>
-                      <span>ძრავის მოცულობა</span>
-                    </span>
-                    <span>4.0</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+              <div className="contact_info">
+                {this.state.curentStatement.user.name ? (
+                  <div className="contact_label">
+                    <label>
+                      <img src="/imgs/pp.png" />
+                    </label>
+                    <span>{this.state.curentStatement.user.name}</span>
+                  </div>
+                ) : (
+                  {}
+                )}
 
-          <div className="contact_info_box">
-            <div className="contact_info_title">
-              <span>საკონტაქტო ინფორმაცია</span>
-            </div>
-            <div className="contact_info">
-              <div className="contact_label">
-                <label>
-                  <img src="/imgs/pp.png" />
-                </label>
-                <span>თორნიკე ჟიჟიაშვილი</span>
-              </div>
+                <div className="contact_label">
+                  <label>
+                    <img src="/imgs/phone.png" />
+                  </label>
+                  <a href="tel:555 23 32 32">555 23 32 32</a>
+                </div>
 
-              <div className="contact_label">
-                <label>
-                  <img src="/imgs/phone.png" />
-                </label>
-                <a href="tel:555 23 32 32">555 23 32 32</a>
-              </div>
+                <div className="contact_label">
+                  <label>
+                    <img src="/imgs/ma.png" />
+                  </label>
+                  <span> {this.state.curentStatement.user.email}</span>
+                </div>
 
-              <div className="contact_label">
-                <label>
-                  <img src="/imgs/ma.png" />
-                </label>
-                <span>sadasda@gmail.com</span>
-              </div>
+                {this.state.curentStatement.location ? (
+                  <div className="contact_label">
+                    <label>
+                      <img src="/imgs/loc.png" />
+                    </label>
+                    <span>{this.state.curentStatement.location}</span>
+                  </div>
+                ) : (
+                  {}
+                )}
 
-              <div className="contact_label">
-                <label>
-                  <img src="/imgs/loc.png" />
-                </label>
-                <span>ქუთეისი</span>
-              </div>
-              <div className="contact_socials">
-                <a href="" target="_blank">
-                  <img src="/imgs/facebook.png" />
-                </a>
-                <a href="" target="_blank">
-                  <img src="/imgs/viber.png" />
-                </a>
+                <div className="contact_socials">
+                  <a href="" target="_blank">
+                    <img src="/imgs/facebook.png" />
+                  </a>
+                  <a href="" target="_blank">
+                    <img src="/imgs/viber.png" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
+
+          {this.state.curentStatement.text ? (
+            <div className="common_about">
+              <div className="common_about_title">
+                <h3>ზოგადი აღწერა</h3>
+              </div>
+              <div className="common_about_text">
+                <p>{this.state.curentStatement.text}</p>
+              </div>
+            </div>
+          ) : (
+            {}
+          )}
         </div>
+      );
+    } else {
+      carInfo = null;
+    }
 
-        <div className="common_about">
-          <div className="common_about_title">
-            <h3>ზოგადი აღწერა</h3>
-          </div>
-
-          <div className="common_about_text">
-            <p>
-              აღწერა აღწერა აღწერა აღწერააღწერააღწერა აღწერააღწერააღწერა აღწერა
-              აღწერა აღწერა აღწერააღწერააღწერა აღწერააღწერააღწერა აღწერა აღწერა
-              აღწერა აღწერააღწერააღწერა აღწერააღწერააღწერა აღწერააღწერა აღწერა
-              აღწერააღწერააღწერა აღწერააღწერააღწერა აღწერააღწერა აღწერა
-              აღწერააღწერააღწერა აღწერააღწერააღწერა აღწერა აღწერა აღწერა
-              აღწერააღწერააღწერა აღწერააღწერააღწერა აღწერა აღწერა აღწერა
-              აღწერააღწერააღწერა აღწერააღწერააღწერა აღწერა აღწერა
-              აღწერააღწერააღწერა აღწერააღწერააღწერა აღწერა
-            </p>
-          </div>
-        </div>
-      </div>
-    );
+    return carInfo;
   }
 }
 
