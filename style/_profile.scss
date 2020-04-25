@@ -128,19 +128,68 @@
     }
   }
 }
-
+.error_msg {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545 !important;
+  margin-left: 22px;
+}
 .profile_main_inputs {
   border-top: 2px solid $main-color;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
 }
+.profile_add_box {
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: #2a2a2ad4;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  /* max-width: 500px; */
+  text-align: center;
+  border-radius: 5px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  display: flex;
+  // transform: scale(0);
 
+  &.add_anime {
+    animation: profile 0.4s linear forwards;
+  }
+
+  span {
+    color: #fff;
+    font-size: 20px;
+    background: #000;
+    padding: 20px;
+  }
+}
+
+@keyframes profile {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
 .profile_input_box {
   flex: 0 0 50%;
   max-width: 50%;
   margin-top: 15px;
-  display: flex;
+
+  & > div {
+    display: flex;
+    width: 100%;
+  }
   label {
     border-bottom: 1px solid $main-color;
     margin-bottom: 0;
@@ -359,7 +408,7 @@ input[type="number"] {
   border-radius: 5px;
   border: 1px solid #b4b4b4;
   background-color: #f7f7f7;
-  margin-bottom: 25px;
+  margin-bottom: 75px;
   position: relative;
   .vip {
     position: absolute;
