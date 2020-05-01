@@ -349,7 +349,7 @@ input[type="number"] {
   margin-bottom: 30px;
   margin-bottom: 30px;
   max-width: 650px;
-  overflow-x: scroll;
+  // overflow-x: scroll;
   .imgUload {
     cursor: cell;
     background-image: url("/imgs/add_photo.png");
@@ -432,7 +432,10 @@ input[type="number"] {
     }
   }
 }
-
+.confirmModal {
+  outline: none;
+  cursor: pointer;
+}
 .common_box_body {
   padding: 0px 15px;
   h2 {
@@ -696,5 +699,236 @@ input[type="number"] {
     &.deleteBtn {
       background-color: #c64c4c;
     }
+  }
+}
+
+.imageUploadContainer {
+  margin-top: 0 !important;
+}
+
+.add_information {
+  margin: 40px 0 20px;
+}
+.add-info_title {
+  border-bottom: 1px solid $main-color;
+  margin-bottom: 20px;
+}
+
+.checkbox_container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #0f1e0e;
+  flex: 0 0 31%;
+  max-width: 31%;
+  font-family: "Conv_bpg-arial-webfont";
+}
+
+/* Hide the browser's default checkbox */
+.checkbox_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #f5bd1f;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox_container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox_container input:checked ~ .checkmark {
+  background-color: $main-color;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox_container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox_container .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.checkbox_wrapper {
+  display: flex;
+  border-bottom: 1px solid $main-color;
+  .checkbox_fluid {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.checkbox_right_content {
+  & > div {
+    display: flex;
+    margin-bottom: 10px;
+    label {
+      width: 100%;
+      max-width: 140px;
+      font-size: 14px;
+      padding-right: 10px;
+      font-family: "Conv_bpg-arial-webfont";
+    }
+    input {
+      background-color: #f1f1f1;
+      border: none;
+      outline: none;
+      padding: 0 0 0 10px;
+      font-size: 13px;
+      width: 138px;
+      &:focus {
+        border-bottom: 1px solid $main-color;
+      }
+    }
+  }
+}
+
+.drive_col {
+  margin: 50px 0 20px;
+  display: flex;
+
+  label {
+    flex: unset;
+    margin-right: 20px;
+    background: #f5bd1f;
+    padding: 15px 35px;
+    border-radius: 10px;
+  }
+
+  img {
+    height: 22px;
+    padding-right: 10px;
+  }
+
+  span {
+    top: 17px;
+    left: 8px;
+    background-color: #fff;
+  }
+
+  .checkbox_container .checkmark:after {
+    border: solid #f5bd1f;
+    border-width: 0 3px 3px 0;
+  }
+  .checkbox_container input:checked ~ .checkmark {
+    background-color: #fff;
+    border: 1px solid #fff;
+  }
+}
+.price_info_fluid {
+  display: flex;
+  align-items: end;
+}
+.price_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-right: 50px;
+  img {
+    height: 25px;
+  }
+  label {
+    background: #f5bd1f;
+    padding: 10px 10px;
+    border-radius: 10px;
+  }
+  input {
+    border: none;
+    background-color: #f1f1f1;
+    width: 50px;
+    margin: 0 5px 0 10px;
+    padding: 5px 3px;
+    font-size: 13px;
+  }
+  & > span {
+    font-size: 14px;
+  }
+  span {
+    font-weight: bold;
+  }
+}
+
+.price_days_box {
+  overflow: hidden;
+  border-radius: 10px;
+  & > div {
+    display: flex;
+
+    & > div {
+      flex: 0 0 55px;
+      max-width: 55px;
+      border-right: 1px solid #fff;
+      height: 30px;
+      width: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+
+      input {
+        width: 80%;
+        background-color: #f1f1f1;
+        border: 1px solid #f5bd1f;
+      }
+    }
+  }
+  .price_days_up {
+    background-color: $main-color;
+
+    * {
+      color: #fff;
+    }
+  }
+
+  .price_days_down {
+    background-color: #ebebeb;
+
+    & > div:not(:last-child) {
+      border-right: 1px solid #b7b7b7 !important;
+    }
+  }
+}
+
+.price_days_fluid {
+  & > span {
+    font-weight: bold;
   }
 }
