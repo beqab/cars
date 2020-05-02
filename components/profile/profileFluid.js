@@ -827,7 +827,147 @@ image.append("price", this.state.price )
               </div>
             </div>
           </div>
+
+          <div className="drive_col">
+            <label class="checkbox_container">
+              <img src="/imgs/driver.png" />
+              მძღოლით
+              <input type="radio" name="driver" />
+              <span class="checkmark"></span>
+            </label>
+
+            <label class="checkbox_container">
+              <img src="/imgs/driver.png" />
+              მძღოლის გარეშე
+              <input type="radio" name="driver" />
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+          <div className="add_information">
+            <div class="add-info_title">
+              <span>დამატებითი ინფორმაცია</span>
+            </div>
+            <div className="checkbox_wrapper">
+              <div className="checkbox_fluid">
+                <label class="checkbox_container">
+                  ნავიგაცია
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkbox_container">
+                  ჰიდრავლიკა
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkbox_container">
+                  ლუქი
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkbox_container">
+                  სიგნალიზაცია
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+
+                <label class="checkbox_container">
+                  სიგნალიზაცია
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+
+                <label class="checkbox_container">
+                  სიგნალიზაცია
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+
+                <label class="checkbox_container">
+                  სიგნალიზაცია
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+
+                <label class="checkbox_container">
+                  სიგნალიზაცია
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+
+                <label class="checkbox_container">
+                  სიგნალიზაცია
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkbox_container">
+                  სიგნალიზაცია
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div className="checkbox_right_content">
+                <div>
+                  <label>ფერი</label>
+                  <input type="text" />
+                </div>
+
+                <div>
+                  <label>აირგაბი</label>
+                  <input type="text" />
+                </div>
+
+                <div>
+                  <label>ცილინდრები</label>
+                  <input type="text" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="price_info_fluid">
+            <div className="price_box">
+              <span>ფასი(1 დღის)</span>
+              <label>
+                <img src="/imgs/price.png" />
+
+                <input type="number" name="price" placeholder="- - -" />
+                <span>₾</span>
+              </label>
+            </div>
+
+            <div className="price_days_fluid">
+              <span>ფასი დღეეების მიხედვით</span>
+              <div className="price_days_box">
+                <div className="price_days_up">
+                  <div>დღე</div>
+                  <div>1</div>
+                  <div>1/3</div>
+                  <div>1/3</div>
+                  <div>1/3</div>
+                </div>
+
+                <div className="price_days_down">
+                  <div>₾</div>
+                  <div>
+                    <input type="number" />
+                  </div>
+                  <div>
+                    <input type="number" />
+                  </div>
+                  <div>
+                    <input type="number" />
+                  </div>
+                  <div>
+                    <input type="number" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="contact_info_fluid">
+            <span>ატვირთეთ ფოტოები</span>
+
             <div className="imageUploadContainer d-flex mt-5">
               <div
                 className={classnames("imgUload", {
