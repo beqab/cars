@@ -123,20 +123,31 @@ class ProfileFluid extends Component {
   };
 
   saveStatement = () => {
-    let reqData = {
-      category: this.state.category,
-      location: this.state.location,
-      producer: this.state.producer,
-      carAge: this.state.carAge,
-      engin: this.state.engin,
-      carModel: this.state.carModel,
-      doors: this.state.doors,
-      text: this.state.text,
-      price: this.state.price,
-    };
+  
 
+   let image = new FormData();
+  
+if(this.state.imgs.length){
+
+ this.state.imgs.map((el,i) => {
+  image.append("image", el.selectedFile );
+  // image.append("image"+i, this.state.imgs[0].selectedFile );
+  })
+}
+image.append("category", this.state.category )
+image.append("location", this.state.location )
+image.append("producer", this.state.producer )
+image.append("carAge", this.state.carAge )
+image.append("engin", this.state.engin )
+image.append("carModel", this.state.carModel )
+image.append("doors", this.state.doors )
+image.append("text", this.state.text )
+image.append("price", this.state.price )
+
+
+   
     axios
-      .post("statement", reqData)
+      .post("statement",  image)
       .then((res) => {
         this.props.changeStaenmansSum("add");
         this.setState({
