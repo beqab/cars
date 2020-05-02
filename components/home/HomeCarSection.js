@@ -1,6 +1,21 @@
 import React, { Component } from "react";
 import Link from "next/link";
+import axios from "axios";
+
 class HomeCar extends Component {
+  // componentDidMount() {
+  //   axios
+  //     .get("statement/all", {
+  //      params:{}
+  //     })
+  //     .then((res) => {
+  //       console.log(res);
+  //       this.setState({
+  //         statementSum: res.data,
+  //       });
+  //     });
+  // }
+
   render() {
     return (
       <div className="home-car_section">

@@ -4,7 +4,7 @@ import "../style/style.scss";
 import Recovery from "../components/passwordRecovery/passwordRecovery";
 import BaceLayout from "../components/baceLayout/baceLayout";
 
-import Home from "./home/Home";
+import Home from "../components/home/Home";
 const App = () => (
   <BaceLayout>
     <Home></Home>
