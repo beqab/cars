@@ -407,7 +407,7 @@ input[type="number"] {
 .common_car_box {
   border-radius: 5px;
   border: 1px solid #b4b4b4;
-  background-color: #f7f7f7;
+  background-color: #fff;
   margin-bottom: 75px;
   position: relative;
   .vip {
@@ -418,7 +418,7 @@ input[type="number"] {
   }
 
   .common_box_img {
-    padding: 15px 15px 0;
+    padding: 15px 10px 0;
     a {
       display: block;
       width: 100%;
@@ -437,11 +437,14 @@ input[type="number"] {
   cursor: pointer;
 }
 .common_box_body {
-  padding: 0px 15px;
+  & > div:first-child {
+    padding: 0px 10px;
+  }
   h2 {
     a {
       color: #2a2a2a;
       font-size: 14px;
+      font-family: "Albertus Extra";
     }
   }
 }
@@ -449,13 +452,13 @@ input[type="number"] {
 .car_common_properties {
   display: flex;
   flex-wrap: wrap;
-  border-top: 1px solid #b4b4b4;
-  border-bottom: 1px solid #b4b4b4;
-  padding-top: 5px;
   & > div {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
+    background: #f5bd1f;
+    border-radius: 5px;
+    padding: 3px 5px;
 
     &:not(:last-child) {
       border-right: 1px solid #b4b4b4;
@@ -475,16 +478,28 @@ input[type="number"] {
     }
   }
 }
-
+.common_car_contact_info {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 3px 10px;
+  * {
+    font-size: 11px;
+  }
+}
 .common_car_price_fluid {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px 0;
+  margin: 2px 0 0;
+  background-color: #ebebeb;
+  border-top: 1px solid #b4b4b4;
+  padding: 10px 10px 10px;
   .common_car_price {
     span {
       color: #2a2a2a;
       font-size: 20px;
+      font-family: "Abril Fatface";
       font-weight: bold;
     }
   }
@@ -492,7 +507,7 @@ input[type="number"] {
 
 .common_car_days {
   & > div {
-    background-color: #ebebeb;
+    background-color: #fff;
     padding: 5px;
     display: flex;
     justify-content: space-between;
@@ -930,5 +945,134 @@ input[type="number"] {
 .price_days_fluid {
   & > span {
     font-weight: bold;
+  }
+}
+
+.search_results_fluid {
+  display: flex;
+  width: 100%;
+
+  .price_filter {
+    background-color: #ebebeb;
+    margin-top: 10px;
+    padding: 10px 15px 15px 15px;
+
+    input {
+      border-color: #a1a1a1 !important;
+      font-size: 14px;
+    }
+    label {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+  }
+
+  .search_filter {
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .search_results {
+    width: 100%;
+    padding-top: 32px;
+  }
+  .button {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    button {
+      background-color: #a1a1a1;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      border-radius: 15px;
+      padding: 9px 20px 6px;
+      cursor: pointer;
+      transition: all 0.4s;
+    }
+  }
+
+  .filters {
+    form {
+      background-color: #fff;
+      border-radius: 9px;
+      padding: 14px 0px 10px 20px;
+    }
+  }
+
+  .filter_body {
+    background-color: #ebebeb;
+    border-color: #2a2a2a;
+    padding: 15px 15px 5px 15px;
+
+    & > div {
+      width: 100%;
+      max-width: 100%;
+      flex: 0 0 100%;
+
+      select {
+        font-size: 14px;
+        border-color: #a1a1a1;
+      }
+    }
+  }
+}
+
+.common_checkbox {
+  background-color: #ebebeb;
+  margin-top: 10px;
+  padding: 15px 15px 5px 15px;
+
+  .checkbox_container {
+    flex: 0 0 100%;
+    max-width: 100%;
+
+    .checkmark {
+      border: 1px solid #a1a1a1;
+
+      &:after {
+        border: solid #a1a1a1;
+        border-width: 0 3px 3px 0;
+      }
+    }
+    input:checked ~ .checkmark {
+      background-color: #ebebeb;
+    }
+  }
+}
+
+.vip_info {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  span {
+    background-color: $brand-color;
+    padding: 10px 14px 8px 12px;
+    background-color: #272727;
+    position: relative;
+
+    &::after {
+      width: 0;
+      height: 0;
+      border-left: 17px solid transparent;
+      border-right: 17px solid transparent;
+      border-bottom: 34px solid #272727;
+      position: absolute;
+      top: 0;
+      left: 90%;
+      content: "";
+    }
+  }
+
+  * {
+    color: $main-color;
+    font-size: 14px;
+  }
+}
+
+.search_results {
+  .home-car_section {
+    border-top: unset;
+    padding: 10px 10px 30px 10px;
   }
 }

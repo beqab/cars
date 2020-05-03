@@ -55,7 +55,37 @@
     }
   }
 }
+.price_filter {
+  div {
+    display: flex;
 
+    input:first-child {
+      outline: none;
+      padding: 8px;
+      width: 50%;
+      border-radius: 5px 0px 0px 5px;
+      border: 1px solid #f5bd1f;
+    }
+    input:last-child {
+      outline: none;
+      padding: 8px;
+      width: 50%;
+      border-radius: 0px 5px 5px 0px;
+      border: 1px solid #f5bd1f;
+      border-left: unset;
+      font-family: "Conv_bpg-arial-webfont";
+    }
+    input {
+      color: #2a2a2a;
+      height: 35px;
+
+      &::placeholder {
+        color: #2a2a2a;
+        font-family: "Conv_bpg-arial-webfont";
+      }
+    }
+  }
+}
 .filter_body {
   display: flex;
   flex-wrap: wrap;
@@ -63,38 +93,6 @@
   margin-top: 20px;
   border-top: 1px solid $main-color;
   padding-top: 15px;
-
-  .price_filter {
-    div {
-      display: flex;
-
-      input:first-child {
-        outline: none;
-        padding: 8px;
-        width: 50%;
-        border-radius: 5px 0px 0px 5px;
-        border: 1px solid #f5bd1f;
-      }
-      input:last-child {
-        outline: none;
-        padding: 8px;
-        width: 50%;
-        border-radius: 0px 5px 5px 0px;
-        border: 1px solid #f5bd1f;
-        border-left: unset;
-        font-family: "Conv_bpg-arial-webfont";
-      }
-      input {
-        color: #2a2a2a;
-        height: 35px;
-
-        &::placeholder {
-          color: #2a2a2a;
-          font-family: "Conv_bpg-arial-webfont";
-        }
-      }
-    }
-  }
 
   & > div {
     flex: 0 0 47%;
