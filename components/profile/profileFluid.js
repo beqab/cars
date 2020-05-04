@@ -123,31 +123,26 @@ class ProfileFluid extends Component {
   };
 
   saveStatement = () => {
-  
+    let image = new FormData();
 
-   let image = new FormData();
-  
-if(this.state.imgs.length){
+    if (this.state.imgs.length) {
+      this.state.imgs.map((el, i) => {
+        image.append("image", el.selectedFile);
+        // image.append("image"+i, this.state.imgs[0].selectedFile );
+      });
+    }
+    image.append("category", this.state.category);
+    image.append("location", this.state.location);
+    image.append("producer", this.state.producer);
+    image.append("carAge", this.state.carAge);
+    image.append("engin", this.state.engin);
+    image.append("carModel", this.state.carModel);
+    image.append("doors", this.state.doors);
+    image.append("text", this.state.text);
+    image.append("price", this.state.price);
 
- this.state.imgs.map((el,i) => {
-  image.append("image", el.selectedFile );
-  // image.append("image"+i, this.state.imgs[0].selectedFile );
-  })
-}
-image.append("category", this.state.category )
-image.append("location", this.state.location )
-image.append("producer", this.state.producer )
-image.append("carAge", this.state.carAge )
-image.append("engin", this.state.engin )
-image.append("carModel", this.state.carModel )
-image.append("doors", this.state.doors )
-image.append("text", this.state.text )
-image.append("price", this.state.price )
-
-
-   
     axios
-      .post("statement",  image)
+      .post("statement", image)
       .then((res) => {
         this.props.changeStaenmansSum("add");
         this.setState({
@@ -162,41 +157,45 @@ image.append("price", this.state.price )
         }, 2000);
       })
       .catch((error) => {
-        var errorData = error.response.data.errors;
-        this.setState(
-          {
-            categoryError: null,
-            producerError: null,
-            carModelError: null,
-            locationError: null,
-            textError: null,
-          },
-          () => {
-            errorData.map((el, index) => {
-              if (el.param == "category") {
-                this.setState({
-                  categoryError: el.msg,
-                });
-              } else if (el.param == "producer") {
-                this.setState({
-                  producerError: el.msg,
-                });
-              } else if (el.param == "carModel") {
-                this.setState({
-                  carModelError: el.msg,
-                });
-              } else if (el.param == "location") {
-                this.setState({
-                  locationError: el.msg,
-                });
-              } else if (el.param == "text") {
-                this.setState({
-                  textError: el.msg,
-                });
-              }
-            });
-          }
-        );
+        console.log(error.response);
+        if (error.response) {
+          console.log(error.response);
+          var errorData = error.response.data.errors;
+          this.setState(
+            {
+              categoryError: null,
+              producerError: null,
+              carModelError: null,
+              locationError: null,
+              textError: null,
+            },
+            () => {
+              errorData.map((el, index) => {
+                if (el.param == "category") {
+                  this.setState({
+                    categoryError: el.msg,
+                  });
+                } else if (el.param == "producer") {
+                  this.setState({
+                    producerError: el.msg,
+                  });
+                } else if (el.param == "carModel") {
+                  this.setState({
+                    carModelError: el.msg,
+                  });
+                } else if (el.param == "location") {
+                  this.setState({
+                    locationError: el.msg,
+                  });
+                } else if (el.param == "text") {
+                  this.setState({
+                    textError: el.msg,
+                  });
+                }
+              });
+            }
+          );
+        }
       });
   };
 
@@ -829,81 +828,81 @@ image.append("price", this.state.price )
           </div>
 
           <div className="drive_col">
-            <label class="checkbox_container">
+            <label className="checkbox_container">
               <img src="/imgs/driver.png" />
               მძღოლით
               <input type="radio" name="driver" />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
 
-            <label class="checkbox_container">
+            <label className="checkbox_container">
               <img src="/imgs/driver.png" />
               მძღოლის გარეშე
               <input type="radio" name="driver" />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
           </div>
 
           <div className="add_information">
-            <div class="add-info_title">
+            <div className="add-info_title">
               <span>დამატებითი ინფორმაცია</span>
             </div>
             <div className="checkbox_wrapper">
               <div className="checkbox_fluid">
-                <label class="checkbox_container">
+                <label className="checkbox_container">
                   ნავიგაცია
                   <input type="checkbox" />
-                  <span class="checkmark"></span>
+                  <span className="checkmark"></span>
                 </label>
-                <label class="checkbox_container">
+                <label className="checkbox_container">
                   ჰიდრავლიკა
                   <input type="checkbox" />
-                  <span class="checkmark"></span>
+                  <span className="checkmark"></span>
                 </label>
-                <label class="checkbox_container">
+                <label className="checkbox_container">
                   ლუქი
                   <input type="checkbox" />
-                  <span class="checkmark"></span>
+                  <span className="checkmark"></span>
                 </label>
-                <label class="checkbox_container">
+                <label className="checkbox_container">
                   სიგნალიზაცია
                   <input type="checkbox" />
-                  <span class="checkmark"></span>
-                </label>
-
-                <label class="checkbox_container">
-                  სიგნალიზაცია
-                  <input type="checkbox" />
-                  <span class="checkmark"></span>
+                  <span className="checkmark"></span>
                 </label>
 
-                <label class="checkbox_container">
+                <label className="checkbox_container">
                   სიგნალიზაცია
                   <input type="checkbox" />
-                  <span class="checkmark"></span>
+                  <span className="checkmark"></span>
                 </label>
 
-                <label class="checkbox_container">
+                <label className="checkbox_container">
                   სიგნალიზაცია
                   <input type="checkbox" />
-                  <span class="checkmark"></span>
+                  <span className="checkmark"></span>
                 </label>
 
-                <label class="checkbox_container">
+                <label className="checkbox_container">
                   სიგნალიზაცია
                   <input type="checkbox" />
-                  <span class="checkmark"></span>
+                  <span className="checkmark"></span>
                 </label>
 
-                <label class="checkbox_container">
+                <label className="checkbox_container">
                   სიგნალიზაცია
                   <input type="checkbox" />
-                  <span class="checkmark"></span>
+                  <span className="checkmark"></span>
                 </label>
-                <label class="checkbox_container">
+
+                <label className="checkbox_container">
                   სიგნალიზაცია
                   <input type="checkbox" />
-                  <span class="checkmark"></span>
+                  <span className="checkmark"></span>
+                </label>
+                <label className="checkbox_container">
+                  სიგნალიზაცია
+                  <input type="checkbox" />
+                  <span className="checkmark"></span>
                 </label>
               </div>
               <div className="checkbox_right_content">
@@ -925,7 +924,7 @@ image.append("price", this.state.price )
             </div>
           </div>
 
-          <div class="price_info_fluid">
+          <div className="price_info_fluid">
             <div className="price_box">
               <span>ფასი(1 დღის)</span>
               <label>
