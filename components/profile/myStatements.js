@@ -28,7 +28,7 @@ class myStatements extends Component {
       .then((res) => {
         console.log(res);
         this.setState({
-          myStatements: res.data,
+          myStatements: res.data.reverse(),
         });
       });
   }
