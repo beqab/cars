@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import AddStatement from "./addStatement";
 import classnames from "classnames";
 import cars from "./carsApi.json";
@@ -17,14 +18,36 @@ class ProfileFluid extends Component {
     carModel: null,
     doors: null,
     text: "",
-    price: "40 ლარი",
+    price: "",
     carDropDownErors: [],
     categoryError: null,
     producerError: null,
     carModelError: null,
     locationError: null,
     textError: null,
-    anime: false,
+    loader: false,
+    // checkboxes
+    navigation: false,
+    hidravlika: false,
+    luqi: false,
+    signailzation: false,
+    centralLock: false,
+    bortComp: false,
+    conditioner: false,
+    antiMocureb: false,
+    parcingConttrol: false,
+    backVision: false,
+    // rentTypeChecboxes
+    finalPurchase: false,
+    rentDaily: true,
+    insured: false,
+    withDriver: false,
+
+    // userInfo
+    userName: null,
+    phone: null,
+    email: null,
+    address: "",
   };
   fileInput = React.createRef();
 
@@ -81,9 +104,15 @@ class ProfileFluid extends Component {
 
   changeHandler = (e) => {
     // console.log(e.target.name, e.target.value, ":chng");
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+    if (e.target.type === "checkbox") {
+      this.setState({
+        [e.target.name]: e.target.checked,
+      });
+    } else {
+      this.setState({
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   getCarModels = () => {
@@ -140,18 +169,42 @@ class ProfileFluid extends Component {
     image.append("doors", this.state.doors);
     image.append("text", this.state.text);
     image.append("price", this.state.price);
+    // checkboxes
+
+    image.append("navigation", this.state.navigation);
+    image.append("hidravlika", this.state.hidravlika);
+    image.append("luqi", this.state.luqi);
+    image.append("signailzation", this.state.signailzation);
+    image.append("centralLock", this.state.centralLock);
+    image.append("bortComp", this.state.bortComp);
+    image.append("conditioner", this.state.conditioner);
+    image.append("antiMocureb", this.state.antiMocureb);
+    image.append("parcingConttrol", this.state.parcingConttrol);
+    image.append("backVision", this.state.backVision);
+
+    // rentTypeChecboxes
+    image.append("finalPurchase", this.state.finalPurchase);
+    image.append("rentDaily", this.state.rentDaily);
+    image.append("insured", this.state.insured);
+    image.append("withDriver", this.state.withDriver);
+
+    // user
+    image.append("userName", this.state.userName);
+    image.append("phone", this.state.phone);
+    image.append("email", this.state.email);
+    image.append("address", this.state.address);
 
     axios
       .post("statement", image)
       .then((res) => {
         this.props.changeStaenmansSum("add");
         this.setState({
-          anime: true,
+          loader: true,
         });
-        var dd = this;
+
         setTimeout(() => {
           this.setState({
-            anime: false,
+            loader: false,
           });
           Router.push("/profile/allStatement");
         }, 2000);
@@ -205,7 +258,7 @@ class ProfileFluid extends Component {
         <div className="profile_main_content">
           <div
             className={classnames("profile_add_box", {
-              add_anime: this.state.anime,
+              add_anime: this.state.loader,
             })}
           >
             <span>განცხადება წარმატებით დაემატა...</span>
@@ -629,33 +682,41 @@ class ProfileFluid extends Component {
             <div className="profile_input_box">
               <div>
                 <label> პირთა ტევადობა</label>
-                <select>
-                  <option value="1"> 1</option>
-                  <option value="2"> 2</option>
-                  <option value="3"> 3</option>
-                  <option value="4"> 4</option>
-                  <option value="5"> 5</option>
-                  <option value="6"> 6</option>
-                  <option value="7"> 7</option>
-                  <option value="8"> 8</option>
-                  <option value="9"> 9</option>
-                  <option value=">9"> >9</option>
-                </select>
-              </div>
-            </div>
-            <div className="profile_input_box">
-              <div>
-                <label className="select_with_img drive_select">მძღოლი</label>
-                <select>
-                  <option selected="true" disabled="disabled">
-                    მძღოლი
+                <select name="Pessengers" onChange={this.changeHandler}>
+                  <option selected={this.state.Pessengers === "1"} value="1">
+                    1
                   </option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
+                  <option selected={this.state.Pessengers === "2"} value="2">
+                    2
+                  </option>
+                  <option selected={this.state.Pessengers === "3"} value="3">
+                    3
+                  </option>
+                  <option selected={this.state.Pessengers === "4"} value="4">
+                    4
+                  </option>
+                  <option selected={this.state.Pessengers === "5"} value="5">
+                    5
+                  </option>
+                  <option selected={this.state.Pessengers === "6"} value="6">
+                    6
+                  </option>
+                  <option selected={this.state.Pessengers === "7"} value="7">
+                    7
+                  </option>
+                  <option selected={this.state.Pessengers === "8"} value="8">
+                    8
+                  </option>
+                  <option selected={this.state.Pessengers === "9"} value="9">
+                    9
+                  </option>
+                  <option selected={this.state.Pessengers === ">9"} value=">9">
+                    >9
+                  </option>
                 </select>
               </div>
             </div>
+
             <div className="profile_input_box">
               <div>
                 <label className="select_with_img engine_select">
@@ -801,15 +862,56 @@ class ProfileFluid extends Component {
             <div className="profile_input_box">
               <div>
                 <label className="flue_select">საწვავის ტიპი</label>
-                <select>
-                  <option value="ბენზინი">ბენზინი</option>
-                  <option value="დიზელი">დიზელი</option>
-                  <option value="ელექტრო">ელექტრო</option>
-                  <option value="წყალბადი">წყალბადი</option>
-                  <option value="ჰიბრიდი">ჰიბრიდი</option>
-                  <option value="დატენვადი ჰიბრიდი">დატენვადი ჰიბრიდი</option>
-                  <option value="ბუნებრივი აირი">ბუნებრივი აირი</option>
-                  <option value="თხევადი გაზი">თხევადი გაზი</option>
+
+                <select name="oilType" onChange={this.changeHandler}>
+                  <option
+                    selected={this.state.oilType === "ბენზინი"}
+                    value="ბენზინი"
+                  >
+                    ბენზინი
+                  </option>
+                  <option
+                    selected={this.state.oilType === "დიზელი"}
+                    value="დიზელი"
+                  >
+                    დიზელი
+                  </option>
+                  <option
+                    selected={this.state.oilType === "ელექტრო"}
+                    value="ელექტრო"
+                  >
+                    ელექტრო
+                  </option>
+                  <option
+                    selected={this.state.oilType === "წყალბადი"}
+                    value="წყალბადი"
+                  >
+                    წყალბადი
+                  </option>
+                  <option
+                    selected={this.state.oilType === "ჰიბრიდი"}
+                    value="ჰიბრიდი"
+                  >
+                    ჰიბრიდი
+                  </option>
+                  <option
+                    selected={this.state.oilType === "დატენვადი ჰიბრიდი"}
+                    value="დატენვადი ჰიბრიდი"
+                  >
+                    დატენვადი ჰიბრიდი
+                  </option>
+                  <option
+                    selected={this.state.oilType === "ბუნებრივი ჰიბრიდი"}
+                    value="ბუნებრივი აირი"
+                  >
+                    ბუნებრივი აირი
+                  </option>
+                  <option
+                    selected={this.state.oilType === "თხევადი გაზი"}
+                    value="თხევადი გაზი"
+                  >
+                    თხევადი გაზი
+                  </option>
                 </select>
               </div>
             </div>
@@ -817,11 +919,17 @@ class ProfileFluid extends Component {
             <div className="profile_input_box">
               <div>
                 <label className="door_select"> კარის რაოდენობა</label>
-                <select name="doors">
+                <select onChange={this.changeHandler} name="doors">
                   <option>არჩევა</option>
-                  <option value="2">2</option>
-                  <option value="4">4</option>
-                  <option value=">4">>4</option>
+                  <option selected={this.state.oilType === "2"} value="2">
+                    2
+                  </option>
+                  <option selected={this.state.oilType === "4"} value="4">
+                    4
+                  </option>
+                  <option selected={this.state.oilType === ">4"} value=">4">
+                    >4
+                  </option>
                 </select>
               </div>
             </div>
@@ -829,16 +937,46 @@ class ProfileFluid extends Component {
 
           <div className="drive_col">
             <label className="checkbox_container">
-              <img src="/imgs/driver.png" />
-              მძღოლით
-              <input type="radio" name="driver" />
+              საბოლოო შესყიდვით
+              <input
+                checked={this.state.finalPurchase}
+                name="finalPurchase"
+                onChange={this.changeHandler}
+                type="checkbox"
+              />
               <span className="checkmark"></span>
             </label>
 
             <label className="checkbox_container">
-              <img src="/imgs/driver.png" />
-              მძღოლის გარეშე
-              <input type="radio" name="driver" />
+              ქირავდება დღიურად
+              <input
+                checked={this.state.rentDaily}
+                name="rentDaily"
+                onChange={this.changeHandler}
+                type="checkbox"
+              />
+              <span className="checkmark"></span>
+            </label>
+
+            <label className="checkbox_container">
+              ავტომობილი დაზღვეულია
+              <input
+                checked={this.state.insured}
+                name="insured"
+                onChange={this.changeHandler}
+                type="checkbox"
+              />
+              <span className="checkmark"></span>
+            </label>
+
+            <label className="checkbox_container">
+              ქირავდება მძღოლით
+              <input
+                checked={this.state.withDriver}
+                name="withDriver"
+                onChange={this.changeHandler}
+                type="checkbox"
+              />
               <span className="checkmark"></span>
             </label>
           </div>
@@ -851,61 +989,111 @@ class ProfileFluid extends Component {
               <div className="checkbox_fluid">
                 <label className="checkbox_container">
                   ნავიგაცია
-                  <input type="checkbox" />
+                  <input
+                    onChange={this.changeHandler}
+                    name="navigation"
+                    checked={this.state.navigation}
+                    type="checkbox"
+                  />
                   <span className="checkmark"></span>
                 </label>
                 <label className="checkbox_container">
                   ჰიდრავლიკა
-                  <input type="checkbox" />
+                  <input
+                    name="hidravlika"
+                    checked={this.state.hidravlika}
+                    onChange={this.changeHandler}
+                    type="checkbox"
+                  />
                   <span className="checkmark"></span>
                 </label>
                 <label className="checkbox_container">
                   ლუქი
-                  <input type="checkbox" />
+                  <input
+                    name="luqi"
+                    checked={this.state.luqi}
+                    onChange={this.changeHandler}
+                    type="checkbox"
+                  />
                   <span className="checkmark"></span>
                 </label>
                 <label className="checkbox_container">
                   სიგნალიზაცია
-                  <input type="checkbox" />
-                  <span className="checkmark"></span>
-                </label>
-
-                <label className="checkbox_container">
-                  სიგნალიზაცია
-                  <input type="checkbox" />
-                  <span className="checkmark"></span>
-                </label>
-
-                <label className="checkbox_container">
-                  სიგნალიზაცია
-                  <input type="checkbox" />
-                  <span className="checkmark"></span>
-                </label>
-
-                <label className="checkbox_container">
-                  სიგნალიზაცია
-                  <input type="checkbox" />
+                  <input
+                    name="signailzation"
+                    checked={this.state.signailzation}
+                    onChange={this.changeHandler}
+                    type="checkbox"
+                  />
                   <span className="checkmark"></span>
                 </label>
 
                 <label className="checkbox_container">
-                  სიგნალიზაცია
-                  <input type="checkbox" />
+                  ცენტრალური საკეტი
+                  <input
+                    name="centralLock"
+                    checked={this.state.centralLock}
+                    onChange={this.changeHandler}
+                    type="checkbox"
+                  />
                   <span className="checkmark"></span>
                 </label>
 
                 <label className="checkbox_container">
-                  სიგნალიზაცია
-                  <input type="checkbox" />
+                  ბორტკომპიუტერი
+                  <input
+                    name="bortComp"
+                    checked={this.state.bortComp}
+                    onChange={this.changeHandler}
+                    type="checkbox"
+                  />
+                  <span className="checkmark"></span>
+                </label>
+
+                <label className="checkbox_container">
+                  კონდიციონერი
+                  <input
+                    name="conditioner"
+                    checked={this.state.conditioner}
+                    onChange={this.changeHandler}
+                    type="checkbox"
+                  />
+                  <span className="checkmark"></span>
+                </label>
+
+                <label className="checkbox_container">
+                  მოცურების საწინააღმდეგო
+                  <input
+                    name="antiMocureb"
+                    checked={this.state.antiMocureb}
+                    onChange={this.changeHandler}
+                    type="checkbox"
+                  />
+                  <span className="checkmark"></span>
+                </label>
+
+                <label className="checkbox_container">
+                  პარკინგკონტროლი
+                  <input
+                    name="parcingConttrol"
+                    checked={this.state.parcingConttrol}
+                    onChange={this.changeHandler}
+                    type="checkbox"
+                  />
                   <span className="checkmark"></span>
                 </label>
                 <label className="checkbox_container">
-                  სიგნალიზაცია
-                  <input type="checkbox" />
+                  უკანა ხედვის კამერა
+                  <input
+                    name="backVision"
+                    checked={this.state.backVision}
+                    onChange={this.changeHandler}
+                    type="checkbox"
+                  />
                   <span className="checkmark"></span>
                 </label>
               </div>
-              <div className="checkbox_right_content">
+              {/* <div className="checkbox_right_content">
                 <div>
                   <label>ფერი</label>
                   <input type="text" />
@@ -920,7 +1108,7 @@ class ProfileFluid extends Component {
                   <label>ცილინდრები</label>
                   <input type="text" />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -930,12 +1118,18 @@ class ProfileFluid extends Component {
               <label>
                 <img src="/imgs/price.png" />
 
-                <input type="number" name="price" placeholder="- - -" />
+                <input
+                  type="number"
+                  onChange={this.changeHandler}
+                  name="price"
+                  value={this.state.price}
+                  placeholder="- - -"
+                />
                 <span>₾</span>
               </label>
             </div>
 
-            <div className="price_days_fluid">
+            {/* <div className="price_days_fluid">
               <span>ფასი დღეეების მიხედვით</span>
               <div className="price_days_box">
                 <div className="price_days_up">
@@ -962,7 +1156,7 @@ class ProfileFluid extends Component {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="contact_info_fluid">
             <span>ატვირთეთ ფოტოები</span>
@@ -997,28 +1191,64 @@ class ProfileFluid extends Component {
                     <label>
                       <img src="/imgs/pp.png" />
                     </label>
-                    <input type="text" placeholder="სახელი გვარი" />
+                    <input
+                      name="userName"
+                      onChange={this.changeHandler}
+                      value={
+                        typeof this.state.userName === "string"
+                          ? this.state.userName
+                          : this.props.user.name
+                      }
+                      type="text"
+                      placeholder="სახელი გვარი"
+                    />
                   </div>
 
                   <div className="contact_label">
                     <label>
                       <img src="/imgs/phone.png" />
                     </label>
-                    <input type="number" placeholder="ტელეფონი" />
+                    <input
+                      type="number"
+                      name="phone"
+                      onChange={this.changeHandler}
+                      value={
+                        typeof this.state.phone === "string"
+                          ? this.state.phone
+                          : this.props.user.phone
+                      }
+                      placeholder="ტელეფონი"
+                    />
                   </div>
 
                   <div className="contact_label">
                     <label>
                       <img src="/imgs/ma.png" />
                     </label>
-                    <input type="email" placeholder="მეილი" />
+                    <input
+                      name="email"
+                      onChange={this.changeHandler}
+                      value={
+                        typeof this.state.email === "string"
+                          ? this.state.email
+                          : this.props.user.email
+                      }
+                      type="email"
+                      placeholder="მეილი"
+                    />
                   </div>
 
                   <div className="contact_label">
                     <label>
                       <img src="/imgs/loc.png" />
                     </label>
-                    <input type="text" placeholder="ლოკაცია" />
+                    <input
+                      name="address"
+                      onChange={this.changeHandler}
+                      value={this.state.address}
+                      type="text"
+                      placeholder="ლოკაცია"
+                    />
                   </div>
                 </div>
               </div>
@@ -1047,4 +1277,4 @@ class ProfileFluid extends Component {
   }
 }
 
-export default ProfileFluid;
+export default connect((state) => ({ user: state.auth.user }))(ProfileFluid);
