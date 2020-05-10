@@ -249,12 +249,17 @@ select {
     display: flex;
   }
 }
-
+.right_inf_wrapper {
+  max-width: 290px;
+  width: 100%;
+  flex-grow: 1;
+  padding-left: 15px;
+}
 .contact_info_box {
   border-radius: 10px;
   overflow: hidden;
-  max-width: 270px;
   width: 100%;
+  border: 1px solid #f5bd1f;
   .contact_info_title {
     background-color: $main-color;
 
@@ -488,13 +493,17 @@ input[type="number"] {
   }
 }
 .common_car_price_fluid {
-  display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 2px 0 0;
   background-color: #ebebeb;
   border-top: 1px solid #b4b4b4;
+  border-right: 1px solid #b4b4b4;
   padding: 10px 10px 10px;
+
+  .common_car_footer {
+    display: flex;
+  }
   .common_car_price {
     span {
       color: #2a2a2a;
@@ -1074,5 +1083,46 @@ input[type="number"] {
   .home-car_section {
     border-top: unset;
     padding: 10px 10px 30px 10px;
+  }
+}
+
+.main_inf {
+  display: flex;
+  border: 1px solid $main-color;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 15px 10px;
+  justify-content: center;
+  align-items: center;
+
+  &.insured {
+    background-color: $main-color;
+    color: #fff;
+    span {
+      font-size: 18px;
+    }
+  }
+  &.driver_inf {
+    div {
+      position: relative;
+    }
+    div.no_driver:after {
+      content: "";
+      position: absolute;
+      transform: rotate(45deg);
+      height: 30px;
+      width: 2px;
+      background-color: #ed1c24;
+      top: 0;
+      left: 50%;
+    }
+    img {
+      height: 20px;
+      object-fit: contain;
+    }
+    span {
+      font-size: 14px;
+      padding-left: 13px;
+    }
   }
 }

@@ -406,24 +406,25 @@
 }
 
 .carrinner_fluid {
-  max-width: 1250px;
+  max-width: 100%;
   margin: 0 auto;
   padding-top: 50px;
+  padding: 50px 120px 0;
 }
 .carosel_wrapper {
   display: flex;
-  width: auto;
+  max-width: 600px;
+  flex: 0 0 600px;
   border: 1px solid $main-color;
   border-radius: 5px;
   overflow: hidden;
   background: #f7f7f7;
-  width: 100%;
-  max-width: 1001px;
 }
 
 .carr_iner_carousel {
-  max-width: 600px;
-  flex: 0 0 600px;
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 100%;
 }
 
 .main_carousel_bottom_info {
@@ -437,7 +438,7 @@
         background-color: transparent;
       }
       span {
-        font-size: 18px;
+        font-size: 16px;
         background: #0054a6;
         border-radius: 20px;
         flex: 0 0 50px;
@@ -466,7 +467,7 @@
   width: 100%;
 }
 .car_title {
-  margin-bottom: 30px;
+  margin: 12px 0;
   h2 {
     font-family: "Albertus Extra";
     font-size: 20px;
@@ -474,7 +475,13 @@
 }
 
 .car_list_box {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
   ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
     li {
       display: flex;
       align-items: center;
@@ -486,6 +493,9 @@
       padding-bottom: 7px;
       padding-right: 10px;
       padding-left: 3px;
+      flex: 0 0 30%;
+      max-width: 30%;
+      margin-right: 2%;
 
       img {
         height: 22px;
@@ -509,15 +519,13 @@
     max-width: 100%;
     flex: 0 0 100%;
   }
-  .contact_info_box {
-    margin-left: 20px;
-  }
+
   .contact_label a {
     color: #000;
   }
   .contact_info {
     padding: 18px 15px;
-    border: 1px solid #f5bd1f;
+    border: unset;
   }
 }
 
@@ -556,6 +564,68 @@
       color: $brand-color;
       color: #000;
       font-size: 14px;
+    }
+  }
+}
+
+.image-gallery-thumbnail .image-gallery-thumbnail-inner {
+  height: 55px;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.image-gallery-slide.center {
+  height: 360px;
+
+  & > div {
+    height: 100%;
+
+    img {
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+.checkminus_span {
+  img {
+    height: 15px;
+    width: 15px;
+    object-fit: contain;
+  }
+}
+
+.car_list_wrapper {
+  margin: 25px 0 0;
+  border-radius: 10px;
+  border: 1px solid $main-color;
+  overflow: hidden;
+  ul {
+    margin-bottom: 0;
+  }
+  &.no_border {
+    border: unset;
+    .car_list_title {
+      background-color: #fff;
+      border-bottom: 1px solid #dbdbdb;
+    }
+    li {
+      border-color: transparent;
+    }
+    .car_list_box {
+      border-bottom: 1px solid #dbdbdb;
+    }
+  }
+
+  .car_list_title {
+    background-color: $main-color;
+    padding: 10px 10px 10px 15px;
+    * {
+      color: #000000;
+      font-size: 16px;
     }
   }
 }
