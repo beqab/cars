@@ -1197,7 +1197,7 @@ class ProfileFluid extends Component {
                       value={
                         typeof this.state.userName === "string"
                           ? this.state.userName
-                          : this.props.user.name
+                          : this.props.user && this.props.user.name
                       }
                       type="text"
                       placeholder="სახელი გვარი"
@@ -1215,7 +1215,7 @@ class ProfileFluid extends Component {
                       value={
                         typeof this.state.phone === "string"
                           ? this.state.phone
-                          : this.props.user.phone
+                          : this.props.user && this.props.user.phone
                       }
                       placeholder="ტელეფონი"
                     />
@@ -1231,7 +1231,7 @@ class ProfileFluid extends Component {
                       value={
                         typeof this.state.email === "string"
                           ? this.state.email
-                          : this.props.user.email
+                          : this.props.user && this.props.user.email
                       }
                       type="email"
                       placeholder="მეილი"
