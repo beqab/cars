@@ -629,3 +629,28 @@
     }
   }
 }
+.image-gallery-content {
+  &.fullscreen {
+    height: 100vh;
+
+    .image-gallery-swipe {
+      height: 100vh;
+      & > div {
+        height: 100vh;
+
+        & > div {
+          height: calc(100vh - 155px);
+          padding-top: 50px;
+          overflow: hidden;
+        }
+      }
+    }
+    // .image-gallery-content .image-gallery-slide .image-gallery-image {
+    //   height: calc(100vh - 150px);
+    //   padding-top: 50px;
+    // }
+    .image-gallery-slide-wrapper {
+      height: calc(100vh - 120px);
+    }
+  }
+}
