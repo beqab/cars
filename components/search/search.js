@@ -6,10 +6,37 @@ import classname from "classnames";
 import { connect } from "react-redux";
 import { setCurrentUser } from "../../redux/auth/authActions";
 import Link from "next/link";
+import {
+  Doors,
+  Engin,
+  Pessengers,
+  OilType,
+  Location,
+  Category,
+  Producer,
+  CarModel,
+} from "../selects";
 
 class searchComponent extends Component {
-  state = {};
+  state = {
+    producer: null,
+    location: null,
+    carModel: null,
+    oilType: null,
+  };
 
+  changeHandler = (e) => {
+    // console.log(e.target.name, e.target.value, ":chng");
+    if (e.target.type === "checkbox") {
+      this.setState({
+        [e.target.name]: e.target.checked,
+      });
+    } else {
+      this.setState({
+        [e.target.name]: e.target.value,
+      });
+    }
+  };
   render() {
     return (
       <div class="search_results_fluid">
@@ -26,70 +53,38 @@ class searchComponent extends Component {
               <div className="filter_body">
                 <div>
                   {/* <label>მწარმოებელი</label> */}
-                  <select>
-                    <option>მწარმოებელი</option>
-                    <option value="სედანი">სედანი</option>
-                    <option value="ჯიპი">ჯიპი</option>
-                    <option value="კუპე">კუპე</option>
-                    <option value="ჰეჩბექი">ჰეჩბექი</option>
-                    <option value="კაბრიოლეტი">კაბრიოლეტი</option>
-                    <option value="უნივერსალი">უნივერსალი</option>
-                    <option value="პიკაპი">პიკაპი</option>
-                    <option value="მიკროავტობუსი">მიკროავტობუსი</option>
-                    <option value="ფურგონი">ფურგონი</option>
-                    <option value="ლიმუზინი">ლიმუზინი</option>
-                  </select>
+                  <Producer
+                    changeHandlerfn={this.changeHandler}
+                    defaultValue="მწარმოებელი"
+                  />
                 </div>
 
                 <div>
                   {/* <label>მწარმოებელი</label> */}
-                  <select>
-                    <option>მწარმოებელი</option>
-                    <option value="სედანი">სედანი</option>
-                    <option value="ჯიპი">ჯიპი</option>
-                    <option value="კუპე">კუპე</option>
-                    <option value="ჰეჩბექი">ჰეჩბექი</option>
-                    <option value="კაბრიოლეტი">კაბრიოლეტი</option>
-                    <option value="უნივერსალი">უნივერსალი</option>
-                    <option value="პიკაპი">პიკაპი</option>
-                    <option value="მიკროავტობუსი">მიკროავტობუსი</option>
-                    <option value="ფურგონი">ფურგონი</option>
-                    <option value="ლიმუზინი">ლიმუზინი</option>
-                  </select>
+                  <CarModel
+                    value={this.state.carModel}
+                    changeHandlerfn={this.changeHandler}
+                    producer={this.state.producer}
+                    defaultValue="მანქანის მოდელი"
+                  />
                 </div>
 
                 <div>
                   {/* <label>მწარმოებელი</label> */}
-                  <select>
-                    <option>მწარმოებელი</option>
-                    <option value="სედანი">სედანი</option>
-                    <option value="ჯიპი">ჯიპი</option>
-                    <option value="კუპე">კუპე</option>
-                    <option value="ჰეჩბექი">ჰეჩბექი</option>
-                    <option value="კაბრიოლეტი">კაბრიოლეტი</option>
-                    <option value="უნივერსალი">უნივერსალი</option>
-                    <option value="პიკაპი">პიკაპი</option>
-                    <option value="მიკროავტობუსი">მიკროავტობუსი</option>
-                    <option value="ფურგონი">ფურგონი</option>
-                    <option value="ლიმუზინი">ლიმუზინი</option>
-                  </select>
+                  <Location
+                    value={this.state.location}
+                    changeHandlerfn={this.changeHandler}
+                    defaultValue="ქალაქი"
+                  />
                 </div>
 
                 <div>
                   {/* <label>მწარმოებელი</label> */}
-                  <select>
-                    <option>მწარმოებელი</option>
-                    <option value="სედანი">სედანი</option>
-                    <option value="ჯიპი">ჯიპი</option>
-                    <option value="კუპე">კუპე</option>
-                    <option value="ჰეჩბექი">ჰეჩბექი</option>
-                    <option value="კაბრიოლეტი">კაბრიოლეტი</option>
-                    <option value="უნივერსალი">უნივერსალი</option>
-                    <option value="პიკაპი">პიკაპი</option>
-                    <option value="მიკროავტობუსი">მიკროავტობუსი</option>
-                    <option value="ფურგონი">ფურგონი</option>
-                    <option value="ლიმუზინი">ლიმუზინი</option>
-                  </select>
+                  <OilType
+                    value={this.state.oilType}
+                    changeHandlerfn={this.changeHandler}
+                    defaultValue="საწვავის ტიპი"
+                  />
                 </div>
               </div>
 

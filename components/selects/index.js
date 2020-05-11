@@ -1,9 +1,9 @@
 import cars from "../profile/carsApi.json";
 
-export const Producer = ({ changeHandlerfn }) => {
+export const Producer = ({ changeHandlerfn, defaultValue }) => {
   return (
     <select name="producer" onChange={(e) => changeHandlerfn(e)}>
-      <option>აირჩიე</option>
+      <option> {defaultValue ? defaultValue : "აირჩიე"}</option>
       {cars.map((car, i) => {
         return (
           <option key={i} value={car.name}>
@@ -15,7 +15,12 @@ export const Producer = ({ changeHandlerfn }) => {
   );
 };
 
-export const CarModel = ({ value, changeHandlerfn, producer }) => {
+export const CarModel = ({
+  value,
+  changeHandlerfn,
+  producer,
+  defaultValue,
+}) => {
   const getCarModels = () => {
     let options = [];
     if (producer) {
@@ -23,6 +28,7 @@ export const CarModel = ({ value, changeHandlerfn, producer }) => {
         if (element.name === producer) {
           element[`${element.name}Options`].forEach((option, index) => {
             // console.log(option);
+
             options.push(
               <option
                 key={index}
@@ -42,16 +48,16 @@ export const CarModel = ({ value, changeHandlerfn, producer }) => {
 
   return (
     <select name="carModel" onChange={(e) => changeHandlerfn(e)}>
-      <option>აირჩიე</option>
+      <option> {defaultValue ? defaultValue : "აირჩიე"}</option>
       {getCarModels()}
     </select>
   );
 };
 
-export const Category = ({ value, changeHandlerfn }) => {
+export const Category = ({ value, changeHandlerfn, defaultValue }) => {
   return (
     <select name="category" onChange={(e) => changeHandlerfn(e)}>
-      <option>არჩევა</option>
+      <option> {defaultValue ? defaultValue : "აირჩიე"}</option>
       <option selected={value === "სედანი"} value="სედანი">
         სედანი
       </option>
@@ -86,10 +92,10 @@ export const Category = ({ value, changeHandlerfn }) => {
   );
 };
 
-export const Doors = ({ value, changeHandlerfn }) => {
+export const Doors = ({ value, changeHandlerfn, defaultValue }) => {
   return (
     <select onChange={(e) => changeHandlerfn(e)} name="doors">
-      <option>არჩევა</option>
+      <option> {defaultValue ? defaultValue : "აირჩიე"}</option>
       <option selected={value === "2"} value="2">
         2
       </option>
@@ -103,10 +109,10 @@ export const Doors = ({ value, changeHandlerfn }) => {
   );
 };
 
-export const Engin = ({ value, changeHandlerfn }) => {
+export const Engin = ({ value, changeHandlerfn, defaultValue }) => {
   return (
     <select name="engin" onChange={(e) => changeHandlerfn(e)}>
-      <option>აირჩიე</option>
+      <option> {defaultValue ? defaultValue : "აირჩიე"}</option>
       <option value="50">0.05</option>
       <option value="100">0.1</option>
       <option value="200">0.2</option>
@@ -242,9 +248,10 @@ export const Engin = ({ value, changeHandlerfn }) => {
   );
 };
 
-export const Pessengers = ({ value, changeHandlerfn }) => {
+export const Pessengers = ({ value, changeHandlerfn, defaultValue }) => {
   return (
     <select name="Pessengers" onChange={(e) => changeHandlerfn(e)}>
+      <option> {defaultValue ? defaultValue : "აირჩიე"}</option>
       <option selected={value === "1"} value="1">
         1
       </option>
@@ -279,9 +286,10 @@ export const Pessengers = ({ value, changeHandlerfn }) => {
   );
 };
 
-export const OilType = ({ value, changeHandlerfn }) => {
+export const OilType = ({ value, changeHandlerfn, defaultValue }) => {
   return (
     <select name="oilType" onChange={(e) => changeHandlerfn(e)}>
+      <option> {defaultValue ? defaultValue : "აირჩიე"}</option>
       <option selected={value === "ბენზინი"} value="ბენზინი">
         ბენზინი
       </option>
@@ -313,10 +321,10 @@ export const OilType = ({ value, changeHandlerfn }) => {
   );
 };
 
-export const Location = ({ value, changeHandlerfn }) => {
+export const Location = ({ value, changeHandlerfn, defaultValue }) => {
   return (
     <select name="location" onChange={(e) => changeHandlerfn(e)}>
-      <option>აირჩიე</option>
+      <option> {defaultValue ? defaultValue : "აირჩიე"}</option>
       <option selected={value === "თბილისი"} value=" თბილისი">
         თბილისი
       </option>

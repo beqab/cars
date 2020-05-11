@@ -125,30 +125,6 @@ class ProfileFluid extends Component {
     }
   };
 
-  // getCarModels = () => {
-  //   let options = [];
-  //   if (this.state.producer) {
-  //     cars.forEach((element, i) => {
-  //       if (element.name === this.state.producer) {
-  //         element[`${element.name}Options`].forEach((option, index) => {
-  //           // console.log(option);
-  //           options.push(
-  //             <option
-  //               key={index}
-  //               selected={this.state.carModel == option.model_name}
-  //               value={option.model_name}
-  //             >
-  //               {option.model_name}
-  //             </option>
-  //           );
-  //         });
-  //       }
-  //     });
-  //   }
-
-  //   return options;
-  // };
-
   getYear = () => {
     let options = [];
     for (let index = 2020; index >= 1900; index--) {
