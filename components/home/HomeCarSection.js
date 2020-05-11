@@ -9,7 +9,7 @@ class HomeCar extends Component {
   };
   componentDidMount() {
     axios
-      .get("statement/all", {
+      .get("statement/homeStatements", {
         params: {},
       })
       .then((res) => {
@@ -38,8 +38,10 @@ class HomeCar extends Component {
           </div>
 
           <div className="row">
-            <div className="col-12 see_more_col">
-              <a href="">იხილეთ სრულად</a>
+            <div className="col-12 justify-content-center  align-items-center  text-center see_more_col">
+              <Link href="/search">
+                <a href="">ყველას ნახვა</a>
+              </Link>
             </div>
           </div>
         </div>

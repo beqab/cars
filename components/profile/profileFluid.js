@@ -189,9 +189,24 @@ class ProfileFluid extends Component {
     image.append("withDriver", this.state.withDriver);
 
     // user
-    image.append("userName", this.state.userName);
-    image.append("phone", this.state.phone);
-    image.append("email", this.state.email);
+    image.append(
+      "userName",
+      typeof this.state.userName === "string"
+        ? this.state.userName
+        : this.props.user && this.props.user.name
+    );
+    image.append(
+      "phone",
+      typeof this.state.phone === "string"
+        ? this.state.phone
+        : this.props.user && this.props.user.phone
+    );
+    image.append(
+      "email",
+      typeof this.state.email === "string"
+        ? this.state.email
+        : this.props.user && this.props.user.email
+    );
     image.append("address", this.state.address);
 
     axios
