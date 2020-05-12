@@ -35,6 +35,7 @@ class ProfileFluid extends Component {
     carModelError: null,
     locationError: null,
     textError: null,
+    priceError: null,
     loader: false,
     // checkboxes
     navigation: false,
@@ -222,6 +223,7 @@ class ProfileFluid extends Component {
               carModelError: null,
               locationError: null,
               textError: null,
+              priceError: null,
             },
             () => {
               errorData.map((el, index) => {
@@ -244,6 +246,10 @@ class ProfileFluid extends Component {
                 } else if (el.param == "text") {
                   this.setState({
                     textError: el.msg,
+                  });
+                } else if (el.param == "price") {
+                  this.setState({
+                    priceError: el.msg,
                   });
                 }
               });
@@ -570,6 +576,9 @@ class ProfileFluid extends Component {
                 />
                 <span>₾</span>
               </label>
+              {this.state.priceError ? (
+                <span className="error_msg">{this.state.priceError}</span>
+              ) : null}
             </div>
 
             {/* <div className="price_days_fluid">
