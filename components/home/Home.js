@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import HomeCar from "./HomeCarSection";
+import Router from "next/router";
 import {
   Doors,
   Engin,
@@ -25,6 +26,7 @@ class Home extends Component {
     Pessengers: null,
     text: null,
     price: "40 ლარი",
+    searchString: "",
   };
 
   changeHandler = (e) => {
@@ -33,15 +35,32 @@ class Home extends Component {
       [e.target.name]: e.target.value,
     });
   };
+
+  handeleSearch = (e) => {
+    e.preventDefault();
+    Router.push({
+      pathname: "/search",
+      query: {
+        searchString: this.state.searchString,
+        oilType: this.state.oilType,
+        producer: this.state.producer,
+      },
+    });
+  };
+
   render() {
     return (
       <>
         <main id="home_main">
           <div className="filters">
-            <form>
+            <form action="/search">
               <div className="top_search">
-                <input type="text" name="" placeholder="ძებნა" />
-                <button>
+                <input
+                  name="searchString"
+                  onChange={this.changeHandler}
+                  placeholder="ძებნა"
+                />
+                <button onClick={(e) => this.handeleSearch(e)}>
                   <img src="/imgs/search.png" />
                 </button>
               </div>

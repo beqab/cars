@@ -6,6 +6,10 @@ import classname from "classnames";
 import { connect } from "react-redux";
 import { setCurrentUser } from "../../redux/auth/authActions";
 import Link from "next/link";
+// import Router from "next/router";
+import Router, { useRouter } from "next/router";
+import Cookies from "js-cookie";
+
 import {
   Doors,
   Engin,
@@ -24,6 +28,17 @@ class searchComponent extends Component {
     carModel: null,
     oilType: null,
   };
+
+  componentDidMount() {
+    // console.log(Router.router.query);
+    let token = Cookies.get("token");
+    axios.get("statement/myall", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    // debugger;
+  }
 
   changeHandler = (e) => {
     // console.log(e.target.name, e.target.value, ":chng");
