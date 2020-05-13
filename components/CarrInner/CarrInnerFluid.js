@@ -38,6 +38,7 @@ class carrInnerFluid extends Component {
         },
       })
       .then((res) => {
+        console.log(res);
         this.setState({
           curentStatement: res.data,
 
@@ -118,12 +119,14 @@ class carrInnerFluid extends Component {
                   </div>
                 ) : null}
 
-                <div className="contact_label">
-                  <label>
-                    <img src="/imgs/ma.png" />
-                  </label>
-                  <span> {curentStatement.email}</span>
-                </div>
+                {curentStatement.email ? (
+                  <div className="contact_label">
+                    <label>
+                      <img src="/imgs/ma.png" />
+                    </label>
+                    <span> {curentStatement.email}</span>
+                  </div>
+                ) : null}
 
                 {curentStatement.address ? (
                   <div className="contact_label">
@@ -161,6 +164,11 @@ class carrInnerFluid extends Component {
             {curentStatement.finalPurchase ? (
               <div className="main_inf">
                 <span>საბოლოო შესყიდვით!</span>
+              </div>
+            ) : null}
+            {curentStatement.rentDaily ? (
+              <div className="main_inf insured">
+                <span>ქირავდება დღიურად!</span>
               </div>
             ) : null}
           </div>

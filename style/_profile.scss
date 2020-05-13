@@ -249,6 +249,12 @@ select {
     display: flex;
   }
 }
+.price_box .error_msg {
+  margin-left: 0;
+}
+.price_box label {
+  margin-bottom: 0;
+}
 .right_inf_wrapper {
   max-width: 290px;
   width: 100%;
