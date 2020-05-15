@@ -9,6 +9,7 @@ import Link from "next/link";
 // import Router from "next/router";
 import Router, { useRouter } from "next/router";
 import Cookies from "js-cookie";
+import Card from "../home/card";
 
 import {
   Doors,
@@ -27,16 +28,29 @@ class searchComponent extends Component {
     location: null,
     carModel: null,
     oilType: null,
+    searchString: null,
+    statements: [],
   };
 
   componentDidMount() {
-    // console.log(Router.router.query);
+    console.log(Router.router.query);
     let token = Cookies.get("token");
-    axios.get("statement/myall", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    axios
+      .get("statement/search", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        params: Router.router.query,
+      })
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          statements: res.data,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     // debugger;
   }
 
@@ -52,6 +66,19 @@ class searchComponent extends Component {
       });
     }
   };
+
+  handeleSearch = (e) => {
+    e.preventDefault();
+    Router.push({
+      pathname: "/search",
+      query: {
+        searchString: this.state.searchString,
+        oilType: this.state.oilType,
+        producer: this.state.producer,
+      },
+    });
+  };
+
   render() {
     return (
       <div class="search_results_fluid">
@@ -152,137 +179,15 @@ class searchComponent extends Component {
           <div className="home-car_section">
             <div className="container">
               <div className="row">
-                <div className="col-12 col-md-3">
-                  <div className="common_car_box">
-                    <div className="vip">
-                      <img src="/imgs/vip.png" alt="" />
+                {this.state.statements.map((el) => {
+                  return (
+                    <div className="col-md-3">
+                      {" "}
+                      <Card data={el} />{" "}
                     </div>
-                    <div className="common_box_img">
-                      <a href="">
-                        <img
-                          src="https://images.unsplash.com/photo-1505592225030-dad7a0531844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=755&q=80"
-                          alt=""
-                        />
-                      </a>
-                    </div>
-                    <div className="common_box_body">
-                      <div>
-                        <h2>
-                          <a href="">
-                            {/* {el.producer} {el.carModel} */}
-                            BMW
-                          </a>
-                        </h2>
-                        <div className="car_common_properties">
-                          <div>
-                            <img src="/imgs/loc.png" /> <span>A</span>
-                          </div>
-                          <div>
-                            <img src="/imgs/loc.png" /> <span>5</span>
-                          </div>
-                          <div>
-                            <img src="/imgs/loc.png" /> <span>მარჯვენა</span>
-                          </div>
-                          <div>
-                            <img src="/imgs/loc.png" /> <span>დიზელი</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="common_car_contact_info">
-                        <span>თორნიკე 444 444 444</span>
-                        <span>თბილისი</span>
-                      </div>
-                      <div className="common_car_price_fluid">
-                        <div className="common_car_price">
-                          <span>33 ₾</span>
-                        </div>
-                        <div className="common_car_days">
-                          <div className="common_car_up">
-                            <span>დ</span>
-                            <span>1-3</span>
-                            <span>4-7</span>
-                            <span>>7</span>
-                          </div>
-                          <div className="common_car_down">
-                            <span>ლ</span>
-                            <span>50</span>
-                            <span>50</span>
-                            <span>80</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-12 col-md-3">
-                  <div className="common_car_box">
-                    <div className="vip">
-                      <img src="/imgs/vip.png" alt="" />
-                    </div>
-                    <div className="common_box_img">
-                      <a>
-                        <img
-                          src="https://images.unsplash.com/photo-1505592225030-dad7a0531844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=755&q=80"
-                          alt=""
-                        />
-                      </a>
-                    </div>
-                    <div className="common_box_body">
-                      <div>
-                        <h2>
-                          <a href="">
-                            {/* {el.producer} {el.carModel} */}
-                            BMW
-                          </a>
-                        </h2>
-                        <div className="car_common_properties">
-                          <div>
-                            <img src="/imgs/loc.png" /> <span>A</span>
-                          </div>
-                          <div>
-                            <img src="/imgs/loc.png" /> <span>5</span>
-                          </div>
-                          <div>
-                            <img src="/imgs/loc.png" /> <span>მარჯვენა</span>
-                          </div>
-                          <div>
-                            <img src="/imgs/loc.png" /> <span>დიზელი</span>
-                          </div>
-                          <div>
-                            <img src="/imgs/loc.png" /> <span>დიზელი</span>
-                          </div>
-                          <div>
-                            <img src="/imgs/loc.png" /> <span>დიზელი</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="common_car_contact_info">
-                        <span>თორნიკე 444 444 444</span>
-                        <span>თბილისი</span>
-                      </div>
-                      <div className="common_car_price_fluid">
-                        <div className="common_car_price">
-                          <span>33</span>
-                        </div>
-                        <div className="common_car_days">
-                          <div className="common_car_up">
-                            <span>დ</span>
-                            <span>1-3</span>
-                            <span>4-7</span>
-                            <span>>7</span>
-                          </div>
-                          <div className="common_car_down">
-                            <span>ლ</span>
-                            <span>50</span>
-                            <span>50</span>
-                            <span>80</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  );
+                })}
+                //////
               </div>
             </div>
           </div>

@@ -37,6 +37,7 @@ class ProfileFluid extends Component {
     textError: null,
     priceError: null,
     loader: false,
+    oilType: null,
     // checkboxes
     navigation: false,
     hidravlika: false,
@@ -154,6 +155,7 @@ class ProfileFluid extends Component {
     image.append("engin", this.state.engin);
     image.append("carModel", this.state.carModel);
     image.append("doors", this.state.doors);
+    image.append("oilType", this.state.oilType);
     image.append("text", this.state.text);
     image.append("price", this.state.price);
     // checkboxes
