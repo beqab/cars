@@ -102,7 +102,7 @@ class carrInnerFluid extends Component {
                 <span>საკონტაქტო ინფორმაცია</span>
               </div>
               <div className="contact_info">
-                {curentStatement.username ? (
+                {curentStatement.userName ? (
                   <div className="contact_label">
                     <label>
                       <img src="/imgs/pp.png" />

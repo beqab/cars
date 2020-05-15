@@ -104,7 +104,7 @@ class myStatements extends Component {
                         <Link href={`/statement/${el._id}`}>
                           <a>
                             <img
-                              src="https://images.unsplash.com/photo-1505592225030-dad7a0531844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=755&q=80"
+                              src={"http://localhost:5000/" + el.images[0]}
                               alt=""
                             />
                           </a>
@@ -114,41 +114,87 @@ class myStatements extends Component {
                         <div>
                           <h2>
                             <a href="">
-                              {" "}
                               {el.producer} {el.carModel}
                             </a>
                           </h2>
                           <div className="car_common_properties">
-                            <div>
-                              <img src="/imgs/loc.png" /> <span>A</span>
-                            </div>
-                            <div>
-                              <img src="/imgs/loc.png" /> <span>5</span>
-                            </div>
-                            <div>
-                              <img src="/imgs/loc.png" /> <span>მარჯვენა</span>
-                            </div>
-                            <div>
-                              <img src="/imgs/loc.png" /> <span>დიზელი</span>
-                            </div>
+                            {el.backVision ? (
+                              <div>
+                                <img src="/imgs/loc.png" />{" "}
+                                <span>უკანა ხედვის კამერა </span>
+                              </div>
+                            ) : null}
+                            {el.conditioner ? (
+                              <div>
+                                <img src="/imgs/loc.png" />{" "}
+                                <span>კონდიციონერი </span>
+                              </div>
+                            ) : null}
+                            {el.centralLock ? (
+                              <div>
+                                <img src="/imgs/loc.png" />{" "}
+                                <span>ცენტრალური საკეტი </span>
+                              </div>
+                            ) : null}
+                            {el.hidravlika ? (
+                              <div>
+                                <img src="/imgs/loc.png" />{" "}
+                                <span>ჰიდრავლიკა საკეტი </span>
+                              </div>
+                            ) : null}
+                            {el.parcingConttrol ? (
+                              <div>
+                                <img src="/imgs/loc.png" />{" "}
+                                <span>პარკინგ კონტროლი </span>
+                              </div>
+                            ) : null}
+                            {el.navigation ? (
+                              <div>
+                                <img src="/imgs/loc.png" />{" "}
+                                <span>ნავიგაცია </span>
+                              </div>
+                            ) : null}
+
+                            {el.signailzation ? (
+                              <div>
+                                <img src="/imgs/loc.png" />{" "}
+                                <span>სიგნალიზაცია </span>
+                              </div>
+                            ) : null}
+
+                            {el.bortComp ? (
+                              <div>
+                                <img src="/imgs/loc.png" />{" "}
+                                <span>ბორტ-კომპიუტერი </span>
+                              </div>
+                            ) : null}
+
+                            {el.luqi ? (
+                              <div>
+                                <img src="/imgs/loc.png" /> <span>ლუქი </span>
+                              </div>
+                            ) : null}
                           </div>
                         </div>
+
                         <div className="common_car_price_fluid">
-                          <div className="common_car_price">
-                            <span>{el.price}</span>
-                          </div>
-                          <div className="common_car_days">
-                            <div className="common_car_up">
-                              <span>დ</span>
-                              <span>1-3</span>
-                              <span>4-7</span>
-                              <span>>7</span>
+                          <div className="common_car_footer">
+                            <div className="common_car_price">
+                              <span>{el.price}-₾</span>
                             </div>
-                            <div className="common_car_down">
-                              <span>ლ</span>
-                              <span>50</span>
-                              <span>50</span>
-                              <span>80</span>
+                            <div className="common_car_days">
+                              <div className="common_car_up">
+                                <span>დ</span>
+                                <span>1-3</span>
+                                <span>4-7</span>
+                                <span>>7</span>
+                              </div>
+                              <div className="common_car_down">
+                                <span>ლ</span>
+                                <span>50</span>
+                                <span>50</span>
+                                <span>80</span>
+                              </div>
                             </div>
                           </div>
                         </div>

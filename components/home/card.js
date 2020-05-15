@@ -3,6 +3,7 @@ import React, { Component } from "react";
 class Card extends Component {
   render() {
     const { price } = this.props.data;
+    console.log(this.props.data, "sss");
     return (
       <div className="common_car_box">
         <div className="vip">
@@ -20,23 +21,58 @@ class Card extends Component {
           <div>
             <h2>
               <a href="">
-                {/* {el.producer} {el.carModel} */}
-                BMW
+                {this.props.data.producer} {this.props.data.carModel}
               </a>
             </h2>
             <div className="car_common_properties">
-              <div>
-                <img src="/imgs/loc.png" /> <span>A</span>
-              </div>
-              <div>
-                <img src="/imgs/loc.png" /> <span>5</span>
-              </div>
-              <div>
-                <img src="/imgs/loc.png" /> <span>მარჯვენა</span>
-              </div>
-              <div>
-                <img src="/imgs/loc.png" /> <span>დიზელი</span>
-              </div>
+              {this.props.data.backVision ? (
+                <div>
+                  <img src="/imgs/loc.png" /> <span>უკანა ხედვის კამერა </span>
+                </div>
+              ) : null}
+              {this.props.data.conditioner ? (
+                <div>
+                  <img src="/imgs/loc.png" /> <span>კონდიციონერი </span>
+                </div>
+              ) : null}
+              {this.props.data.centralLock ? (
+                <div>
+                  <img src="/imgs/loc.png" /> <span>ცენტრალური საკეტი </span>
+                </div>
+              ) : null}
+              {this.props.data.hidravlika ? (
+                <div>
+                  <img src="/imgs/loc.png" /> <span>ჰიდრავლიკა საკეტი </span>
+                </div>
+              ) : null}
+              {this.props.data.parcingConttrol ? (
+                <div>
+                  <img src="/imgs/loc.png" /> <span>პარკინგ კონტროლი </span>
+                </div>
+              ) : null}
+              {this.props.data.navigation ? (
+                <div>
+                  <img src="/imgs/loc.png" /> <span>ნავიგაცია </span>
+                </div>
+              ) : null}
+
+              {this.props.data.signailzation ? (
+                <div>
+                  <img src="/imgs/loc.png" /> <span>სიგნალიზაცია </span>
+                </div>
+              ) : null}
+
+              {this.props.data.bortComp ? (
+                <div>
+                  <img src="/imgs/loc.png" /> <span>ბორტ-კომპიუტერი </span>
+                </div>
+              ) : null}
+
+              {this.props.data.luqi ? (
+                <div>
+                  <img src="/imgs/loc.png" /> <span>ლუქი </span>
+                </div>
+              ) : null}
             </div>
           </div>
           <div className="common_car_price_fluid">

@@ -426,14 +426,15 @@
   max-width: 100%;
   flex: 0 0 100%;
 }
-
+.common_car_days {
+  margin-left: 30px;
+}
 .main_carousel_bottom_info {
   .common_car_price_fluid {
     justify-content: flex-start;
     padding: 0 0 12px 20px;
 
     .common_car_days {
-      margin-left: 30px;
       & > div {
         background-color: transparent;
       }
