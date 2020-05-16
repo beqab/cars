@@ -32,25 +32,29 @@ class searchComponent extends Component {
     statements: [],
   };
 
-  componentDidMount() {
-    console.log(Router.router.query);
+  fetchStatemetns = async () => {
     let token = Cookies.get("token");
-    axios
-      .get("statement/search", {
+    try {
+      const { data: Data } = await axios.get("statement/search", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
         params: Router.router.query,
-      })
-      .then((res) => {
-        console.log(res.data);
-        this.setState({
-          statements: res.data,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
       });
+      this.setState({
+        statements: Data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  componentDidMount() {
+    console.log(Router.router.query);
+    this.fetchStatemetns();
+    this.setState({
+      ...Router.router.query,
+    });
     // debugger;
   }
 
@@ -77,6 +81,7 @@ class searchComponent extends Component {
         producer: this.state.producer,
       },
     });
+    this.fetchStatemetns();
   };
 
   render() {
@@ -86,8 +91,13 @@ class searchComponent extends Component {
           <div className="filters">
             <form>
               <div class="top_search">
-                <input type="text" name="" placeholder="ძებნა" />
-                <button>
+                <input
+                  onChange={this.changeHandler}
+                  name="searchString"
+                  placeholder="ძებნა"
+                  value={this.state.searchString}
+                />
+                <button onClick={this.handeleSearch}>
                   <img src="/imgs/search.png" />
                 </button>
               </div>
