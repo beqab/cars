@@ -12,7 +12,7 @@ class Card extends Component {
         <div className="common_box_img">
           <a href="">
             <img
-              src="https://images.unsplash.com/photo-1505592225030-dad7a0531844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=755&q=80"
+              src={"http://localhost:5000/" + this.props.data.images[0]}
               alt=""
             />
           </a>
@@ -76,21 +76,23 @@ class Card extends Component {
             </div>
           </div>
           <div className="common_car_price_fluid">
-            <div className="common_car_price">
-              <span>{`${price} ₾`}</span>
-            </div>
-            <div className="common_car_days">
-              <div className="common_car_up">
-                <span>დ</span>
-                <span>1-3</span>
-                <span>4-7</span>
-                <span>>7</span>
+            <div className="common_car_footer">
+              <div className="common_car_price">
+                <span>{`${price} ₾`}</span>
               </div>
-              <div className="common_car_down">
-                <span>ლ</span>
-                <span>50</span>
-                <span>50</span>
-                <span>80</span>
+              <div className="common_car_days">
+                <div className="common_car_up">
+                  <span>დ</span>
+                  <span>1-3</span>
+                  <span>4-7</span>
+                  <span>>7</span>
+                </div>
+                <div className="common_car_down">
+                  <span>ლ</span>
+                  <span>50</span>
+                  <span>50</span>
+                  <span>80</span>
+                </div>
               </div>
             </div>
           </div>
