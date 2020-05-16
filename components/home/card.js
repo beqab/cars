@@ -1,16 +1,17 @@
 import React, { Component } from "react";
+import Link from "next/link";
 
 class Card extends Component {
   render() {
     const { price } = this.props.data;
-    console.log(this.props.data, "sss");
+    // const { price, _id } = this.props.data;
     return (
       <div className="common_car_box">
         <div className="vip">
           <img src="/imgs/vip.png" alt="" />
         </div>
         <div className="common_box_img">
-          <a href="">
+          <a>
             <img
               src={"http://localhost:5000/" + this.props.data.images[0]}
               alt=""
