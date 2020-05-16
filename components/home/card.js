@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import Link from "next/link";
 
 class Card extends Component {
   render() {
-    const { price } = this.props.data;
+    const { price, _id } = this.props.data;
     console.log(this.props.data, "sss");
     return (
       <div className="common_car_box">
@@ -10,19 +11,23 @@ class Card extends Component {
           <img src="/imgs/vip.png" alt="" />
         </div>
         <div className="common_box_img">
-          <a href="">
-            <img
-              src="https://images.unsplash.com/photo-1505592225030-dad7a0531844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=755&q=80"
-              alt=""
-            />
-          </a>
+          <Link href={`/statement/${_id}`}>
+            <a>
+              <img
+                src="https://images.unsplash.com/photo-1505592225030-dad7a0531844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=755&q=80"
+                alt=""
+              />
+            </a>
+          </Link>
         </div>
         <div className="common_box_body">
           <div>
             <h2>
-              <a href="">
-                {this.props.data.producer} {this.props.data.carModel}
-              </a>
+              <Link href={`/statement/${_id}`}>
+                <a>
+                  {this.props.data.producer} {this.props.data.carModel}
+                </a>
+              </Link>
             </h2>
             <div className="car_common_properties">
               {this.props.data.backVision ? (
