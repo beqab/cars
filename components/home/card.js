@@ -3,31 +3,27 @@ import Link from "next/link";
 
 class Card extends Component {
   render() {
-    const { price, _id } = this.props.data;
-    console.log(this.props.data, "sss");
+    const { price } = this.props.data;
+    // const { price, _id } = this.props.data;
     return (
       <div className="common_car_box">
         <div className="vip">
           <img src="/imgs/vip.png" alt="" />
         </div>
         <div className="common_box_img">
-          <Link href={`/statement/${_id}`}>
-            <a>
-              <img
-                src="https://images.unsplash.com/photo-1505592225030-dad7a0531844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=755&q=80"
-                alt=""
-              />
-            </a>
-          </Link>
+          <a>
+            <img
+              src={"http://localhost:5000/" + this.props.data.images[0]}
+              alt=""
+            />
+          </a>
         </div>
         <div className="common_box_body">
           <div>
             <h2>
-              <Link href={`/statement/${_id}`}>
-                <a>
-                  {this.props.data.producer} {this.props.data.carModel}
-                </a>
-              </Link>
+              <a href="">
+                {this.props.data.producer} {this.props.data.carModel}
+              </a>
             </h2>
             <div className="car_common_properties">
               {this.props.data.backVision ? (
@@ -81,21 +77,23 @@ class Card extends Component {
             </div>
           </div>
           <div className="common_car_price_fluid">
-            <div className="common_car_price">
-              <span>{`${price} ₾`}</span>
-            </div>
-            <div className="common_car_days">
-              <div className="common_car_up">
-                <span>დ</span>
-                <span>1-3</span>
-                <span>4-7</span>
-                <span>>7</span>
+            <div className="common_car_footer">
+              <div className="common_car_price">
+                <span>{`${price} ₾`}</span>
               </div>
-              <div className="common_car_down">
-                <span>ლ</span>
-                <span>50</span>
-                <span>50</span>
-                <span>80</span>
+              <div className="common_car_days">
+                <div className="common_car_up">
+                  <span>დ</span>
+                  <span>1-3</span>
+                  <span>4-7</span>
+                  <span>>7</span>
+                </div>
+                <div className="common_car_down">
+                  <span>ლ</span>
+                  <span>50</span>
+                  <span>50</span>
+                  <span>80</span>
+                </div>
               </div>
             </div>
           </div>
