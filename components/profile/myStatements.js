@@ -25,7 +25,7 @@ class myStatements extends Component {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => {
+      .then(res => {
         console.log(res);
         this.setState({
           myStatements: res.data.reverse(),
@@ -54,14 +54,14 @@ class myStatements extends Component {
       });
 
       console.log(
-        this.state.myStatements.filter((el) => {
+        this.state.myStatements.filter(el => {
           console.log(el._id != this.state.curenCardId, this.state.curenCardId);
           return el._id != this.state.curenCardId;
         })
       );
       this.openConirmModal(null, false);
-      this.setState((prev) => ({
-        myStatements: prev.myStatements.filter((el) => {
+      this.setState(prev => ({
+        myStatements: prev.myStatements.filter(el => {
           console.log(el._id != prev.curenCardId, prev.curenCardId);
           return el._id != prev.curenCardId;
         }),
@@ -77,13 +77,13 @@ class myStatements extends Component {
     return (
       <div className="w-100">
         {this.state.onfirmModal && (
-          <div onClick={(e) => e.stopPropagation()} className="confirmModal">
+          <div onClick={e => e.stopPropagation()} className="confirmModal">
             <p>დარწმუნებული ხარ რო გინდა წაშლა?</p>
             <div className="d-flex mt-5 justify-content-around">
               <button onClick={this.deleteStatement} className="deleteBtn">
                 წაშლა
               </button>
-              <button onClick={(e) => this.openConirmModal(e, false)}>
+              <button onClick={e => this.openConirmModal(e, false)}>
                 გაუქმება
               </button>
             </div>
@@ -93,7 +93,7 @@ class myStatements extends Component {
         <div className="our_statement_fluid">
           <div className="container">
             <div className="row">
-              {this.state.myStatements.map((el) => {
+              {this.state.myStatements.map(el => {
                 return (
                   <div className="col-12 col-md-4">
                     <div className="common_car_box">
@@ -104,7 +104,7 @@ class myStatements extends Component {
                         <Link href={`/statement/${el._id}`}>
                           <a>
                             <img
-                              src={"http://localhost:5000/" + el.images[0]}
+                              src={"https://app.gcar.ge/" + el.images[0]}
                               alt=""
                             />
                           </a>
@@ -200,7 +200,7 @@ class myStatements extends Component {
                         </div>
                       </div>
                       <div
-                        onClick={(e) => e.stopPropagation()}
+                        onClick={e => e.stopPropagation()}
                         className="common_box_footer"
                       >
                         <div className="period_days">
@@ -221,7 +221,7 @@ class myStatements extends Component {
                         {this.state.curenCardId === el._id ? (
                           <div className="delete_edit">
                             <a
-                              onClick={(e) => this.openConirmModal(e, true)}
+                              onClick={e => this.openConirmModal(e, true)}
                               href=""
                             >
                               წაშლა

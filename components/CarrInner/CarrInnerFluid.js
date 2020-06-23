@@ -37,13 +37,13 @@ class carrInnerFluid extends Component {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => {
+      .then(res => {
         console.log(res);
         this.setState({
           curentStatement: res.data,
 
           images: res.data.images.map((el, index) => {
-            var link = "http://localhost:5000/";
+            var link = "https://app.gcar.ge/";
             return { original: link + el, thumbnail: link + el };
           }),
         });

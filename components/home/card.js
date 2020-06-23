@@ -13,7 +13,7 @@ class Card extends Component {
         <div className="common_box_img">
           <a>
             <img
-              src={"http://localhost:5000/" + this.props.data.images[0]}
+              src={"https://app.gcar.ge/" + this.props.data.images[0]}
               alt=""
             />
           </a>
