@@ -60,7 +60,9 @@ class Header extends Component {
                 </Link>
               </li>
               <li>
-                <Link href="/profile/addStatement">
+                <Link
+                  href={this.props.isAuth ? "/profile/addStatement" : "/login"}
+                >
                   <a>ჩემი გვერდი</a>
                 </Link>
               </li>

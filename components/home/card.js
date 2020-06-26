@@ -11,12 +11,14 @@ class Card extends Component {
           <img src="/imgs/vip.png" alt="" />
         </div>
         <div className="common_box_img">
-          <a>
-            <img
-              src={"https://app.gcar.ge/" + this.props.data.images[0]}
-              alt=""
-            />
-          </a>
+          <Link href={`/statement/${this.props.data._id}`}>
+            <a>
+              <img
+                src={"https://app.gcar.ge/" + this.props.data.images[0]}
+                alt=""
+              />
+            </a>
+          </Link>
         </div>
         <div className="common_box_body">
           <div>

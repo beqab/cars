@@ -27,6 +27,7 @@ export const authLogout = () => {
   Cookies.remove("user");
   Cookies.remove("token");
   Cookies.remove("expiresAt");
+  Router.push("/");
   return {
     type: "LOGOUT_USER",
   };

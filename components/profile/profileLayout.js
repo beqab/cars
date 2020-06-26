@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import ProfileFluid from "./profileFluid";
+import { connect } from "react-redux";
 import Router from "next/router";
 import Classnames from "classnames";
 
-import { useRouter } from "next/router";
 import { compose } from "redux";
 import Link from "next/link";
 import axios from "axios";
@@ -16,7 +16,12 @@ class profileLayout extends Component {
     statementSum: 0,
     pageType: null,
   };
+
   componentDidMount() {
+    if (!this.props.isAuth) {
+      Router.push("/");
+    }
+
     let token = Cookies.get("token");
     axios
       .get("statement/sum", {
@@ -141,4 +146,6 @@ class profileLayout extends Component {
   }
 }
 
-export default profileLayout;
+export default connect((state) => ({
+  isAuth: state.auth.isAuth,
+}))(profileLayout);
