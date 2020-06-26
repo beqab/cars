@@ -115,6 +115,8 @@
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   position: relative;
+  min-height: 465px;
+  background: gainsboro;
 }
 .image-gallery.fullscreen-modal {
   background: #000;
