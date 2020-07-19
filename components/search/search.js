@@ -34,7 +34,7 @@ class searchComponent extends Component {
     withDriver: null,
     statements: [],
 
-    startIndex: 0,
+    startIndex: 1,
 
     statemetnsInPage: 6,
   };
