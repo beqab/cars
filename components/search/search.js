@@ -29,7 +29,14 @@ class searchComponent extends Component {
     carModel: null,
     oilType: null,
     searchString: null,
+    endPrice: null,
+    startPrice: null,
+    withDriver: null,
     statements: [],
+
+    startIndex: 0,
+
+    statemetnsInPage: 6,
   };
 
   fetchStatemetns = async () => {
@@ -61,27 +68,110 @@ class searchComponent extends Component {
   changeHandler = (e) => {
     // console.log(e.target.name, e.target.value, ":chng");
     if (e.target.type === "checkbox") {
-      this.setState({
-        [e.target.name]: e.target.checked,
-      });
+      this.setState(
+        {
+          [e.target.name]: e.target.checked,
+        },
+        () => {
+          this.pushRoute();
+        }
+      );
     } else {
-      this.setState({
-        [e.target.name]: e.target.value,
-      });
+      this.setState(
+        {
+          [e.target.name]: e.target.value,
+        },
+        () => {
+          this.pushRoute();
+        }
+      );
     }
   };
 
-  handeleSearch = (e) => {
-    e.preventDefault();
+  pushRoute = () => {
     Router.push({
       pathname: "/search",
       query: {
         searchString: this.state.searchString,
         oilType: this.state.oilType,
         producer: this.state.producer,
+        location: this.state.location,
+        carModel: this.state.carModel,
+        startPrice: this.state.startPrice,
+        endPrice: this.state.endPrice,
+        withDriver: this.state.withDriver,
+        engin: this.state.engin,
+        startIndex: this.state.startIndex,
       },
     });
+  };
+
+  handeleSearch = (e) => {
+    e.preventDefault();
+
+    // console.log(this.state.producer);
+    // debugger;
+
     this.fetchStatemetns();
+  };
+
+  getStatmentsByPage = (startIndex) => {
+    // let index = 0;
+    if (this.state.statements.length > 0) {
+      return this.state.statements
+        .slice(
+          (this.state.startIndex - 1) * this.state.statemetnsInPage,
+          (this.state.startIndex - 1) * this.state.statemetnsInPage +
+            this.state.statemetnsInPage
+        )
+        .map((el) => {
+          // debugger;
+          // index++;
+          // if (index > 6) return;
+
+          return (
+            <div className="col-md-3">
+              {" "}
+              <Card data={el} />{" "}
+            </div>
+          );
+        });
+    }
+    // this.state.statements.length > 0 &&
+  };
+
+  setPaageIndex = (i) => {
+    this.setState(
+      {
+        startIndex: i,
+      },
+      () => {
+        this.pushRoute();
+      }
+    );
+  };
+
+  getPagination = () => {
+    let statementsSum = this.state.statements.length;
+    console.log(Math.ceil(statementsSum / 6));
+    // debugger;
+    let getPagination = [];
+    for (
+      let index = 0;
+      index < Math.ceil(statementsSum / this.state.statemetnsInPage);
+      index++
+    ) {
+      getPagination.push(
+        <span
+          className={this.state.startIndex == index + 1 && "active"}
+          onClick={() => this.setPaageIndex(index + 1)}
+        >
+          {index + 1}
+        </span>
+      );
+    }
+
+    return getPagination;
   };
 
   render() {
@@ -107,7 +197,8 @@ class searchComponent extends Component {
                   {/* <label>მწარმოებელი</label> */}
                   <Producer
                     changeHandlerfn={this.changeHandler}
-                    defaultValue="მწარმოებელი"
+                    defaultValue={"მწარმოებელი"}
+                    value={this.state.producer}
                   />
                 </div>
 
@@ -138,42 +229,89 @@ class searchComponent extends Component {
                     defaultValue="საწვავის ტიპი"
                   />
                 </div>
+
+                <div>
+                  {/* <label>მწარმოებელი</label> */}
+                  <Engin
+                    value={this.state.engin}
+                    changeHandlerfn={this.changeHandler}
+                    defaultValue="ძრავის მოცულობა"
+                  />
+                </div>
+                <div>
+                  {/* <label>მწარმოებელი</label> */}
+                  <Pessengers
+                    value={this.state.Pessengers}
+                    changeHandlerfn={this.changeHandler}
+                    defaultValue="პირთა ტევადობა"
+                  />
+                </div>
               </div>
 
               <div class="price_filter">
                 <label>ფასი</label>
                 <div>
-                  <input type="number" placeholder="დან" />
-                  <input type="number" placeholder="მდე" />
+                  <input
+                    onChange={this.changeHandler}
+                    name="startPrice"
+                    type="number"
+                    placeholder="დან"
+                    value={this.state.startPrice}
+                  />
+                  <input
+                    onChange={this.changeHandler}
+                    name="endPrice"
+                    type="number"
+                    placeholder="მდე"
+                    value={this.state.endPrice}
+                  />
                 </div>
               </div>
 
               <div className="common_checkbox">
                 <label class="checkbox_container">
                   მძღოლით
-                  <input type="radio" name="driver" />
+                  <input
+                    onChange={this.changeHandler}
+                    type="checkbox"
+                    name="withDriver"
+                    value={this.state.withDriver}
+                  />
                   <span class="checkmark"></span>
                 </label>
 
-                <label class="checkbox_container">
+                {/* <label class="checkbox_container">
                   მძღოლის გარეშე
-                  <input type="radio" name="driver" />
+                  <input
+                    onChange={this.changeHandler}
+                    type="checkbox"
+                    name="withDriver"
+                    value={this.state.withDriver}
+                  />
                   <span class="checkmark"></span>
-                </label>
+                </label> */}
               </div>
-              <div className="common_checkbox">
+              {/* <div className="common_checkbox">
                 <label class="checkbox_container">
                   საჭე მარჯვნივ
-                  <input type="radio" name="drive" />
+                  <input
+                    onChange={this.changeHandler}
+                    type="radio"
+                    name="drive"
+                  />
                   <span class="checkmark"></span>
                 </label>
 
                 <label class="checkbox_container">
                   საჭე მარცხნივ
-                  <input type="radio" name="drive" />
+                  <input
+                    onChange={this.changeHandler}
+                    type="radio"
+                    name="drive"
+                  />
                   <span class="checkmark"></span>
                 </label>
-              </div>
+              </div> */}
 
               <div className="button">
                 <button>ძებნა</button>
@@ -189,15 +327,43 @@ class searchComponent extends Component {
           <div className="home-car_section">
             <div className="container">
               <div className="row">
-                {this.state.statements.map((el) => {
+                {/* {this.state.statements.map((el) => {
                   return (
                     <div className="col-md-3">
                       {" "}
                       <Card data={el} />{" "}
                     </div>
                   );
-                })}
+                })} */}
+                {this.getStatmentsByPage(1)}
                 //////
+              </div>
+              {/* <bt /> */}
+              <hr />
+              <div className="pagination">
+                <button
+                  disabled={this.state.startIndex <= 1}
+                  onClick={() => {
+                    this.setPaageIndex(Number(this.state.startIndex) - 1);
+                  }}
+                >
+                  {"უკან <"}{" "}
+                </button>
+
+                {this.getPagination()}
+                <button
+                  disabled={
+                    this.state.startIndex >=
+                    Math.ceil(
+                      this.state.statements.length / this.state.statemetnsInPage
+                    )
+                  }
+                  onClick={() => {
+                    this.setPaageIndex(Number(this.state.startIndex) + 1);
+                  }}
+                >
+                  {"წინგ >"}{" "}
+                </button>
               </div>
             </div>
           </div>

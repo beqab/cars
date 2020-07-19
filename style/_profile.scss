@@ -464,6 +464,8 @@ input[type="number"] {
 .car_common_properties {
   display: flex;
   flex-wrap: wrap;
+  height: 166px;
+  overflow-y: scroll;
   & > div {
     display: flex;
     align-items: center;

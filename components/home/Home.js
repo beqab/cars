@@ -24,6 +24,8 @@ class Home extends Component {
     doors: null,
     oilType: null,
     Pessengers: null,
+    endPrice: null,
+    startPrice: null,
     text: null,
     price: "40 ლარი",
     searchString: "",
@@ -44,6 +46,12 @@ class Home extends Component {
         searchString: this.state.searchString,
         oilType: this.state.oilType,
         producer: this.state.producer,
+        location: this.state.location,
+        carModel: this.state.carModel,
+        oilType: this.state.oilType,
+        endPrice: this.state.endPrice,
+        startPrice: this.state.startPrice,
+        engin: this.state.engin,
       },
     });
   };
@@ -96,8 +104,18 @@ class Home extends Component {
                 <div className="price_filter">
                   <label>ფასი</label>
                   <div>
-                    <input type="number" placeholder="დან" />
-                    <input type="number" placeholder="მდე" />
+                    <input
+                      onChange={this.changeHandler}
+                      type="number"
+                      name="startPrice"
+                      placeholder="დან"
+                    />
+                    <input
+                      onChange={this.changeHandler}
+                      type="number"
+                      name="endPrice"
+                      placeholder="მდე"
+                    />
                   </div>
                 </div>
 
@@ -120,7 +138,7 @@ class Home extends Component {
               </div>
 
               <div className="filter_button">
-                <button>ძებნა</button>
+                <button onClick={(e) => this.handeleSearch(e)}>ძებნა</button>
               </div>
             </form>
           </div>

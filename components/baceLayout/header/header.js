@@ -9,7 +9,9 @@ class Header extends Component {
       <header>
         <div id="logo_socials">
           <Link href="/">
-            <img src="/imgs/logo.png" alt="" />
+            <a>
+              <img src="/imgs/logo.png" alt="" />
+            </a>
           </Link>
         </div>
 

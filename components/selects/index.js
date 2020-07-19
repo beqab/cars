@@ -1,12 +1,12 @@
 import cars from "../profile/carsApi.json";
 
-export const Producer = ({ changeHandlerfn, defaultValue }) => {
+export const Producer = ({ changeHandlerfn, defaultValue, value }) => {
   return (
     <select name="producer" onChange={(e) => changeHandlerfn(e)}>
       <option> {defaultValue ? defaultValue : "აირჩიე"}</option>
       {cars.map((car, i) => {
         return (
-          <option key={i} value={car.name}>
+          <option key={i} selected={value == car.name} value={car.name}>
             {car.name}
           </option>
         );
@@ -325,145 +325,145 @@ export const Location = ({ value, changeHandlerfn, defaultValue }) => {
   return (
     <select name="location" onChange={(e) => changeHandlerfn(e)}>
       <option> {defaultValue ? defaultValue : "აირჩიე"}</option>
-      <option selected={value === "თბილისი"} value=" თბილისი">
+      <option selected={value === "თბილისი"} value="თბილისი">
         თბილისი
       </option>
-      <option selected={value === "ქუთაისი"} value=" ქუთაისი">
+      <option selected={value === "ქუთაისი"} value="ქუთაისი">
         ქუთაისი
       </option>
-      <option selected={value === "ბათუმი"} value=" ბათუმი">
+      <option selected={value === "ბათუმი"} value="ბათუმი">
         ბათუმი
       </option>
-      <option selected={value === "ფოთი"} value=" ფოთი">
+      <option selected={value === "ფოთი"} value="ფოთი">
         ფოთი
       </option>
-      <option selected={value === "რუსთავი"} value=" რუსთავი">
+      <option selected={value === "რუსთავი"} value="რუსთავი">
         რუსთავი
       </option>
-      <option selected={value === "ჩხოროწყუ"} value=" ჩხოროწყუ">
+      <option selected={value === "ჩხოროწყუ"} value="ჩხოროწყუ">
         ჩხოროწყუ
       </option>
-      <option selected={value === "ჭიათურა"} value=" ჭიათურა">
+      <option selected={value === "ჭიათურა"} value="ჭიათურა">
         ჭიათურა
       </option>
-      <option selected={value === "მარტვილი"} value=" მარტვილი">
+      <option selected={value === "მარტვილი"} value="მარტვილი">
         მარტვილი
       </option>
-      <option selected={value === "გურჯაანი"} value=" გურჯაანი">
+      <option selected={value === "გურჯაანი"} value="გურჯაანი">
         გურჯაანი
       </option>
-      <option selected={value === "საგარეჯო"} value=" საგარეჯო">
+      <option selected={value === "საგარეჯო"} value="საგარეჯო">
         საგარეჯო
       </option>
-      <option selected={value === "კასპი"} value=" კასპი">
+      <option selected={value === "კასპი"} value="კასპი">
         კასპი
       </option>
-      <option selected={value === "ბორჯომი"} value=" ბორჯომი">
+      <option selected={value === "ბორჯომი"} value="ბორჯომი">
         ბორჯომი
       </option>
-      <option selected={value === "დუშეთი"} value=" დუშეთი">
+      <option selected={value === "დუშეთი"} value="დუშეთი">
         დუშეთი
       </option>
-      <option selected={value === "ახმეტა"} value=" ახმეტა">
+      <option selected={value === "ახმეტა"} value="ახმეტა">
         ახმეტა
       </option>
-      <option selected={value === "ზესტაფონი"} value=" ზესტაფონი">
+      <option selected={value === "ზესტაფონი"} value="ზესტაფონი">
         ზესტაფონი
       </option>
-      <option selected={value === "ლაგოდეხი"} value=" ლაგოდეხი">
+      <option selected={value === "ლაგოდეხი"} value="ლაგოდეხი">
         ლაგოდეხი
       </option>
-      <option selected={value === "ახალციხე"} value=" ახალციხე">
+      <option selected={value === "ახალციხე"} value="ახალციხე">
         ახალციხე
       </option>
-      <option selected={value === "ქობულეთი"} value=" ქობულეთი">
+      <option selected={value === "ქობულეთი"} value="ქობულეთი">
         ქობულეთი
       </option>
-      <option selected={value === "სოხუმი"} value=" სოხუმი">
+      <option selected={value === "სოხუმი"} value="სოხუმი">
         სოხუმი
       </option>
-      <option selected={value === "ცხინვალი"} value=" ცხინვალი">
+      <option selected={value === "ცხინვალი"} value="ცხინვალი">
         ცხინვალი
       </option>
-      <option selected={value === "თელავი"} value=" თელავი">
+      <option selected={value === "თელავი"} value="თელავი">
         თელავი
       </option>
-      <option selected={value === "ზუგდიდი"} value=" ზუგდიდი">
+      <option selected={value === "ზუგდიდი"} value="ზუგდიდი">
         ზუგდიდი
       </option>
-      <option selected={value === "ოზურგეთი"} value=" ოზურგეთი">
+      <option selected={value === "ოზურგეთი"} value="ოზურგეთი">
         ოზურგეთი
       </option>
-      <option selected={value === "ამბროლაური"} value=" ამბროლაური">
+      <option selected={value === "ამბროლაური"} value="ამბროლაური">
         ამბროლაური
       </option>
-      <option selected={value === "მცხეთა"} value=" მცხეთა">
+      <option selected={value === "მცხეთა"} value="მცხეთა">
         მცხეთა
       </option>
-      <option selected={value === "ახალქალაქი"} value=" ახალქალაქი">
+      <option selected={value === "ახალქალაქი"} value="ახალქალაქი">
         ახალქალაქი
       </option>
-      <option selected={value === "გორი"} value=" გორი">
+      <option selected={value === "გორი"} value="გორი">
         გორი
       </option>
-      <option selected={value === "ხაშური"} value=" ხაშური">
+      <option selected={value === "ხაშური"} value="ხაშური">
         ხაშური
       </option>
-      <option selected={value === "სენაკი"} value=" სენაკი">
+      <option selected={value === "სენაკი"} value="სენაკი">
         სენაკი
       </option>
-      <option selected={value === "სიღნაღი"} value=" სიღნაღი">
+      <option selected={value === "სიღნაღი"} value="სიღნაღი">
         სიღნაღი
       </option>
-      <option selected={value === "ქარელი"} value=" ქარელი">
+      <option selected={value === "ქარელი"} value="ქარელი">
         ქარელი
       </option>
-      <option selected={value === "მარნეული"} value=" მარნეული">
+      <option selected={value === "მარნეული"} value="მარნეული">
         მარნეული
       </option>
-      <option selected={value === "გარდაბანი"} value=" გარდაბანი">
+      <option selected={value === "გარდაბანი"} value="გარდაბანი">
         გარდაბანი
       </option>
-      <option selected={value === "სამტრედია"} value=" სამტრედია">
+      <option selected={value === "სამტრედია"} value="სამტრედია">
         სამტრედია
       </option>
-      <option selected={value === "მესტია"} value=" მესტია">
+      <option selected={value === "მესტია"} value="მესტია">
         მესტია
       </option>
-      <option selected={value === "საჩხერე"} value=" საჩხერე">
+      <option selected={value === "საჩხერე"} value="საჩხერე">
         საჩხერე
       </option>
-      <option selected={value === "ხობი"} value=" ხობი">
+      <option selected={value === "ხობი"} value="ხობი">
         ხობი
       </option>
-      <option selected={value === "თიანეთი"} value=" თიანეთი">
+      <option selected={value === "თიანეთი"} value="თიანეთი">
         თიანეთი
       </option>
-      <option selected={value === "ყვარელი"} value=" ყვარელი">
+      <option selected={value === "ყვარელი"} value="ყვარელი">
         ყვარელი
       </option>
-      <option selected={value === "ტყიბული"} value=" ტყიბული">
+      <option selected={value === "ტყიბული"} value="ტყიბული">
         ტყიბული
       </option>
-      <option selected={value === "დედოფლისწყარო"} value=" დედოფლისწყარო">
+      <option selected={value === "დედოფლისწყარო"} value="დედოფლისწყარო">
         დედოფლისწყარო
       </option>
-      <option selected={value === "ონი"} value=" ონი">
+      <option selected={value === "ონი"} value="ონი">
         ონი
       </option>
-      <option selected={value === "ბოლნისი"} value=" ბოლნისი">
+      <option selected={value === "ბოლნისი"} value="ბოლნისი">
         ბოლნისი
       </option>
-      <option selected={value === "წყალტუბო"} value=" წყალტუბო">
+      <option selected={value === "წყალტუბო"} value="წყალტუბო">
         წყალტუბო
       </option>
-      <option selected={value === "თეთრიწყარო"} value=" თეთრიწყარო">
+      <option selected={value === "თეთრიწყარო"} value="თეთრიწყარო">
         თეთრიწყარო
       </option>
-      <option selected={value === "თიანეთი"} value=" თიანეთი">
+      <option selected={value === "თიანეთი"} value="თიანეთი">
         თიანეთი
       </option>
-      <option selected={value === "ჟინვალი"} value=" ჟინვალი">
+      <option selected={value === "ჟინვალი"} value="ჟინვალი">
         ჟინვალი
       </option>
     </select>
