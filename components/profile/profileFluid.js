@@ -5,6 +5,8 @@ import classnames from "classnames";
 import cars from "./carsApi.json";
 import axios from "axios";
 import Router from "next/router";
+import Cookies from "js-cookie";
+
 import {
   Doors,
   Engin,
@@ -18,7 +20,7 @@ import {
 
 class ProfileFluid extends Component {
   state = {
-    imgs: [],
+    images: [],
     defaultImgIndex: 0,
     producer: null,
     category: null,
@@ -60,16 +62,51 @@ class ProfileFluid extends Component {
     phone: null,
     email: null,
     address: "",
+
+    statementId: null,
   };
   fileInput = React.createRef();
+
+  componentDidMount() {
+    console.log(Router.router.query.id, "rrrrrrrr");
+    if (Router.router.query.id) {
+      let token = Cookies.get("token");
+      this.setState({
+        statementId: Router.router.query.id,
+      });
+      axios
+        .get("statement/", {
+          params: { statementId: Router.router.query.id },
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+
+          // debugger;
+          this.setState({
+            ...res.data,
+            images: res.data.images.map((el, index) => {
+              var link = "https://app.gcar.ge/";
+              return { uploadedImg: link + el, thumbnail: link + el };
+            }),
+            //   images: res.data.images.map((el, index) => {
+            //     var link = "https://app.gcar.ge/";
+            //     return { original: link + el, thumbnail: link + el };
+            //   }),
+          });
+        });
+    }
+  }
 
   fileSelectedHandler = (event) => {
     if (event.target.files && event.target.files[0]) {
       let imgUp = event.target.files[0];
       this.setState((prev) => {
         return {
-          imgs: [
-            ...prev.imgs,
+          images: [
+            ...prev.images,
             {
               selectedFile: imgUp,
 
@@ -94,7 +131,7 @@ class ProfileFluid extends Component {
     let imgs = [];
 
     for (let index = 0; index < 6; index++) {
-      if (index < this.state.imgs.length) {
+      if (index < this.state.images.length) {
         imgs.push(
           <div
             onClick={() => this.setEsDefault(index)}
@@ -103,7 +140,7 @@ class ProfileFluid extends Component {
               active: index === this.state.defaultImgIndex,
             })}
           >
-            <img src={this.state.imgs[index].uploadedImg} />
+            <img src={this.state.images[index].uploadedImg} />
           </div>
         );
       } else {
@@ -142,10 +179,10 @@ class ProfileFluid extends Component {
   saveStatement = () => {
     let image = new FormData();
 
-    if (this.state.imgs.length) {
-      this.state.imgs.map((el, i) => {
+    if (this.state.images.length) {
+      this.state.images.map((el, i) => {
         image.append("image", el.selectedFile);
-        // image.append("image"+i, this.state.imgs[0].selectedFile );
+        // image.append("image"+i, this.state.images[0].selectedFile );
       });
     }
     image.append("category", this.state.category);
@@ -176,6 +213,11 @@ class ProfileFluid extends Component {
     image.append("rentDaily", this.state.rentDaily);
     image.append("insured", this.state.insured);
     image.append("withDriver", this.state.withDriver);
+
+    // statement Id
+    if (this.state.statementId) {
+      image.append("statementId", this.state.statementId);
+    }
 
     // user
     image.append(
@@ -270,7 +312,11 @@ class ProfileFluid extends Component {
               add_anime: this.state.loader,
             })}
           >
-            <span>განცხადება წარმატებით დაემატა...</span>
+            <span>
+              {!this.state.statementId
+                ? "განცხადება წარმატებით დაემატა..."
+                : "განცხადება ჩასწორებულია"}
+            </span>
           </div>
           <div className="profile_main_content_header">
             <div>
@@ -280,6 +326,11 @@ class ProfileFluid extends Component {
               <a href="">მანქანით მომსახურება</a>
             </div>
           </div>
+
+          <h2 className="text-center m-4">
+            {" "}
+            {this.state.statementId && " განცხადების რედაქტირება"}
+          </h2>
 
           <div className="profile_main_inputs">
             <div className="profile_input_box">
@@ -298,7 +349,10 @@ class ProfileFluid extends Component {
             <div className="profile_input_box">
               <div>
                 <label>მწარმოებელი</label>
-                <Producer changeHandlerfn={this.changeHandler} />
+                <Producer
+                  value={this.state.producer}
+                  changeHandlerfn={this.changeHandler}
+                />
               </div>
               {this.state.producerError ? (
                 <span className="error_msg">{this.state.producerError}</span>
@@ -335,7 +389,11 @@ class ProfileFluid extends Component {
             <div className="profile_input_box">
               <div>
                 <label>გამოშვების წელი</label>
-                <select name="carAge" onChange={this.changeHandler}>
+                <select
+                  name="carAge"
+                  value={this.state.carAge}
+                  onChange={this.changeHandler}
+                >
                   <option>აირჩიე</option>
                   {this.getYear()}
                 </select>
@@ -618,7 +676,7 @@ class ProfileFluid extends Component {
             <div className="imageUploadContainer d-flex mt-5">
               <div
                 className={classnames("imgUload", {
-                  "disable-upload": this.state.imgs.length == 5,
+                  "disable-upload": this.state.images.length == 5,
                 })}
                 onClick={() => {
                   let a = this.fileInput.current;
@@ -721,7 +779,9 @@ class ProfileFluid extends Component {
             </div>
             <div className="up_button_fluid">
               <button onClick={this.saveStatement} className="up_button">
-                გამოქვეყნება
+                {this.state.statementId
+                  ? " განცხადების რედაქტირება"
+                  : "გამოქვეყნება"}
               </button>
             </div>
           </div>
