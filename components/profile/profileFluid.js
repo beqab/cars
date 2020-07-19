@@ -122,11 +122,16 @@ class ProfileFluid extends Component {
     // let fd = new FormData();
     // fd.append("image", this.state.selectedFile, this.state.selectedFile.name);
   };
+
   setEsDefault = (i) => {
-    this.setState({
-      defaultImgIndex: i,
-    });
+    this.setState((prev) => ({
+      images: [
+        prev.images[i],
+        ...prev.images.filter((el, index) => (index !== i ? el : null)),
+      ],
+    }));
   };
+
   getImgs = () => {
     let imgs = [];
 

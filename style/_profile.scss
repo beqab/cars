@@ -376,6 +376,9 @@ input[type="number"] {
     border: solid 1px #b4b4b4;
     background-color: #ebebeb;
     margin-right: 3px;
+    &.active {
+      transform: scale(1.1);
+    }
     img {
       width: 100%;
       height: 100%;
