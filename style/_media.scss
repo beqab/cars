@@ -102,4 +102,94 @@
   .header_navigation nav.active {
     display: block !important;
   }
+
+  .profile_fluid {
+    display: block;
+    width: 100%;
+    margin: 10px auto;
+    padding: 0 10px;
+  }
+
+  .profile_left_tabs {
+    border: none;
+  }
+  .profile_main_content .profile_main_content_header a,
+  .profile_main_content .profile_main_content_header > div {
+    display: block;
+  }
+  .profile_input_box {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  .profile_main_inputs {
+    display: block;
+  }
+  .profile_input_box label {
+    padding-left: 18px;
+    font-size: 13px;
+  }
+  .profile_input_box select {
+    font-size: 13px;
+  }
+  .drive_col {
+    margin: 20px 0 20px;
+    display: block;
+  }
+  .drive_col label {
+    max-width: 100%;
+  }
+  .checkbox_container {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .checkbox_wrapper .checkbox_fluid {
+    display: block;
+  }
+  .contact_info_fluid {
+    margin-top: 20px;
+  }
+  .contact_info_fluid > div {
+    display: block !important;
+  }
+  .contact_info_fluid .imageUploadContainer {
+    display: flex !important;
+    flex-wrap: wrap;
+  }
+  .contact_label input {
+    width: 100%;
+  }
+  .profile_textarea {
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+  .profile_textarea textarea {
+    margin-top: 0;
+  }
+  .up_button_fluid {
+    text-align: center;
+  }
+  .redact_title {
+    font-size: 17px;
+    margin: 30px 0px 11px !important;
+  }
+  .personal_info_fluid {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+  .personal_info_container {
+    padding: 10px 5px 15px 10px;
+  }
+  .personal_info_container label {
+    width: auto;
+  }
+  .personal_top_info > div,
+  .personal_bottom > div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .personal_info_container input {
+    border: 1px solid #f5bd1f;
+  }
 }
