@@ -156,3 +156,67 @@ footer {
     }
   }
 }
+
+.menu-btn {
+  width: 35px;
+  height: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  top: 5px;
+  right: 2px;
+}
+
+.menu-btn__burger {
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  left: 3px;
+  top: 17px;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+.menu-btn__burger::after {
+  top: 1px;
+}
+.menu-btn__burger::before {
+  transform: translateY(-16px);
+}
+
+.menu-btn__burger::after {
+  transform: translateY(16px);
+}
+
+.menu-btn.open .menu-btn__burger {
+  transform: translateX(-50px);
+  background: transparent;
+}
+
+.menu-btn.open .menu-btn__burger::before {
+  transform: rotate(45deg) translate(22px, -43px);
+  background: #f5bd1f;
+}
+
+.menu-btn.open .menu-btn__burger::after {
+  transform: rotate(-42deg) translate(34px, 32px);
+  background: #f5bd1f;
+}
+
+// .menu-btn.open {
+//   border: 3px solid #f5bd1f;
+// }
