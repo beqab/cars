@@ -3,7 +3,24 @@
     display: none;
   }
 }
+@media only screen and (max-width: 1200px) {
+  .carrinner_fluid {
+    padding: 30px 25px 0;
+  }
+}
 @media only screen and (max-width: 992px) {
+  .carrinner_fluid .carrinner_wrapper {
+    display: block;
+  }
+  .car_list_box ul li {
+    flex: 0 0 48%;
+    max-width: 48%;
+    margin-right: 2%;
+  }
+  .right_inf_wrapper {
+    padding-left: 0px;
+    margin-top: 10px;
+  }
   .header_navigation {
     nav {
       display: none;
@@ -191,5 +208,37 @@
   }
   .personal_info_container input {
     border: 1px solid #f5bd1f;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .car_list_box ul li {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-right: 0%;
+  }
+  .carrinner_fluid {
+    padding: 15px 10px 0;
+  }
+  .main_carousel_bottom_info .common_car_price_fluid {
+    padding: 0px 0 10px 7px;
+  }
+  .image-gallery-slide.center {
+    height: 184px;
+  }
+
+  .image-gallery {
+    min-height: unset;
+  }
+  .common_car_days {
+    margin-left: 10px;
+    flex-grow: 1;
+  }
+  .main_carousel_bottom_info .common_car_price_fluid .common_car_days span {
+    font-size: 14px;
+
+    flex: 0 0 45px;
+    max-width: 45px;
+    margin-right: 4px;
   }
 }
