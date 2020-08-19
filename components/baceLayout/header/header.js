@@ -4,6 +4,25 @@ import Link from "next/link";
 import {connect} from "react-redux";
 import {authLogout} from "../../../redux/auth/authActions";
 class Header extends Component {
+    componentDidMount() {
+        //to do
+        var menuBtn = document.querySelector(".menu-btn");
+        var nav = document.querySelector("nav");
+        var menuOpen = false;
+        menuBtn.addEventListener("click", () => {
+            if (!menuOpen) {
+                menuBtn.classList.add("open");
+                nav.classList.add("active");
+
+                menuOpen = true;
+            } else {
+                menuBtn.classList.remove("open");
+                nav.classList.remove("active");
+                menuOpen = false;
+            }
+        });
+    }
+
     render() {
         return (
             <header>
@@ -44,6 +63,9 @@ class Header extends Component {
                                 <a>შესვლა</a>
                             </Link>
                         )}
+                        <div class="menu-btn">
+                            <div class="menu-btn__burger"></div>
+                        </div>
 
                         <a id="language" href="">
                             En

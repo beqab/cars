@@ -1,0 +1,244 @@
+@media only screen and (min-width: 992px) {
+  .menu-btn {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .carrinner_fluid {
+    padding: 30px 25px 0;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .carrinner_fluid .carrinner_wrapper {
+    display: block;
+  }
+  .car_list_box ul li {
+    flex: 0 0 48%;
+    max-width: 48%;
+    margin-right: 2%;
+  }
+  .right_inf_wrapper {
+    padding-left: 0px;
+    margin-top: 10px;
+  }
+  .header_navigation {
+    nav {
+      display: none;
+    }
+  }
+
+  header {
+    padding: 10px 10px 10px 10px;
+  }
+
+  #home_main {
+    display: block;
+    height: auto;
+    padding: 10px;
+  }
+
+  .filters form {
+    padding: 15px 15px;
+  }
+  .filter_body > div label {
+    font-size: 12px;
+  }
+
+  .home_main_text h2 {
+    font-size: 25px;
+    margin: 15px 0 5px;
+  }
+  footer {
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  footer > div:not(:last-child) {
+    margin-right: 0;
+  }
+  .footer_nav {
+    margin: 10px 0 0;
+  }
+  .home-car_section {
+    padding: 0px 10px 10px 10px;
+  }
+  .home-car_section .see_more_col {
+    margin-top: 10px;
+  }
+  footer div {
+    min-width: 140px;
+  }
+  #logo_socials img {
+    width: 90px;
+  }
+
+  #language {
+    display: none;
+  }
+  .login a {
+    font-size: 14px;
+  }
+  .login {
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 30px;
+  }
+
+  #login {
+    svg {
+      width: 15px;
+    }
+  }
+  #login ~ button {
+    margin: 12px 0px 0 0;
+  }
+
+  .home-car_section {
+    .common_car_box {
+      margin-bottom: 20px;
+    }
+  }
+  .header_navigation nav {
+    position: absolute;
+    background: #2a2a2a;
+    width: 100vw;
+    top: 74px;
+    left: 0;
+    padding-bottom: 24px;
+    z-index: 3333;
+    padding-left: 16px;
+    height: calc(100vh - 74px);
+  }
+  .header_navigation nav {
+    ul {
+      flex-direction: column;
+      padding-left: 15px;
+      padding-bottom: 20px;
+    }
+  }
+  .header_navigation nav.active {
+    display: block !important;
+  }
+
+  .profile_fluid {
+    display: block;
+    width: 100%;
+    margin: 10px auto;
+    padding: 0 10px;
+  }
+
+  .profile_left_tabs {
+    border: none;
+  }
+  .profile_main_content .profile_main_content_header a,
+  .profile_main_content .profile_main_content_header > div {
+    display: block;
+  }
+  .profile_input_box {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  .profile_main_inputs {
+    display: block;
+  }
+  .profile_input_box label {
+    padding-left: 18px;
+    font-size: 13px;
+  }
+  .profile_input_box select {
+    font-size: 13px;
+  }
+  .drive_col {
+    margin: 20px 0 20px;
+    display: block;
+  }
+  .drive_col label {
+    max-width: 100%;
+  }
+  .checkbox_container {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .checkbox_wrapper .checkbox_fluid {
+    display: block;
+  }
+  .contact_info_fluid {
+    margin-top: 20px;
+  }
+  .contact_info_fluid > div {
+    display: block !important;
+  }
+  .contact_info_fluid .imageUploadContainer {
+    display: flex !important;
+    flex-wrap: wrap;
+  }
+  .contact_label input {
+    width: 100%;
+  }
+  .profile_textarea {
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+  .profile_textarea textarea {
+    margin-top: 0;
+  }
+  .up_button_fluid {
+    text-align: center;
+  }
+  .redact_title {
+    font-size: 17px;
+    margin: 30px 0px 11px !important;
+  }
+  .personal_info_fluid {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+  .personal_info_container {
+    padding: 10px 5px 15px 10px;
+  }
+  .personal_info_container label {
+    width: auto;
+  }
+  .personal_top_info > div,
+  .personal_bottom > div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .personal_info_container input {
+    border: 1px solid #f5bd1f;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .car_list_box ul li {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-right: 0%;
+  }
+  .carrinner_fluid {
+    padding: 15px 10px 0;
+  }
+  .main_carousel_bottom_info .common_car_price_fluid {
+    padding: 0px 0 10px 7px;
+  }
+  .image-gallery-slide.center {
+    height: 184px;
+  }
+
+  .image-gallery {
+    min-height: unset;
+  }
+  .common_car_days {
+    margin-left: 10px;
+    flex-grow: 1;
+  }
+  .main_carousel_bottom_info .common_car_price_fluid .common_car_days span {
+    font-size: 14px;
+
+    flex: 0 0 45px;
+    max-width: 45px;
+    margin-right: 4px;
+  }
+}

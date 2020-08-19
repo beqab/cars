@@ -635,7 +635,12 @@
 .image-gallery-content {
   &.fullscreen {
     height: 100vh;
-
+    .image-gallery-slides {
+      height: inherit !important;
+    }
+    .image-gallery-slide {
+      height: inherit !important;
+    }
     .image-gallery-swipe {
       height: 100vh;
       & > div {
