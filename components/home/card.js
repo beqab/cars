@@ -80,22 +80,9 @@ class Card extends Component {
           </div>
           <div className="common_car_price_fluid">
             <div className="common_car_footer">
+              <span>დღიურად</span>
               <div className="common_car_price">
                 <span>{`${price} ₾`}</span>
-              </div>
-              <div className="common_car_days">
-                <div className="common_car_up">
-                  <span>დ</span>
-                  <span>1-3</span>
-                  <span>4-7</span>
-                  <span>>7</span>
-                </div>
-                <div className="common_car_down">
-                  <span>ლ</span>
-                  <span>50</span>
-                  <span>50</span>
-                  <span>80</span>
-                </div>
               </div>
             </div>
           </div>

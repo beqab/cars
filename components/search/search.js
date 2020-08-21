@@ -130,7 +130,7 @@ class searchComponent extends Component {
           // if (index > 6) return;
 
           return (
-            <div className="col-md-3">
+            <div className="col-md-3 col-lg-4">
               {" "}
               <Card data={el} />{" "}
             </div>
@@ -166,7 +166,7 @@ class searchComponent extends Component {
           className={this.state.startIndex == index + 1 && "active"}
           onClick={() => this.setPaageIndex(index + 1)}
         >
-          {index + 1}
+          <span>{index + 1}</span>
         </span>
       );
     }
@@ -336,7 +336,6 @@ class searchComponent extends Component {
                   );
                 })} */}
                 {this.getStatmentsByPage(1)}
-                //////
               </div>
               {/* <bt /> */}
               <hr />
@@ -347,7 +346,7 @@ class searchComponent extends Component {
                     this.setPaageIndex(Number(this.state.startIndex) - 1);
                   }}
                 >
-                  {"უკან <"}{" "}
+                  {"<"}{" "}
                 </button>
 
                 {this.getPagination()}
@@ -362,7 +361,7 @@ class searchComponent extends Component {
                     this.setPaageIndex(Number(this.state.startIndex) + 1);
                   }}
                 >
-                  {"წინგ >"}{" "}
+                  {">"}{" "}
                 </button>
               </div>
             </div>

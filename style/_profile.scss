@@ -438,11 +438,20 @@ input[type="number"] {
       width: 100%;
       height: 150px;
       background: gray;
+      overflow: hidden;
+      border-radius: 3px;
       img {
         height: 150px;
         width: 100%;
         object-fit: cover;
         border-radius: 3px;
+        transition: all 0.3s;
+      }
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.05);
       }
     }
   }
@@ -508,18 +517,20 @@ input[type="number"] {
   align-items: center;
   justify-content: space-between;
   margin: 2px 0 0;
-  background-color: #ebebeb;
+  background-color: #f5bd1f;
   border-top: 1px solid #b4b4b4;
-  border-right: 1px solid #b4b4b4;
+  // border-right: 1px solid #b4b4b4;
   padding: 10px 10px 10px;
 
   .common_car_footer {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .common_car_price {
     span {
       color: #2a2a2a;
-      font-size: 20px;
+      font-size: 29px;
       font-family: "Abril Fatface";
       font-weight: bold;
     }
@@ -955,7 +966,7 @@ input[type="number"] {
   }
 
   .price_days_down {
-    background-color: #ebebeb;
+    background-color: #2a2a2a;
 
     & > div:not(:last-child) {
       border-right: 1px solid #b7b7b7 !important;
@@ -974,17 +985,19 @@ input[type="number"] {
   width: 100%;
 
   .price_filter {
-    background-color: #ebebeb;
+    background-color: #2a2a2a;
     margin-top: 10px;
     padding: 10px 15px 15px 15px;
+    border-radius: 5px;
 
     input {
-      border-color: #a1a1a1 !important;
       font-size: 14px;
     }
     label {
-      margin-bottom: 0;
       font-size: 14px;
+      color: #f5bd1f;
+      padding-left: 10px;
+      margin-bottom: 5px;
     }
   }
 
@@ -1002,8 +1015,8 @@ input[type="number"] {
     margin-top: 10px;
     justify-content: center;
     button {
-      background-color: #a1a1a1;
-      color: #fff;
+      background-color: $main-color;
+      color: $brand-color;
       font-size: 16px;
       border: none;
       outline: none;
@@ -1011,6 +1024,7 @@ input[type="number"] {
       padding: 9px 20px 6px;
       cursor: pointer;
       transition: all 0.4s;
+      min-width: 100px;
     }
   }
 
@@ -1023,9 +1037,9 @@ input[type="number"] {
   }
 
   .filter_body {
-    background-color: #ebebeb;
-    border-color: #2a2a2a;
-    padding: 15px 15px 5px 15px;
+    background-color: #2a2a2a;
+    border-radius: 5px;
+    padding: 25px 20px 10px 20px;
 
     & > div {
       width: 100%;
@@ -1034,32 +1048,48 @@ input[type="number"] {
 
       select {
         font-size: 14px;
-        border-color: #a1a1a1;
       }
     }
   }
 }
 
 .common_checkbox {
-  background-color: #ebebeb;
+  background-color: #2a2a2a;
   margin-top: 10px;
   padding: 15px 15px 5px 15px;
+  border-radius: 5px;
 
   .checkbox_container {
     flex: 0 0 100%;
     max-width: 100%;
 
     .checkmark {
-      border: 1px solid #a1a1a1;
-
+      background: #fff;
       &:after {
-        border: solid #a1a1a1;
+        border: solid $brand-color;
         border-width: 0 3px 3px 0;
       }
     }
     input:checked ~ .checkmark {
       background-color: #ebebeb;
     }
+  }
+}
+
+.home-car_section {
+  .container {
+    .row {
+      .col-md-3 {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+.filters {
+  .checkbox_container {
+    color: $main-color;
   }
 }
 
