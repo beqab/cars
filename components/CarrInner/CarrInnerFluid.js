@@ -37,7 +37,7 @@ class carrInnerFluid extends Component {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then(res => {
+      .then((res) => {
         console.log(res);
         this.setState({
           curentStatement: res.data,
@@ -173,7 +173,16 @@ class carrInnerFluid extends Component {
             ) : null}
           </div>
         </div>
-
+        {curentStatement.text && (
+          <div className="common_about">
+            <div className="common_about_title">
+              <h3>ზოგადი აღწერა</h3>
+            </div>
+            <div className="common_about_text">
+              <p>{curentStatement.text}</p>
+            </div>
+          </div>
+        )}
         <div className="car_list_wrapper">
           <div className="car_list_title">
             <span>ძირითადი მონაცემები</span>
@@ -227,7 +236,7 @@ class carrInnerFluid extends Component {
           </div>
         </div>
 
-        <div className="car_list_wrapper no_border">
+        <div className="car_list_wrapper car_list_add_info no_border">
           <div className="car_list_title">
             <span>დამატებითი ინფორმაცია</span>
           </div>
@@ -235,7 +244,6 @@ class carrInnerFluid extends Component {
           <div className="car_list_box">
             <ul>
               <li>
-                <span>მოცურების საწინააღმდეგო</span>
                 <span className="checkminus_span">
                   {curentStatement.antiMocureb ? (
                     <img src="/imgs/check.png" alt="" />
@@ -243,10 +251,10 @@ class carrInnerFluid extends Component {
                     <img src="/imgs/minus.png" alt="" />
                   )}
                 </span>
+                <span>მოცურების საწინააღმდეგო</span>
               </li>
 
               <li>
-                <span>ბორტ-კომპიუტერი</span>
                 <span className="checkminus_span">
                   {curentStatement.bortComp ? (
                     <img src="/imgs/check.png" alt="" />
@@ -254,9 +262,9 @@ class carrInnerFluid extends Component {
                     <img src="/imgs/minus.png" alt="" />
                   )}
                 </span>
+                <span>ბორტ-კომპიუტერი</span>
               </li>
               <li>
-                <span>უკანა ხედვის კამერა</span>
                 <span className="checkminus_span">
                   {curentStatement.backVision ? (
                     <img src="/imgs/check.png" alt="" />
@@ -264,10 +272,10 @@ class carrInnerFluid extends Component {
                     <img src="/imgs/minus.png" alt="" />
                   )}
                 </span>
+                <span>უკანა ხედვის კამერა</span>
               </li>
 
               <li>
-                <span>ცენტრალური საკეტი</span>
                 <span className="checkminus_span">
                   {curentStatement.centralLock ? (
                     <img src="/imgs/check.png" alt="" />
@@ -275,10 +283,10 @@ class carrInnerFluid extends Component {
                     <img src="/imgs/minus.png" alt="" />
                   )}
                 </span>
+                <span>ცენტრალური საკეტი</span>
               </li>
 
               <li>
-                <span>კონდიციიონერი</span>
                 <span className="checkminus_span">
                   {curentStatement.conditioner ? (
                     <img src="/imgs/check.png" alt="" />
@@ -286,10 +294,10 @@ class carrInnerFluid extends Component {
                     <img src="/imgs/minus.png" alt="" />
                   )}
                 </span>
+                <span>კონდიციიონერი</span>
               </li>
 
               <li>
-                <span>ჰიდრავლიკა</span>
                 <span className="checkminus_span">
                   {curentStatement.hidravlika ? (
                     <img src="/imgs/check.png" alt="" />
@@ -297,9 +305,9 @@ class carrInnerFluid extends Component {
                     <img src="/imgs/minus.png" alt="" />
                   )}
                 </span>
+                <span>ჰიდრავლიკა</span>
               </li>
               <li>
-                <span>ლუქი</span>
                 <span className="checkminus_span">
                   {curentStatement.luqi ? (
                     <img src="/imgs/check.png" alt="" />
@@ -307,9 +315,9 @@ class carrInnerFluid extends Component {
                     <img src="/imgs/minus.png" alt="" />
                   )}
                 </span>
+                <span>ლუქი</span>
               </li>
               <li>
-                <span>ნავიგაცია</span>
                 <span className="checkminus_span">
                   {curentStatement.navigation ? (
                     <img src="/imgs/check.png" alt="" />
@@ -317,9 +325,9 @@ class carrInnerFluid extends Component {
                     <img src="/imgs/minus.png" alt="" />
                   )}
                 </span>
+                <span>ნავიგაცია</span>
               </li>
               <li>
-                <span>პარკინგ-კონტროლი</span>
                 <span className="checkminus_span">
                   {curentStatement.parcingConttrol ? (
                     <img src="/imgs/check.png" alt="" />
@@ -327,10 +335,10 @@ class carrInnerFluid extends Component {
                     <img src="/imgs/minus.png" alt="" />
                   )}
                 </span>
+                <span>პარკინგ-კონტროლი</span>
               </li>
 
               <li>
-                <span>სიგნალიზაცია</span>
                 <span className="checkminus_span">
                   {curentStatement.signailzation ? (
                     <img src="/imgs/check.png" alt="" />
@@ -338,20 +346,11 @@ class carrInnerFluid extends Component {
                     <img src="/imgs/minus.png" alt="" />
                   )}
                 </span>
+                <span>სიგნალიზაცია</span>
               </li>
             </ul>
           </div>
         </div>
-        {curentStatement.text && (
-          <div className="common_about">
-            <div className="common_about_title">
-              <h3>ზოგადი აღწერა</h3>
-            </div>
-            <div className="common_about_text">
-              <p>{curentStatement.text}</p>
-            </div>
-          </div>
-        )}
       </div>
     );
   }

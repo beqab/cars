@@ -408,10 +408,9 @@
 }
 
 .carrinner_fluid {
-  max-width: 100%;
+  max-width: 900px;
   margin: 0 auto;
-  padding-top: 50px;
-  padding: 50px 120px 0;
+  padding-top: 30px;
 }
 .carosel_wrapper {
   display: flex;
@@ -502,18 +501,24 @@
 
       img {
         height: 22px;
-        width: 22px;
+        width: 16px;
         margin-right: 10px;
       }
       * {
         color: #2a2a2a;
         font-family: "Conv_bpg-arial-webfont";
-        font-size: 16px;
+        font-size: 14px;
       }
     }
   }
 }
-
+.car_list_add_info {
+  ul {
+    li {
+      justify-content: flex-start !important;
+    }
+  }
+}
 .carrinner_fluid {
   .carrinner_wrapper {
     display: flex;
@@ -546,7 +551,7 @@
 }
 
 .common_about {
-  padding: 30px 10px 20px 5px;
+  padding: 30px 10px 0px 5px;
   max-width: 980px;
   .common_about_title {
     margin-bottom: 10px;
