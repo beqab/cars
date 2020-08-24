@@ -98,6 +98,30 @@ class myStatements extends Component {
                 return (
                   <div className="col-12 col-md-4">
                     <div className="common_car_box">
+                      <div className="delete_edit">
+                        <a
+                          className="delete_href"
+                          onClick={(e) => this.openConirmModal(e, true)}
+                          href=""
+                        >
+                          წაშლა
+                        </a>
+                        <a
+                          class="edit_href"
+                          onClick={(e) => {
+                            e.preventDefault();
+
+                            Router.push({
+                              pathname: "/profile/addStatement/",
+                              query: {
+                                id: el._id,
+                              },
+                            });
+                          }}
+                        >
+                          რედაქტირება
+                        </a>
+                      </div>
                       <div className="vip">
                         <img src="/imgs/vip.png" alt="" />
                       </div>
@@ -183,66 +207,12 @@ class myStatements extends Component {
                             <div className="common_car_price">
                               <span>{el.price}-₾</span>
                             </div>
-                            <div className="common_car_days">
-                              <div className="common_car_up">
-                                <span>დ</span>
-                                <span>1-3</span>
-                                <span>4-7</span>
-                                <span>>7</span>
-                              </div>
-                              <div className="common_car_down">
-                                <span>ლ</span>
-                                <span>50</span>
-                                <span>50</span>
-                                <span>80</span>
-                              </div>
+                            <div className="period_days">
+                              <span>25 მაისი</span>
+                              <span>25 მაისი</span>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div
-                        onClick={(e) => e.stopPropagation()}
-                        className="common_box_footer"
-                      >
-                        <div className="period_days">
-                          <span>25 მაისი</span>
-                          <span>25 მაისი</span>
-                        </div>
-                        <div className="edit_box">
-                          <span
-                            onClick={() => {
-                              this.setState({
-                                curenCardId: el._id,
-                              });
-                            }}
-                          >
-                            <img src="/imgs/edit.png" alt="" />
-                          </span>
-                        </div>
-                        {this.state.curenCardId === el._id ? (
-                          <div className="delete_edit">
-                            <a
-                              onClick={(e) => this.openConirmModal(e, true)}
-                              href=""
-                            >
-                              წაშლა
-                            </a>
-                            <a
-                              onClick={(e) => {
-                                e.preventDefault();
-
-                                Router.push({
-                                  pathname: "/profile/addStatement/",
-                                  query: {
-                                    id: el._id,
-                                  },
-                                });
-                              }}
-                            >
-                              რედაქტირება
-                            </a>
-                          </div>
-                        ) : null}
                       </div>
                     </div>
                   </div>

@@ -332,10 +332,11 @@ class ProfileFluid extends Component {
             </div>
           </div>
 
-          <h2 className="text-center m-4 redact_title">
-            {" "}
-            {this.state.statementId && " განცხადების რედაქტირება"}
-          </h2>
+          {this.state.statementId && (
+            <h2 className="text-center m-4 redact_title">
+              განცხადების რედაქტირება
+            </h2>
+          )}
 
           <div className="profile_main_inputs">
             <div className="profile_input_box">

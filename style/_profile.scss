@@ -321,7 +321,9 @@ select {
       height: 15px;
     }
   }
-
+  a {
+    color: $brand-color;
+  }
   input {
     font-size: 13px;
     color: #000;
@@ -413,7 +415,7 @@ input[type="number"] {
 }
 
 .our_statement_fluid {
-  margin-top: 43px;
+  margin-top: 44px;
   border-top: 2px solid $main-color;
   padding-top: 15px;
 }
@@ -422,8 +424,50 @@ input[type="number"] {
   border-radius: 5px;
   border: 1px solid #b4b4b4;
   background-color: #fff;
-  margin-bottom: 75px;
+  margin-bottom: 25px;
   position: relative;
+
+  &:hover {
+    .delete_edit {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .delete_edit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+
+    .delete_href {
+      background-color: #fff;
+      color: #2a2a2a;
+      border: 1px solid $main-color;
+      border-radius: 10px;
+      font-size: 14px;
+      padding: 7px 13px;
+      margin-right: 20px;
+    }
+    .edit_href {
+      background-color: $main-color;
+      color: #2a2a2a;
+      border: 1px solid $main-color;
+      border-radius: 10px;
+      font-size: 14px;
+      padding: 7px 13px;
+      cursor: pointer;
+    }
+  }
   .vip {
     position: absolute;
     top: 0;
@@ -603,17 +647,6 @@ input[type="number"] {
       }
     }
   }
-  .period_days {
-    display: flex;
-    flex-direction: column;
-
-    span {
-      font-size: 14px;
-      color: #2a2a2a;
-      font-family: "Conv_bpg-arial-webfont";
-      transition: all 0.2s;
-    }
-  }
 
   .edit_box {
     span {
@@ -625,7 +658,17 @@ input[type="number"] {
     }
   }
 }
+.period_days {
+  display: flex;
+  flex-direction: column;
 
+  span {
+    font-size: 14px;
+    color: #2a2a2a;
+    font-family: "Conv_bpg-arial-webfont";
+    transition: all 0.2s;
+  }
+}
 .personal_info_fluid {
   margin-top: 43px;
   border-top: 2px solid #f5bd1f;
@@ -1165,6 +1208,74 @@ input[type="number"] {
     span {
       font-size: 14px;
       padding-left: 13px;
+    }
+  }
+}
+.contact_us_fluid {
+  .contact_info {
+    border: 1px solid #f5bd1f;
+  }
+  .contact_socials a {
+    margin-right: 10px;
+    background: #3b5999;
+    padding: 6px 10px 6px 6px;
+    border-radius: 11px;
+    color: #fff;
+    font-size: 14px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .contact_socials img {
+    height: 23px;
+  }
+}
+.contact_box {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+
+  .letter_fluid {
+    max-width: 500px;
+    width: 100%;
+    margin-right: 50px;
+    border-radius: 5px;
+    border: 2px solid $main-color;
+
+    form {
+      padding: 0 15px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #fff;
+      font-size: 14px;
+      padding: 10px 0;
+      background: $main-color;
+    }
+    textarea {
+      width: 100%;
+      height: 40vh;
+      border: none;
+      border-bottom: 2px solid $main-color;
+      resize: none;
+      font-size: 14px;
+      font-family: "Conv_bpg-arial-webfont";
+      color: $brand-color;
+    }
+
+    button {
+      background-color: #f5bd1f;
+      color: #fff;
+      font-size: 14px;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      padding: 7px 20px 5px;
+      cursor: pointer;
+      transition: all 0.4s;
     }
   }
 }

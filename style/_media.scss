@@ -9,6 +9,17 @@
   }
 }
 @media only screen and (max-width: 992px) {
+  .contact_box {
+    padding: 20px 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact_box .letter_fluid {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
   .carrinner_fluid .carrinner_wrapper {
     display: block;
   }
