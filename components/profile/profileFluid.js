@@ -145,6 +145,7 @@ class ProfileFluid extends Component {
               active: index === this.state.defaultImgIndex,
             })}
           >
+            <span className="add_img_info">მთავარ სურათად დაყენება</span>
             <img src={this.state.images[index].uploadedImg} />
           </div>
         );
@@ -351,7 +352,19 @@ class ProfileFluid extends Component {
                 <span className="error_msg">{this.state.categoryError}</span>
               ) : null}
             </div>
-
+            <div className="profile_input_box">
+              <div>
+                <label>გამოშვების წელი</label>
+                <select
+                  name="carAge"
+                  value={this.state.carAge}
+                  onChange={this.changeHandler}
+                >
+                  <option>აირჩიე</option>
+                  {this.getYear()}
+                </select>
+              </div>
+            </div>
             <div className="profile_input_box">
               <div>
                 <label>მწარმოებელი</label>
@@ -367,20 +380,6 @@ class ProfileFluid extends Component {
 
             <div className="profile_input_box">
               <div>
-                <label>მოდელი</label>
-                <CarModel
-                  value={this.state.carModel}
-                  changeHandlerfn={this.changeHandler}
-                  producer={this.state.producer}
-                />
-              </div>
-              {this.state.carModelError ? (
-                <span className="error_msg">{this.state.carModelError}</span>
-              ) : null}
-            </div>
-
-            <div className="profile_input_box">
-              <div>
                 <label>ადგილმდებარეობა</label>
                 <Location
                   value={this.state.location}
@@ -391,19 +390,18 @@ class ProfileFluid extends Component {
                 <span className="error_msg">{this.state.locationError}</span>
               ) : null}
             </div>
-
             <div className="profile_input_box">
               <div>
-                <label>გამოშვების წელი</label>
-                <select
-                  name="carAge"
-                  value={this.state.carAge}
-                  onChange={this.changeHandler}
-                >
-                  <option>აირჩიე</option>
-                  {this.getYear()}
-                </select>
+                <label>მოდელი</label>
+                <CarModel
+                  value={this.state.carModel}
+                  changeHandlerfn={this.changeHandler}
+                  producer={this.state.producer}
+                />
               </div>
+              {this.state.carModelError ? (
+                <span className="error_msg">{this.state.carModelError}</span>
+              ) : null}
             </div>
 
             <div className="profile_input_box">
