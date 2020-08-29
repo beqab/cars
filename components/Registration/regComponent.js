@@ -16,12 +16,14 @@ class Registration extends Component {
         errors: [],
         validated: false,
         butDisable: false,
+        errorMsgs: null,
     };
 
     inputHandlers = (event) => {
         this.setState(
             {
                 [event.target.name]: event.target.value,
+                errorMsgs: null,
             },
             () => {
                 if (this.state.validated) {
@@ -85,10 +87,20 @@ class Registration extends Component {
                             // });
                         })
                         .catch((err) => {
-                            console.log(err, "errrr");
-                            this.setState({
-                                butDisable: false,
-                            });
+                            console.log(err.response, "errrr");
+
+                            if (err.response.status > 400) {
+                                this.setState({
+                                    butDisable: false,
+                                    errorMsgs: "კავშირის პრობლემა :/ სცადეთ თავიდან",
+                                });
+                            } else {
+                                this.setState({
+                                    butDisable: false,
+                                    errors: {email: err.response.data.errors},
+                                });
+                            }
+
                             // if (err.response.status != 500) {
                             //   this.setState({
                             //     loginerrors: { email: "მეილი ან პარალლი არაწორია" },
@@ -115,6 +127,7 @@ class Registration extends Component {
                         </div>
 
                         <form id="auth_form" onSubmit={this.regSubmitHandler}>
+                            {this.state.errorMsgs && <div style={{color: "red"}}>{this.state.errorMsgs}</div>}
                             <div className="auth_inputs">
                                 <div className="input_box">
                                     <label htmlFor="name">სახელი - გვარი</label>
@@ -124,7 +137,7 @@ class Registration extends Component {
                                         type="text"
                                         placeholder="სახელი"
                                         className={classname("form-control", {
-                                            "is-invalid": this.state.errors.email,
+                                            "is-invalid": this.state.errors.name,
                                         })}
                                     />
                                     <span className="invalid-feedback">{this.state.errors.name}</span>
@@ -151,7 +164,7 @@ class Registration extends Component {
                                         type="password"
                                         placeholder="* * * * * * *"
                                         className={classname("form-control", {
-                                            "is-invalid": this.state.errors.email,
+                                            "is-invalid": this.state.errors.password,
                                         })}
                                     />
                                     <span className="invalid-feedback">{this.state.errors.password}</span>
@@ -164,12 +177,19 @@ class Registration extends Component {
                                         type="password"
                                         placeholder="* * * * * * *"
                                         className={classname("form-control", {
-                                            "is-invalid": this.state.errors.email,
+                                            "is-invalid": this.state.errors.repeatPasword,
                                         })}
                                     />
                                     <span className="invalid-feedback">{this.state.errors.repeatPasword}</span>
                                 </div>
                                 <div></div>
+                                <div
+                                    className={classname("loader_box", {
+                                        hide: !this.state.butDisable,
+                                    })}
+                                >
+                                    <div className="loader" id="loader-1"></div>
+                                </div>
                                 <div id="login_box">
                                     <button className="load" id="login_button">
                                         რეგისტრაცია

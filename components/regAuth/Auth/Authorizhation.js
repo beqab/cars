@@ -15,12 +15,14 @@ class Authorization extends Component {
         errors: [],
         validated: false,
         butDisable: false,
+        errorMsgs: null,
     };
 
     inputHandler = (e) => {
         this.setState(
             {
                 [e.target.name]: e.target.value,
+                errorMsgs: null,
             },
             () => {
                 if (this.state.validated) {
@@ -79,9 +81,18 @@ class Authorization extends Component {
                         })
                         .catch((err) => {
                             console.log(err, "errrr");
-                            this.setState({
-                                butDisable: false,
-                            });
+
+                            if (err.response.status > 400) {
+                                this.setState({
+                                    butDisable: false,
+                                    errorMsgs: "კავშირის პრობლემა :/ სცადეთ თავიდან",
+                                });
+                            } else {
+                                this.setState({
+                                    butDisable: false,
+                                    errorMsgs: err.response.data.errors,
+                                });
+                            }
                             // if (err.response.status != 500) {
                             //   this.setState({
                             //     loginerrors: { email: "მეილი ან პარალლი არაწორია" },
@@ -106,6 +117,8 @@ class Authorization extends Component {
                     </div>
 
                     <form onSubmit={this.hangleLogIn} id="auth_form">
+                        {this.state.errorMsgs && <div style={{color: "red"}}>{this.state.errorMsgs}</div>}
+
                         <div className="auth_inputs">
                             <div className="input_box">
                                 <label htmlFor="email">მეილი</label>
