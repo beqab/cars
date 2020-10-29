@@ -5,6 +5,10 @@
   margin: 40px auto;
 }
 
+.font10 {
+  font-size: 10px;
+}
+
 .profile_username_info {
   padding: 10px 12px;
   span {
@@ -731,6 +735,9 @@ input[type="number"] {
     margin-bottom: 10px;
     display: flex;
     align-items: flex-end;
+    &.form-group {
+      align-items: flex-start;
+    }
   }
 }
 

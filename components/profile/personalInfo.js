@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ChangePassword from "./changePassword";
 
 class personalInfo extends Component {
   render() {
@@ -23,28 +24,13 @@ class personalInfo extends Component {
                 <label>ადგილმდებარეობა</label>
                 <input type="text" name="" />
               </div>
-            </div>
-            <div className="personal_bottom">
-              <div>
-                <label>მიმდინარე პაროლი</label>
-                <input type="password" name="" placeholder="*******" />
-              </div>
-
-              <div>
-                <label>ახალი პაროლი</label>
-                <input type="password" name="" placeholder="*******" />
-              </div>
-
-              <div>
-                <label>გაიმეორეთ პაროლი</label>
-                <input type="password" name="" placeholder="*******" />
+              <div className="personal_buttons">
+                <button className="interupt">გაუქმება</button>
+                <button className="personal_save">შენახვა</button>
               </div>
             </div>
 
-            <div className="personal_buttons">
-              <button className="interupt">გაუქმება</button>
-              <button className="personal_save">შენახვა</button>
-            </div>
+            <ChangePassword />
           </form>
         </div>
       </div>
