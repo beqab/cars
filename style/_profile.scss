@@ -511,6 +511,8 @@ input[type="number"] {
 .common_box_body {
   & > div:first-child {
     padding: 0px 10px;
+    height: 160px;
+    overflow-y: auto;
   }
   h2 {
     a {
@@ -524,8 +526,9 @@ input[type="number"] {
 .car_common_properties {
   display: flex;
   flex-wrap: wrap;
-  height: 166px;
-  overflow-y: scroll;
+  // height: 166px;
+  align-items: center;
+  // overflow-y: scroll;
   & > div {
     display: flex;
     align-items: center;
