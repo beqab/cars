@@ -56,6 +56,9 @@ const changePassword = () => {
               ref={register({
                 required: true,
               })}
+              onChange={() => {
+                setServerError({});
+              }}
             />
 
             <div className="invalid-feedback font10">

@@ -32,3 +32,12 @@ export const authLogout = () => {
     type: "LOGOUT_USER",
   };
 };
+
+export const updateUser = (user) => {
+  debugger;
+  setCookie("user", JSON.stringify(user));
+  return {
+    type: "UPDATE_USER",
+    payload: { user },
+  };
+};
