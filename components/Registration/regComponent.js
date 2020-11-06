@@ -102,7 +102,7 @@ const Registration = () => {
                   })}
                   name="password"
                   type="password"
-                  placeholder="* * * * * * *"
+                  placeholder="პაროლი"
                   className={classnames("form-control", {
                     "is-invalid": errors.password,
                   })}
@@ -123,7 +123,7 @@ const Registration = () => {
                   })}
                   name="repeatPasword"
                   type="password"
-                  placeholder="* * * * * * *"
+                  placeholder="გამეორე პაროლი"
                   className={classnames("form-control", {
                     "is-invalid": errors.repeatPasword,
                   })}
