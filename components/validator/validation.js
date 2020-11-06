@@ -24,21 +24,3 @@ export const regValidation = (data) => {
     isValid: isEmpty(errors),
   };
 };
-
-export const passwordResetValidation = (data) => {
-  let errors = {};
-  if (!validator.isLength(data.password, { min: 6, max: 30 })) {
-    errors.password = "პაროლი მინიმუმ 6 სიმბოლო";
-  }
-
-  if (!validator.isLength(data.repeatPasword, { min: 6, max: 30 })) {
-    errors.repeatPasword = "გაიმეორეთ პაროლი - მინიმუმ 6 სიმბოლო";
-  } else if (data.password !== data.repeatPasword) {
-    errors.repeatPasword = "გამეორებული პაროლი არასწორია";
-  }
-
-  return {
-    errors,
-    isValid: isEmpty(errors),
-  };
-};

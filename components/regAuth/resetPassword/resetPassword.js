@@ -1,160 +1,119 @@
-import React, { Component } from "react";
+import React, { useState, useCallback } from "react";
 import axios from "axios";
 import classnames from "classnames";
 import Link from "next/link";
-import classname from "classnames";
+import { useForm } from "react-hook-form";
 
-import { passwordResetValidation } from "../../validator/validation";
+import Loader from "../../UI/loader";
 
-class ResetPassword extends Component {
-  state = {
-    password: "",
-    repeatPasword: "",
-    errors: [],
-    validated: false,
-    butDisable: false,
-  };
+const resetPassword = ({ token }) => {
+  const [loading, setLoading] = useState(false);
+  const [serverError, setServerError] = useState(false);
+  const [success, setSuccess] = useState(false);
 
-  inputHandlers = (event) => {
-    console.log(event.target.name, event.target.value);
-    this.setState(
-      {
-        [event.target.name]: event.target.value,
-        errorMsgs: null,
-      },
-      () => {
-        if (this.state.validated) {
-          let { errors, isValid } = passwordResetValidation({
-            password: this.state.password,
-            repeatPasword: this.state.repeatPasword,
-          });
-          if (isValid) {
-            this.setState({
-              errors: [],
-            });
-          } else {
-            this.setState({
-              errors: errors,
-            });
-          }
-        }
-      }
-    );
-  };
+  const { handleSubmit, errors, register, watch } = useForm();
 
-  setNewPassword = (e) => {
-    console.log("passs");
-    e.preventDefault();
+  const changePasswordHandler = useCallback(async (data) => {
+    setLoading(true);
 
-    let { errors, isValid } = passwordResetValidation({
-      password: this.state.password,
-      repeatPasword: this.state.repeatPasword,
-    });
-    if (isValid) {
-      this.setState(
-        {
-          errors: [],
-          butDisable: true,
-        },
-        () => {
-          axios
-            .post("users/resetpass", {
-              token: this.props.token,
-              newPassword: this.state.password,
-            })
-            .then((res) => {
-              console.log(res);
-              this.setState({
-                butDisable: false,
-                success: res.data,
-              });
-            })
-            .catch((err) => {
-              this.setState({
-                butDisable: false,
-                success: err.response.data,
-              });
-            });
-        }
-      );
-    } else {
-      this.setState({
-        errors: errors,
-        validated: true,
+    try {
+      const res = await axios.post("users/resetpass", {
+        token,
+        newPassword: data.password,
       });
+      setLoading(false);
+      setSuccess(res.data);
+    } catch (err) {
+      setLoading(false);
+      setServerError(err.response.data);
     }
-  };
-  render() {
-    return (
-      <div id="authorizathion">
-        <div className="authorization_box">
-          <div className="auth_title">
-            <h3>პაროლის აღდგენა</h3>
-          </div>
+  }, []);
 
-          <form onSubmit={this.setNewPassword}>
-            {this.state.success ? (
-              <div style={{ color: "#fff" }}>{this.state.success}</div>
-            ) : (
-              <>
-                <div className="auth_inputs">
-                  <div className="input_box">
-                    <label htmlFor="password">პაროლი</label>
-                    <input
-                      onChange={this.inputHandlers}
-                      name="password"
-                      type="password"
-                      placeholder="პაროლი"
-                      className={classnames("form-control", {
-                        "is-invalid": this.state.errors.password,
-                      })}
-                    />
-                    <span className="invalid-feedback">
-                      {this.state.errors.password}
-                    </span>
-                  </div>
-                  <div className="input_box mt-3">
-                    <label htmlFor="password">გაიმეორეთ პაროლი</label>
-                    <input
-                      onChange={this.inputHandlers}
-                      name="repeatPasword"
-                      type="password"
-                      placeholder="გაიმეორეთ პაროლი"
-                      className={classnames("form-control", {
-                        "is-invalid": this.state.errors.repeatPasword,
-                      })}
-                    />
-                    <span className="invalid-feedback">
-                      {this.state.errors.repeatPasword}
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className={classname("loader_box", {
-                    hide: !this.state.butDisable,
-                  })}
-                >
-                  <div className="loader" id="loader-1"></div>
-                </div>
-                <div id="rec_box">
-                  <button id="recover_button">შენახვა</button>
-                </div>
-              </>
-            )}
-            123{" "}
-            <div className="auth_footer inline">
-              <Link href="/login">
-                <a>ავტორიზაცია</a>
-              </Link>
-              <Link href="/registration">
-                <a>რეგისტრაცია</a>
+  return (
+    <div id="authorizathion">
+      <div className="authorization_box">
+        <div className="auth_title">
+          <h3>პაროლის აღდგენა</h3>
+        </div>
+
+        <form onSubmit={handleSubmit(changePasswordHandler)}>
+          {success ? (
+            <div style={{ color: "#fff" }} className="text-center">
+              {success}
+            </div>
+          ) : serverError ? (
+            <div style={{ color: "#fff" }} className="text-center">
+              {serverError}{" "}
+              <Link href="/roceverpass">
+                <a> თავიდან მოთხოვნა</a>
               </Link>
             </div>
-          </form>
-        </div>
-      </div>
-    );
-  }
-}
+          ) : (
+            <>
+              <div className="auth_inputs">
+                <div className="input_box">
+                  <label htmlFor="password">პაროლი</label>
+                  <input
+                    ref={register({
+                      required: "პაროლი აუცილებელია",
+                      minLength: 6,
+                    })}
+                    name="password"
+                    type="password"
+                    placeholder="პაროლი"
+                    className={classnames("form-control", {
+                      "is-invalid": errors.password,
+                    })}
+                  />
+                  <span className="invalid-feedback">
+                    {errors.password && errors.password.type === "required"
+                      ? "პაროლი აუცილებელია"
+                      : "მინიმუმ 6 სიმბოლო"}
+                  </span>
+                </div>
+                <div className="input_box mt-3">
+                  <label htmlFor="password">გაიმეორეთ პაროლი</label>
+                  <input
+                    ref={register({
+                      required: true,
+                      validate: {
+                        isMatch: (value) => value === watch("password"),
+                      },
+                    })}
+                    name="repeatPasword"
+                    type="password"
+                    placeholder="გაიმეორეთ პაროლი"
+                    className={classnames("form-control", {
+                      "is-invalid": errors.repeatPasword,
+                    })}
+                  />
+                  <span className="invalid-feedback">
+                    {errors.repeatPasword &&
+                    errors.repeatPasword.type === "required"
+                      ? "პაროლი აუცილებელია"
+                      : "პაროლები არ მეთხვევა"}
+                  </span>
+                </div>
+              </div>
+              <Loader loading={loading} />
+              <div id="rec_box">
+                <button id="recover_button">შენახვა</button>
+              </div>
+            </>
+          )}
 
-export default ResetPassword;
+          <div className="auth_footer inline">
+            <Link href="/login">
+              <a>ავტორიზაცია</a>
+            </Link>
+            <Link href="/registration">
+              <a>რეგისტრაცია</a>
+            </Link>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default resetPassword;
