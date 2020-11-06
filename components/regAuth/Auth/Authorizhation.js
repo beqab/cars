@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 
 import { setCurrentUser } from "../../../redux/auth/authActions";
 import FBLogin from "./Fblogin";
+import Loader from "../../UI/loader";
 
 const Authorization = () => {
   const dispatch = useDispatch();
@@ -93,13 +94,9 @@ const Authorization = () => {
               />
               <span className="invalid-feedback">{"პაროლი აუცილებელია"}</span>
             </div>
-            <div
-              className={classnames("loader_box", {
-                hide: !loading,
-              })}
-            >
-              <div className="loader" id="loader-1"></div>
-            </div>
+
+            <Loader loading={loading} />
+
             <div id="login_box">
               <button className="load" disabled={loading} id="login_button">
                 შესვლა
