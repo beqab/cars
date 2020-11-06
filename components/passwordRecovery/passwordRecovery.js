@@ -1,108 +1,92 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Link from "next/link";
-import classname from "classnames";
+import classnames from "classnames";
+import { useForm } from "react-hook-form";
+import validator from "validator";
 
-class Recovery extends Component {
-  state = {
-    email: "",
-    password: "",
-    errors: [],
-    validated: false,
-    butDisable: false,
-    serverError: null,
-    success: false,
-  };
+import Loader from "../UI/loader";
 
-  inputHandler = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
+const passwordRecovery = () => {
+  const [loading, setLoading] = useState(false);
+  const [serverError, setServerError] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const { handleSubmit, register, errors } = useForm();
 
-  seandEmail = async (e) => {
-    e.preventDefault();
-    this.setState({
-      butDisable: true,
-    });
+  const recoverSubmit = async (data) => {
+    setLoading(true);
+
     try {
-      const res = await axios.post("users/recoverpass", {
-        email: this.state.email,
-      });
-
-      console.log(res);
-      this.setState({
-        butDisable: false,
-        success: true,
-      });
+      const res = await axios.post("users/recoverpass", data);
+      setSuccess(true);
+      setLoading(false);
     } catch (err) {
-      this.setState({
-        butDisable: false,
-        serverError: err.response.data,
-      });
+      setServerError(err.response.data);
+      setLoading(false);
     }
   };
-  render() {
-    return (
-      <div id="authorizathion">
-        <div className="authorization_box">
-          <div className="auth_title">
-            <h3>პაროლის აღდგენა</h3>
-          </div>
 
-          <form onSubmit={this.seandEmail}>
-            {this.state.success ? (
-              <div
-                style={{ color: "#fff" }}
-                className="color-wight text-center"
-              >
-                პაროლის აღდგენის ბმული გამოიგზავნე თქვენს მეილზე{" "}
-                <b>გთხოვთ შეამოწმოთ თქვენი ელ-ფოსტა </b>
-              </div>
-            ) : (
-              <>
-                <div className="auth_inputs">
-                  <div className="input_box">
-                    <label htmlFor="email">მეილი</label>
-                    <input
-                      name="email"
-                      type="mail"
-                      className={classname("form-control", {
-                        "is-invalid": this.state.serverError,
-                      })}
-                      onChange={this.inputHandler}
-                      placeholder="YourEmail@gmail.com"
-                    />
-                    <span className="invalid-feedback">
-                      {this.state.serverError}
-                    </span>
-                  </div>
-                </div>
-                <div id="rec_box">
-                  <div
-                    className={classname("loader_box", {
-                      hide: !this.state.butDisable,
-                    })}
-                  >
-                    <div className="loader" id="loader-1"></div>
-                  </div>
-                  <button id="recover_button">გაგზავნა</button>
-                </div>
-              </>
-            )}
-            <div className="auth_footer inline">
-              <Link href="/login">
-                <a>ავტორიზაცია</a>
-              </Link>
-              <Link href="/registration">
-                <a>რეგისტრაცია</a>
-              </Link>
-            </div>
-          </form>
+  const inputHandler = () => setServerError(null);
+
+  console.log(errors, "errrors");
+
+  return (
+    <div id="authorizathion">
+      <div className="authorization_box">
+        <div className="auth_title">
+          <h3>პაროლის აღდგენა</h3>
         </div>
-      </div>
-    );
-  }
-}
 
-export default Recovery;
+        <form onSubmit={handleSubmit(recoverSubmit)}>
+          {success ? (
+            <div style={{ color: "#fff" }} className="color-wight text-center">
+              პაროლის აღდგენის ბმული გამოიგზავნე თქვენს მეილზე{" "}
+              <b>გთხოვთ შეამოწმოთ თქვენი ელ-ფოსტა </b>
+            </div>
+          ) : (
+            <>
+              <div className="auth_inputs">
+                <div className="input_box">
+                  <label htmlFor="email">მეილი</label>
+                  <input
+                    ref={register({
+                      required: "მეილი აუცილებელია",
+                      validate: {
+                        isEmail: (value) => validator.isEmail(value),
+                      },
+                    })}
+                    className={classnames("form-control", {
+                      "is-invalid": errors.email || serverError,
+                    })}
+                    name="email"
+                    type="mail"
+                    onChange={inputHandler}
+                    placeholder="YourEmail@gmail.com"
+                  />
+                  <span className="invalid-feedback">
+                    {serverError ||
+                      (errors.email && "შეიყვანე იმეილი სწორი ფორმატით")}
+                  </span>
+                </div>
+              </div>
+              <div id="rec_box">
+                <Loader loading={loading} />
+                <button id="recover_button">გაგზავნა</button>
+              </div>
+            </>
+          )}
+          <div className="auth_footer inline">
+            <Link href="/login">
+              <a>ავტორიზაცია</a>
+            </Link>
+            <Link href="/registration">
+              <a>რეგისტრაცია</a>
+            </Link>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default passwordRecovery;
