@@ -44,6 +44,18 @@ header {
     }
   }
 
+  .loginBtn {
+    background-color: #f5bd1f;
+    color: #272727;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    border-radius: 18px;
+    padding: 0px 20px 0px;
+    cursor: pointer;
+    transition: all 0.4s;
+  }
+
   #language {
     margin-left: 20px;
     font-size: 14px;

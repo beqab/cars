@@ -55,11 +55,13 @@ const Header = () => {
                 </a>
               </Link>
 
-              <button onClick={() => dispatch(authLogout())}>გამოსვლა</button>
+              <button className="mt-0" onClick={() => dispatch(authLogout())}>
+                გამოსვლა
+              </button>
             </>
           ) : (
             <Link href="/login">
-              <a>შესვლა</a>
+              <a className="loginBtn">შესვლა</a>
             </Link>
           )}
           <div
