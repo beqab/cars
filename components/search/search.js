@@ -314,7 +314,7 @@ class searchComponent extends Component {
               </div> */}
 
               <div className="button">
-                <button>ძებნა</button>
+                <button onClick={this.handeleSearch}>ძებნა</button>
               </div>
             </form>
           </div>
