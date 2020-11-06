@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import HomeCar from "./HomeCarSection";
 import Router from "next/router";
+
+import HomeCar from "./HomeCarSection";
 import {
   Doors,
   Engin,
@@ -11,6 +12,7 @@ import {
   Producer,
   CarModel,
 } from "../selects";
+
 class Home extends Component {
   state = {
     imgs: [],
@@ -27,7 +29,7 @@ class Home extends Component {
     endPrice: null,
     startPrice: null,
     text: null,
-    price: "40 ლარი",
+    price: "",
     searchString: "",
   };
 
@@ -38,7 +40,7 @@ class Home extends Component {
     });
   };
 
-  handeleSearch = (e) => {
+  handleSearch = (e) => {
     e.preventDefault();
     Router.push({
       pathname: "/search",
@@ -57,6 +59,15 @@ class Home extends Component {
   };
 
   render() {
+    const {
+      carModel,
+      location,
+      producer,
+      engin,
+      oilType,
+      Pessengers: passengers,
+    } = this.state;
+
     return (
       <>
         <main id="home_main">
@@ -68,7 +79,7 @@ class Home extends Component {
                   onChange={this.changeHandler}
                   placeholder="ძებნა"
                 />
-                <button onClick={(e) => this.handeleSearch(e)}>
+                <button onClick={this.handleSearch}>
                   <img src="/imgs/search.png" />
                 </button>
               </div>
@@ -80,25 +91,22 @@ class Home extends Component {
                 <div>
                   <label>ქალაქი</label>
                   <Location
-                    value={this.state.location}
+                    value={location}
                     changeHandlerfn={this.changeHandler}
                   />
                 </div>
                 <div>
                   <label>მოდელი</label>
                   <CarModel
-                    value={this.state.carModel}
+                    value={carModel}
                     changeHandlerfn={this.changeHandler}
-                    producer={this.state.producer}
+                    producer={producer}
                   />
                 </div>
 
                 <div>
                   <label>ძრავის მოცულობა</label>
-                  <Engin
-                    value={this.state.engin}
-                    changeHandlerfn={this.changeHandler}
-                  />
+                  <Engin value={engin} changeHandlerfn={this.changeHandler} />
                 </div>
 
                 <div className="price_filter">
@@ -123,7 +131,7 @@ class Home extends Component {
                   <label>საწვავის ტიპი</label>
 
                   <OilType
-                    value={this.state.oilType}
+                    value={oilType}
                     changeHandlerfn={this.changeHandler}
                   />
                 </div>
@@ -131,14 +139,14 @@ class Home extends Component {
                 <div>
                   <label>პირთა ტევადობა</label>
                   <Pessengers
-                    value={this.state.Pessengers}
+                    value={passengers}
                     changeHandlerfn={this.changeHandler}
                   />
                 </div>
               </div>
 
               <div className="filter_button">
-                <button onClick={(e) => this.handeleSearch(e)}>ძებნა</button>
+                <button onClick={this.handleSearch}>ძებნა</button>
               </div>
             </form>
           </div>
