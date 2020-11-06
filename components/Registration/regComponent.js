@@ -1,213 +1,160 @@
-import React, {Component} from "react";
+import React, { useCallback, useState } from "react";
 import axios from "axios";
-import JVTdecode from "jwt-decode";
-import {regValidation} from "../validator/validation";
-import classname from "classnames";
-import {connect} from "react-redux";
-import {setCurrentUser} from "../../redux/auth/authActions";
+import classnames from "classnames";
+import { useDispatch } from "react-redux";
 import Link from "next/link";
+import validator from "validator";
+import { useForm } from "react-hook-form";
 
-class Registration extends Component {
-    state = {
-        name: "",
-        email: "",
-        password: "",
-        repeatPasword: "",
-        errors: [],
-        validated: false,
-        butDisable: false,
-        errorMsgs: null,
-    };
+import { setCurrentUser } from "../../redux/auth/authActions";
+import Loader from "../UI/loader";
 
-    inputHandlers = (event) => {
-        this.setState(
-            {
-                [event.target.name]: event.target.value,
-                errorMsgs: null,
-            },
-            () => {
-                if (this.state.validated) {
-                    let {errors, isValid} = regValidation({
-                        email: this.state.email,
-                        password: this.state.password,
-                        name: this.state.name,
-                        repeatPasword: this.state.repeatPasword,
-                    });
-                    if (isValid) {
-                        this.setState({
-                            errors: [],
-                        });
-                    } else {
-                        this.setState({
-                            errors: errors,
-                        });
-                    }
-                }
-            },
-        );
-    };
+const Registration = () => {
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [serverError, setServerError] = useState(false);
 
-    regSubmitHandler = (e) => {
-        e.preventDefault();
+  const { handleSubmit, errors, register, watch } = useForm();
 
-        let {errors, isValid} = regValidation({
-            email: this.state.email,
-            password: this.state.password,
-            name: this.state.name,
-            repeatPasword: this.state.repeatPasword,
-        });
-        if (isValid) {
-            this.setState(
-                {
-                    errors: [],
-                    butDisable: true,
-                },
-                () => {
-                    axios
-                        .post("users", {
-                            email: this.state.email,
-                            password: this.state.password,
-                            name: this.state.name,
-                        })
-                        .then((res) => {
-                            console.log(res);
-                            let test = JVTdecode(res.data.token);
-                            console.log(test);
-                            this.setState({
-                                errors: [],
-                                butDisable: false,
-                            });
-                            this.props.setCurrentUser({
-                                user: res.data.user,
-                                token: res.data.token,
-                            });
-                            // this.props.setCurrentUser({
-                            //   user: res.data.user,
-                            //   token: res.data.token
-                            // });
-                        })
-                        .catch((err) => {
-                            console.log(err.response, "errrr");
+  const registerHandler = useCallback(async (data) => {
+    setLoading(true);
 
-                            if (err.response.status > 400) {
-                                this.setState({
-                                    butDisable: false,
-                                    errorMsgs: "კავშირის პრობლემა :/ სცადეთ თავიდან",
-                                });
-                            } else {
-                                this.setState({
-                                    butDisable: false,
-                                    errors: {email: err.response.data.errors},
-                                });
-                            }
-
-                            // if (err.response.status != 500) {
-                            //   this.setState({
-                            //     loginerrors: { email: "მეილი ან პარალლი არაწორია" },
-                            //   });
-                            // }
-                        });
-                },
-            );
-        } else {
-            this.setState({
-                errors: errors,
-                validated: true,
-            });
-        }
-    };
-
-    render() {
-        return (
-            <div>
-                <div id="authorizathion">
-                    <div className="reg_box">
-                        <div className="auth_title">
-                            <h3>რეგისტრაცია</h3>
-                        </div>
-
-                        <form id="auth_form" onSubmit={this.regSubmitHandler}>
-                            {this.state.errorMsgs && <div style={{color: "red"}}>{this.state.errorMsgs}</div>}
-                            <div className="auth_inputs">
-                                <div className="input_box">
-                                    <label htmlFor="name">სახელი - გვარი</label>
-                                    <input
-                                        onChange={this.inputHandlers}
-                                        name="name"
-                                        type="text"
-                                        placeholder="სახელი"
-                                        className={classname("form-control", {
-                                            "is-invalid": this.state.errors.name,
-                                        })}
-                                    />
-                                    <span className="invalid-feedback">{this.state.errors.name}</span>
-                                </div>
-                                <div className="input_box">
-                                    <label htmlFor="email">მეილი</label>
-                                    <input
-                                        onChange={this.inputHandlers}
-                                        name="email"
-                                        type="mail"
-                                        placeholder="YourEmail@gmail.com"
-                                        className={classname("form-control", {
-                                            "is-invalid": this.state.errors.email,
-                                        })}
-                                    />
-                                    <span className="invalid-feedback">{this.state.errors.email}</span>
-                                </div>
-
-                                <div className="input_box">
-                                    <label htmlFor="password">პაროლი</label>
-                                    <input
-                                        onChange={this.inputHandlers}
-                                        name="password"
-                                        type="password"
-                                        placeholder="* * * * * * *"
-                                        className={classname("form-control", {
-                                            "is-invalid": this.state.errors.password,
-                                        })}
-                                    />
-                                    <span className="invalid-feedback">{this.state.errors.password}</span>
-                                </div>
-                                <div className="input_box">
-                                    <label htmlFor="password">გაიმეორე პაროლი</label>
-                                    <input
-                                        onChange={this.inputHandlers}
-                                        name="repeatPasword"
-                                        type="password"
-                                        placeholder="* * * * * * *"
-                                        className={classname("form-control", {
-                                            "is-invalid": this.state.errors.repeatPasword,
-                                        })}
-                                    />
-                                    <span className="invalid-feedback">{this.state.errors.repeatPasword}</span>
-                                </div>
-                                <div></div>
-                                <div
-                                    className={classname("loader_box", {
-                                        hide: !this.state.butDisable,
-                                    })}
-                                >
-                                    <div className="loader" id="loader-1"></div>
-                                </div>
-                                <div id="login_box">
-                                    <button className="load" id="login_button">
-                                        რეგისტრაცია
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div className="auth_footer">
-                                <Link href="/login">
-                                    <a>უკვე ხართ რეგისტრირებული?</a>
-                                </Link>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        );
+    try {
+      const res = await axios.post("users", data);
+      setLoading(false);
+      dispatch(
+        setCurrentUser({
+          user: res.data.user,
+          token: res.data.token,
+        })
+      );
+    } catch (err) {
+      setLoading(false);
+      setServerError(err.response.data);
     }
-}
+  }, []);
 
-export default connect(null, {setCurrentUser})(Registration);
+  const inputHandler = () => {
+    setServerError(null);
+  };
+
+  return (
+    <div>
+      <div id="authorizathion">
+        <div className="reg_box">
+          <div className="auth_title">
+            <h3>რეგისტრაცია</h3>
+          </div>
+
+          <form id="auth_form" onSubmit={handleSubmit(registerHandler)}>
+            {serverError && <div style={{ color: "red" }}>{serverError}</div>}
+            <div className="auth_inputs">
+              <div className="input_box">
+                <label htmlFor="name">სახელი - გვარი</label>
+                <input
+                  onChange={inputHandler}
+                  ref={register({
+                    required: true,
+                    minLength: 2,
+                  })}
+                  name="name"
+                  type="text"
+                  placeholder="სახელი"
+                  className={classnames("form-control", {
+                    "is-invalid": errors.name,
+                  })}
+                />
+                <span className="invalid-feedback">
+                  {errors.name && errors.name.type === "required"
+                    ? "სახელი აუცილებელია"
+                    : "მინიმუმ 2 სიმბოლო"}
+                </span>
+              </div>
+              <div className="input_box">
+                <label htmlFor="email">მეილი</label>
+                <input
+                  onChange={inputHandler}
+                  ref={register({
+                    required: true,
+                    validate: (value) => validator.isEmail(value),
+                  })}
+                  name="email"
+                  type="mail"
+                  placeholder="YourEmail@gmail.com"
+                  className={classnames("form-control", {
+                    "is-invalid": errors.email,
+                  })}
+                />
+                <span className="invalid-feedback">
+                  {errors.email && errors.email.type === "required"
+                    ? "მეილი აუცილებელია"
+                    : "მეილი არასოწი ფომრატისაა"}
+                </span>
+              </div>
+
+              <div className="input_box">
+                <label htmlFor="password">პაროლი</label>
+                <input
+                  onChange={inputHandler}
+                  ref={register({
+                    required: true,
+                    minLength: 6,
+                  })}
+                  name="password"
+                  type="password"
+                  placeholder="* * * * * * *"
+                  className={classnames("form-control", {
+                    "is-invalid": errors.password,
+                  })}
+                />
+                <span className="invalid-feedback">
+                  {errors.password && errors.password.type === "required"
+                    ? "პაროლი აუცილებელია"
+                    : "მინიმუმ 6 სიმბოლო"}
+                </span>
+              </div>
+              <div className="input_box">
+                <label htmlFor="password">გაიმეორე პაროლი</label>
+                <input
+                  onChange={inputHandler}
+                  ref={register({
+                    required: true,
+                    validate: (value) => value === watch("password"),
+                  })}
+                  name="repeatPasword"
+                  type="password"
+                  placeholder="* * * * * * *"
+                  className={classnames("form-control", {
+                    "is-invalid": errors.repeatPasword,
+                  })}
+                />
+                <span className="invalid-feedback">
+                  {errors.repeatPasword &&
+                  errors.repeatPasword.type === "required"
+                    ? "პაროლი აუცილებელია"
+                    : "პაროლები არ მეთხვევა"}
+                </span>
+              </div>
+              <div></div>
+
+              <Loader loading={loading} />
+              <div id="login_box">
+                <button className="load" id="login_button">
+                  რეგისტრაცია
+                </button>
+              </div>
+            </div>
+
+            <div className="auth_footer">
+              <Link href="/login">
+                <a>უკვე ხართ რეგისტრირებული?</a>
+              </Link>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Registration;
