@@ -6,7 +6,7 @@ import { getCookesFromReq } from "../helpers/utils";
 import Cookies from "js-cookie";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:5000/api/";
+axios.defaults.baseURL = "https://gcarnode.herokuapp.com/";
 // axios.defaults.baseURL = "https://app.gcar.ge/api/";
 
 class MyApp extends App {
