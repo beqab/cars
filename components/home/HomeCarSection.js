@@ -15,7 +15,7 @@ class HomeCar extends Component {
       .then((res) => {
         console.log(res);
         this.setState({
-          statements: res.data.reverse(),
+          statements: res.data,
         });
       })
       .catch((err) => {
