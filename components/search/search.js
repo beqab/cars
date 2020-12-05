@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import JVTdecode from "jwt-decode";
-import { regValidation } from "../validator/validation";
 import classname from "classnames";
 import { connect } from "react-redux";
 import { setCurrentUser } from "../../redux/auth/authActions";
