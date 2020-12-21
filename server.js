@@ -13,11 +13,11 @@ app
 
     server.use((req, res, next) => {
       const hostname =
-        req.hostname === "www.app.domain.com" ? "app.domain.com" : req.hostname;
+        req.hostname === "www.gcar.ge" ? "gcar.ge" : req.hostname;
 
       if (
         req.headers["x-forwarded-proto"] === "http" ||
-        req.hostname === "www.app.domain.com"
+        req.hostname === "www.gcar.ge"
       ) {
         res.redirect(301, `https://${hostname}${req.url}`);
         return;
