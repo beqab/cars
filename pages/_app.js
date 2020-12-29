@@ -7,8 +7,11 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import { hotjar } from "react-hotjar";
 hotjar.initialize(2175859, 6);
-// axios.defaults.baseURL = "http://localhost:5000/api/";
-axios.defaults.baseURL = "https://gcarnode.herokuapp.com/api/";
+axios.defaults.baseURL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:5000/api/"
+    : "https://gcarnode.herokuapp.com/api/";
+// axios.defaults.baseURL = "https://gcarnode.herokuapp.com/api/";
 // : "http://localhost:5000/api/";
 // axios.defaults.baseURL = "http://localhost:5000/api/";
 
@@ -38,6 +41,8 @@ class MyApp extends App {
   }
 
   async componentDidMount() {
+    // console.log(process.env.NODE_ENV, "process.env.NODE_ENV ");
+    // debugger;
     let token = Cookies.get("token");
     if (token) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
