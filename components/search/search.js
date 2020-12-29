@@ -98,7 +98,7 @@ class searchComponent extends Component {
         carModel: this.state.carModel,
         startPrice: this.state.startPrice,
         endPrice: this.state.endPrice,
-        // withDriver: this.state.withDriver,
+        withDriver: this.state.withDriver,
         engin: this.state.engin,
         startIndex: this.state.startIndex,
       },
@@ -341,7 +341,7 @@ class searchComponent extends Component {
                 </div>
               </div>
 
-              {/* <div className="common_checkbox">
+              <div className="common_checkbox">
                 <label class="checkbox_container">
                   მძღოლით
                   <input
@@ -351,9 +351,9 @@ class searchComponent extends Component {
                     value={this.state.withDriver}
                   />
                   <span class="checkmark"></span>
-                </label> */}
+                </label>
 
-              {/* <label class="checkbox_container">
+                {/* <label class="checkbox_container">
                   მძღოლის გარეშე
                   <input
                     onChange={this.changeHandler}
@@ -363,7 +363,7 @@ class searchComponent extends Component {
                   />
                   <span class="checkmark"></span>
                 </label> */}
-              {/* </div> */}
+              </div>
               {/* <div className="common_checkbox">
                 <label class="checkbox_container">
                   საჭე მარჯვნივ
