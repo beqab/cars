@@ -129,7 +129,9 @@ class myStatements extends Component {
                         <Link href={`/statement/${el._id}`}>
                           <a>
                             <img
-                              src={"https://app.gcar.ge/" + el.images[0]}
+                              src={
+                                "https://gcarnode.herokuapp.com/" + el.images[0]
+                              }
                               alt=""
                             />
                           </a>

@@ -77,7 +77,7 @@ const Card = ({
       <div className="common_box_img">
         <Link href={`/statement/${_id}`}>
           <a>
-            <img src={"https://app.gcar.ge/" + images[0]} alt="" />
+            <img src={"https://gcarnode.herokuapp.com/" + images[0]} alt="" />
           </a>
         </Link>
       </div>

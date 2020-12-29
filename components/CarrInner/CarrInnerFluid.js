@@ -24,7 +24,7 @@ class carrInnerFluid extends Component {
           curentStatement: res.data,
 
           images: res.data.images.map((el, index) => {
-            var link = "https://app.gcar.ge/";
+            var link = "https://gcarnode.herokuapp.com/";
             return { original: link + el, thumbnail: link + el };
           }),
         });

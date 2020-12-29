@@ -7,7 +7,10 @@ import Cookies from "js-cookie";
 import axios from "axios";
 
 // axios.defaults.baseURL = "http://localhost:5000/api/";
-axios.defaults.baseURL = "https://gcarnode.herokuapp.com/api/";
+axios.defaults.baseURL =
+  process.env === "production"
+    ? "https://gcarnode.herokuapp.com/api/"
+    : "http://localhost:5000/api/";
 // axios.defaults.baseURL = "https://app.gcar.ge/api/";
 
 class MyApp extends App {
