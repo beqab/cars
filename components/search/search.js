@@ -32,10 +32,10 @@ class searchComponent extends Component {
     startPrice: null,
     withDriver: null,
     statements: [],
-
+    engin: null,
     startIndex: 1,
 
-    statemetnsInPage: 6,
+    statemetnsInPage: 24,
   };
 
   fetchStatemetns = async () => {
@@ -98,15 +98,17 @@ class searchComponent extends Component {
         carModel: this.state.carModel,
         startPrice: this.state.startPrice,
         endPrice: this.state.endPrice,
-        withDriver: this.state.withDriver,
+        // withDriver: this.state.withDriver,
         engin: this.state.engin,
         startIndex: this.state.startIndex,
       },
+    }).then(() => {
+      this.handeleSearch();
     });
   };
 
   handeleSearch = (e) => {
-    e.preventDefault();
+    e && e.preventDefault();
 
     // console.log(this.state.producer);
     // debugger;
@@ -129,7 +131,7 @@ class searchComponent extends Component {
           // if (index > 6) return;
 
           return (
-            <div className="col-md-3 col-lg-4">
+            <div className="col-md-4 col-lg-3">
               {" "}
               <Card data={el} />{" "}
             </div>
@@ -179,7 +181,7 @@ class searchComponent extends Component {
         <div className="search_filter">
           <div className="filters">
             <form>
-              <div class="top_search">
+              {/* <div class="top_search">
                 <input
                   onChange={this.changeHandler}
                   name="searchString"
@@ -189,19 +191,31 @@ class searchComponent extends Component {
                 <button onClick={this.handeleSearch}>
                   <img src="/imgs/search.png" />
                 </button>
-              </div>
+              </div> */}
 
               <div className="filter_body">
-                <div>
+                <div className="position-relative">
                   {/* <label>მწარმოებელი</label> */}
                   <Producer
                     changeHandlerfn={this.changeHandler}
                     defaultValue={"მწარმოებელი"}
                     value={this.state.producer}
                   />
+                  {this.state.producer && (
+                    <span
+                      onClick={() =>
+                        this.setState({ producer: "" }, () => {
+                          this.pushRoute();
+                        })
+                      }
+                      className="clearSelect"
+                    >
+                      x
+                    </span>
+                  )}
                 </div>
 
-                <div>
+                <div className="position-relative">
                   {/* <label>მწარმოებელი</label> */}
                   <CarModel
                     value={this.state.carModel}
@@ -209,41 +223,101 @@ class searchComponent extends Component {
                     producer={this.state.producer}
                     defaultValue="მანქანის მოდელი"
                   />
+                  {this.state.carModel && (
+                    <span
+                      onClick={() =>
+                        this.setState({ carModel: "" }, () => {
+                          this.pushRoute();
+                        })
+                      }
+                      className="clearSelect"
+                    >
+                      x
+                    </span>
+                  )}
                 </div>
 
-                <div>
+                <div className="position-relative">
                   {/* <label>მწარმოებელი</label> */}
                   <Location
                     value={this.state.location}
                     changeHandlerfn={this.changeHandler}
                     defaultValue="ქალაქი"
                   />
+                  {this.state.location && (
+                    <span
+                      onClick={() =>
+                        this.setState({ location: "" }, () => {
+                          this.pushRoute();
+                        })
+                      }
+                      className="clearSelect"
+                    >
+                      x
+                    </span>
+                  )}
                 </div>
 
-                <div>
+                <div className="position-relative">
                   {/* <label>მწარმოებელი</label> */}
                   <OilType
                     value={this.state.oilType}
                     changeHandlerfn={this.changeHandler}
                     defaultValue="საწვავის ტიპი"
                   />
+                  {this.state.oilType && (
+                    <span
+                      onClick={() =>
+                        this.setState({ oilType: "" }, () => {
+                          this.pushRoute();
+                        })
+                      }
+                      className="clearSelect"
+                    >
+                      x
+                    </span>
+                  )}
                 </div>
 
-                <div>
+                <div className="position-relative">
                   {/* <label>მწარმოებელი</label> */}
                   <Engin
-                    value={this.state.engin}
                     changeHandlerfn={this.changeHandler}
                     defaultValue="ძრავის მოცულობა"
+                    value={this.state.engin}
                   />
+                  {this.state.engin && (
+                    <span
+                      onClick={() =>
+                        this.setState({ engin: "" }, () => {
+                          this.pushRoute();
+                        })
+                      }
+                      className="clearSelect"
+                    >
+                      x
+                    </span>
+                  )}
                 </div>
-                <div>
+                <div className="position-relative">
                   {/* <label>მწარმოებელი</label> */}
                   <Pessengers
                     value={this.state.Pessengers}
                     changeHandlerfn={this.changeHandler}
                     defaultValue="პირთა ტევადობა"
                   />
+                  {this.state.Pessengers && (
+                    <span
+                      onClick={() =>
+                        this.setState({ Pessengers: "" }, () => {
+                          this.pushRoute();
+                        })
+                      }
+                      className="clearSelect"
+                    >
+                      x
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -267,7 +341,7 @@ class searchComponent extends Component {
                 </div>
               </div>
 
-              <div className="common_checkbox">
+              {/* <div className="common_checkbox">
                 <label class="checkbox_container">
                   მძღოლით
                   <input
@@ -277,9 +351,9 @@ class searchComponent extends Component {
                     value={this.state.withDriver}
                   />
                   <span class="checkmark"></span>
-                </label>
+                </label> */}
 
-                {/* <label class="checkbox_container">
+              {/* <label class="checkbox_container">
                   მძღოლის გარეშე
                   <input
                     onChange={this.changeHandler}
@@ -289,7 +363,7 @@ class searchComponent extends Component {
                   />
                   <span class="checkmark"></span>
                 </label> */}
-              </div>
+              {/* </div> */}
               {/* <div className="common_checkbox">
                 <label class="checkbox_container">
                   საჭე მარჯვნივ
@@ -320,11 +394,11 @@ class searchComponent extends Component {
         </div>
         <div className="search_results">
           <div className="vip_info">
-            <span>(230) VIP განცხადება</span>
+            <span>სულ ({this.state.statements.length}) განცხადება</span>
           </div>
 
           <div className="home-car_section">
-            <div className="container">
+            <div style={{ maxWidth: "100%" }} className="container">
               <div className="row">
                 {/* {this.state.statements.map((el) => {
                   return (

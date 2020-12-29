@@ -223,6 +223,13 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .search_results_fluid {
+    flex-direction: column;
+    .search_filter {
+      // max-width: 100%;
+      // width: 100%;
+    }
+  }
   .car_list_box ul li {
     flex: 0 0 100%;
     max-width: 100%;

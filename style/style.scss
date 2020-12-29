@@ -69,3 +69,15 @@
 a:hover {
   text-decoration: none;
 }
+
+.clearSelect {
+  position: absolute;
+  right: 33px;
+  top: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.position-relative {
+  position: relative;
+}
