@@ -128,12 +128,7 @@ class myStatements extends Component {
                       <div className="common_box_img">
                         <Link href={`/statement/${el._id}`}>
                           <a>
-                            <img
-                              src={
-                                "https://gcarnode.herokuapp.com/" + el.images[0]
-                              }
-                              alt=""
-                            />
+                            <img src={el.images[0]} alt="" />
                           </a>
                         </Link>
                       </div>

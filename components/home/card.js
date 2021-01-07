@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import Link from "next/link";
+import Moment from "react-moment";
 
 const Card = ({
   data: {
@@ -20,8 +21,10 @@ const Card = ({
     withDriver,
     carModel,
     images,
+    creationDate,
     _id,
     producer,
+    Creat,
   },
 }) => {
   const getEditionData = useMemo(() => {
@@ -77,7 +80,7 @@ const Card = ({
       <div className="common_box_img">
         <Link href={`/statement/${_id}`}>
           <a>
-            <img src={"https://gcarnode.herokuapp.com/" + images[0]} alt="" />
+            <img src={images[0]} alt="" />
           </a>
         </Link>
       </div>
@@ -101,7 +104,14 @@ const Card = ({
         </div>
         <div className="common_car_price_fluid">
           <div className="common_car_footer">
-            <span>დღიურად</span>
+            <span>
+              დღიურად
+              <div>
+                {creationDate && (
+                  <Moment format="YYYY.MM.DD ">{new Date(creationDate)}</Moment>
+                )}
+              </div>
+            </span>
             <div className="common_car_price">
               <span>{`${price} ₾`}</span>
             </div>
