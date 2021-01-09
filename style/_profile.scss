@@ -526,12 +526,25 @@ input[type="number"] {
     }
   }
 }
+.cardContactInfo {
+  font-size: 14px;
+  color: #000000;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-weight: bold;
+}
 
 .car_common_properties {
   display: flex;
   flex-wrap: wrap;
   // height: 166px;
   align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: self-end;
+  height: 83px;
+  overflow: hidden;
+  justify-content: flex-start;
   // overflow-y: scroll;
   & > div {
     display: flex;

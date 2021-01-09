@@ -101,6 +101,10 @@ const Card = ({
                 );
             })}
           </div>
+          <div className="d-flex cardContactInfo ">
+            <div>gela 555678789</div>
+            <div>თბილისი</div>
+          </div>
         </div>
         <div className="common_car_price_fluid">
           <div className="common_car_footer">

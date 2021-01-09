@@ -29,6 +29,7 @@
     "react-hook-form": "^6.9.6",
     "react-hotjar": "^2.2.1",
     "react-image-gallery": "^1.0.7",
+    "react-messenger-customer-chat": "^0.8.0",
     "react-moment": "^1.1.1",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",

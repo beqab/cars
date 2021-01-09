@@ -24,8 +24,7 @@ class carrInnerFluid extends Component {
           curentStatement: res.data,
 
           images: res.data.images.map((el, index) => {
-            var link = "https://gcarnode.herokuapp.com/";
-            return { original: link + el, thumbnail: link + el };
+            return { original: el, thumbnail: el };
           }),
         });
       });
@@ -104,17 +103,23 @@ class carrInnerFluid extends Component {
                   </div>
                 ) : null}
 
-                <div className="contact_socials">
+                {/* <div className="contact_socials">
                   <a href="" target="_blank">
                     <img src="/imgs/facebook.png" />
                   </a>
                   <a href="" target="_blank">
                     <img src="/imgs/viber.png" />
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
-
+            <div className="main_inf insured">
+              <b>
+                <span style={{ color: "black" }}>
+                  ქალაქი: {curentStatement.location}
+                </span>
+              </b>
+            </div>
             {curentStatement.withDriver ? (
               <div className="main_inf driver_inf">
                 <div>
@@ -130,12 +135,12 @@ class carrInnerFluid extends Component {
             ) : null}
             {curentStatement.finalPurchase ? (
               <div className="main_inf">
-                <span>საბოლოო შესყიდვით!</span>
+                <span>საბოლოო შესყიდვით</span>
               </div>
             ) : null}
             {curentStatement.rentDaily ? (
               <div className="main_inf insured">
-                <span>ქირავდება დღიურად!</span>
+                <span>ქირავდება დღიურად</span>
               </div>
             ) : null}
           </div>

@@ -88,8 +88,7 @@ class ProfileFluid extends Component {
           this.setState({
             ...res.data,
             images: res.data.images.map((el, index) => {
-              var link = "https://gcarnode.herokuapp.com/";
-              return { uploadedImg: link + el, thumbnail: link + el };
+              return { uploadedImg: el, thumbnail: el };
             }),
             //   images: res.data.images.map((el, index) => {
             //     var link = "https://app.gcar.ge/";

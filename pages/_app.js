@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import React from "react";
 import withReduxStore from "../redux/with-redux-store";
 import { getCookesFromReq } from "../helpers/utils";
+import MessengerCustomerChat from "react-messenger-customer-chat";
 import Cookies from "js-cookie";
 import axios from "axios";
 import { hotjar } from "react-hotjar";
@@ -54,9 +55,15 @@ class MyApp extends App {
     const { Component, pageProps, reduxStore } = this.props;
     console.log(reduxStore, "reduxStorereduxStorereduxStore");
     return (
-      <Provider store={reduxStore}>
-        <Component {...pageProps} />
-      </Provider>
+      <div>
+        <MessengerCustomerChat
+          pageId="105939904792665"
+          appId="247405556767961"
+        />
+        <Provider store={reduxStore}>
+          <Component {...pageProps} />
+        </Provider>
+      </div>
     );
   }
 }

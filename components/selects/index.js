@@ -97,13 +97,13 @@ export const Doors = ({ value, changeHandlerfn, defaultValue }) => {
     <select onChange={(e) => changeHandlerfn(e)} name="doors">
       <option> {defaultValue ? defaultValue : "აირჩიე"}</option>
       <option selected={value === "2"} value="2">
-        2
+        2/3
       </option>
       <option selected={value === "4"} value="4">
-        4
+        4/5
       </option>
-      <option selected={value === ">4"} value=">4">
-        >4
+      <option selected={value === ">5"} value=">4">
+        >5
       </option>
     </select>
   );
@@ -555,15 +555,16 @@ export const OilType = ({ value, changeHandlerfn, defaultValue }) => {
       <option selected={value === "ბენზინი"} value="ბენზინი">
         ბენზინი
       </option>
+      <option selected={value === "გაზი/ბენზინი"} value="გაზი/ბენზინი">
+        გაზი/ბენზინი
+      </option>
       <option selected={value === "დიზელი"} value="დიზელი">
         დიზელი
       </option>
       <option selected={value === "ელექტრო"} value="ელექტრო">
         ელექტრო
       </option>
-      <option selected={value === "წყალბადი"} value="წყალბადი">
-        წყალბადი
-      </option>
+
       <option selected={value === "ჰიბრიდი"} value="ჰიბრიდი">
         ჰიბრიდი
       </option>
