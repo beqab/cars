@@ -153,8 +153,8 @@ class Home extends Component {
 
           <div className="home_main_text">
             <h2>
-              <span>Rent Car In Tbilisi </span>
-              <span>From Gcar.ge</span>
+              <span>აისრულე ოცნებები </span>
+              <span>Gcar.ge - სთან ერთად</span>
             </h2>
           </div>
         </main>

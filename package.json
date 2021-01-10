@@ -21,22 +21,22 @@
     "moment": "^2.29.1",
     "next": "9.2.0",
     "next-redux-wrapper": "^5.0.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "react": "16.12.0",
-    "react-bootstrap": "^1.0.0-beta.16",
+    "react-bootstrap": "^1.4.3",
     "react-dom": "16.12.0",
     "react-facebook-login": "^4.1.1",
     "react-hook-form": "^6.9.6",
     "react-hotjar": "^2.2.1",
-    "react-image-gallery": "^1.0.7",
+    "react-image-gallery": "^1.0.8",
     "react-messenger-customer-chat": "^0.8.0",
     "react-moment": "^1.1.1",
-    "react-redux": "^7.2.0",
+    "react-redux": "^7.2.2",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "validator": "^13.0.0"
+    "validator": "^13.5.2"
   },
   "devDependencies": {}
 }
