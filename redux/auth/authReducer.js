@@ -15,6 +15,13 @@ export const authReducer = (state = initState, action) => {
         user: action.payload.user,
         token: action.payload.token,
       };
+
+    case "SET_USER_NAME":
+      return {
+        ...state,
+        user: { ...state.user, name: action.payload.name },
+      };
+
     case "LOGOUT_USER":
       return {
         ...state,

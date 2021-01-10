@@ -4,16 +4,17 @@ import React from "react";
 import withReduxStore from "../redux/with-redux-store";
 import { getCookesFromReq } from "../helpers/utils";
 import MessengerCustomerChat from "react-messenger-customer-chat";
+import WrapperForUser from "../helpers/wrapperForUser";
 import Cookies from "js-cookie";
 import axios from "axios";
 import { hotjar } from "react-hotjar";
+
 axios.defaults.baseURL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:5000/api/"
     : "https://gcarnode.herokuapp.com/api/";
 // axios.defaults.baseURL = "https://gcarnode.herokuapp.com/api/";
-// : "http://localhost:5000/api/";
-// axios.defaults.baseURL = "http://localhost:5000/api/";
+// : "http://localhost:5     RL = "http://localhost:5000/api/";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -61,7 +62,9 @@ class MyApp extends App {
           appId="247405556767961"
         />
         <Provider store={reduxStore}>
-          <Component {...pageProps} />
+          <WrapperForUser>
+            <Component {...pageProps} />
+          </WrapperForUser>
         </Provider>
       </div>
     );

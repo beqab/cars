@@ -17,6 +17,7 @@ export const setCurrentUser = ({ user, token }) => {
   // Check for expired token
   Router.push("/profile/addStatement");
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
   return {
     type: "LOGIN_USER",
     payload: { user, token },
@@ -39,5 +40,12 @@ export const updateUser = (user) => {
   return {
     type: "UPDATE_USER",
     payload: { user },
+  };
+};
+
+export const getUserName = (user) => {
+  return {
+    type: "SET_USER_NAME",
+    payload: user,
   };
 };
