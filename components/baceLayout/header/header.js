@@ -79,7 +79,7 @@ const Header = () => {
           <ul>
             <li>
               <Link href="/">
-                <a className="active">მთავარი გვერდი!!</a>
+                <a className="active">მთავარი გვერდი</a>
               </Link>
             </li>
             <li>
