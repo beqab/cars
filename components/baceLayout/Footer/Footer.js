@@ -32,8 +32,8 @@ const Footer = () => {
         </ul>
       </div>
       <div className="footer_contact">
-        <span>55555555</span>
-        <span>test@gmail.com</span>
+      <a href="tel:555 23 32 32">579 29 66 56</a>
+        <span> infogcar@gmail.com</span>
       </div>
     </footer>
   );

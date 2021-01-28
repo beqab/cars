@@ -103,7 +103,15 @@
   #login ~ button {
     margin: 12px 0px 0 0;
   }
-
+  .about_fluid {
+    width: 100%;
+    padding: 20px 20px 20px;
+    text-align: left;
+  }
+  .common_title {
+    text-align: center;
+    margin-bottom: 15px;
+  }
   .home-car_section {
     .common_car_box {
       margin-bottom: 20px;
@@ -113,7 +121,7 @@
     position: absolute;
     background: #2a2a2a;
     width: 100vw;
-    top: 74px;
+    top: 64px;
     left: 0;
     padding-bottom: 24px;
     z-index: 3333;

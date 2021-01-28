@@ -83,6 +83,11 @@ const Header = () => {
               </Link>
             </li>
             <li>
+              <Link href="/about">
+                <a className="active">ჩვენს შესახებ</a>
+              </Link>
+            </li>
+            <li>
               <Link href={isAuth ? "/profile/addStatement" : "/login"}>
                 <a>მანქანის გაქირავება</a>
               </Link>
@@ -93,7 +98,7 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href="/contactus">
+              <Link href="/contact">
                 <a>კონტაქტი</a>
               </Link>
             </li>
