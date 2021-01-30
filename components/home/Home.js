@@ -74,14 +74,17 @@ class Home extends Component {
           <div className="filters">
             <form action="/search">
               <div className="top_search">
-                <input
+                <div className="text-center w-100" style={{ color: "#f5bd1f" }}>
+                  იპოვე შენი ავტომობილი ^_^
+                </div>
+                {/* <input
                   name="searchString"
                   onChange={this.changeHandler}
                   placeholder="ძებნა"
                 />
                 <button onClick={this.handleSearch}>
                   <img src="/imgs/search.png" />
-                </button>
+                </button> */}
               </div>
               <div className="filter_body">
                 <div>
