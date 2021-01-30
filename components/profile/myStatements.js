@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import Link from "next/link";
 import Router from "next/router";
+import Card from "../../components/home/card";
 
 class myStatements extends Component {
   state = {
@@ -13,11 +14,11 @@ class myStatements extends Component {
   };
 
   componentDidMount() {
-    window.addEventListener("click", () => {
-      this.setState({
-        curenCardId: null,
-      });
-    });
+    // window.addEventListener("click", () => {
+    //   this.setState({
+    //     curenCardId: null,
+    //   });
+    // });
 
     let token = Cookies.get("token");
     axios
@@ -49,6 +50,7 @@ class myStatements extends Component {
   };
 
   deleteStatement = async () => {
+    console.log(this.state.curenCardId);
     try {
       await axios.post("statement/delete", {
         statementId: this.state.curenCardId,
@@ -97,11 +99,16 @@ class myStatements extends Component {
               {this.state.myStatements.map((el) => {
                 return (
                   <div className="col-12 col-md-4">
-                    <div className="common_car_box">
+                    <div style={{ border: "none" }} className="common_car_box">
                       <div className="delete_edit">
                         <a
                           className="delete_href"
-                          onClick={(e) => this.openConirmModal(e, true)}
+                          onClick={(e) => {
+                            this.setState({
+                              curenCardId: el._id,
+                            });
+                            this.openConirmModal(e, true);
+                          }}
                           href=""
                         >
                           წაშლა
@@ -122,10 +129,11 @@ class myStatements extends Component {
                           რედაქტირება
                         </a>
                       </div>
-                      <div className="vip">
+                      {/* <div className="vip">
                         <img src="/imgs/vip.png" alt="" />
-                      </div>
-                      <div className="common_box_img">
+                      </div> */}
+                      <Card data={el} />
+                      {/* <div className="common_box_img">
                         <Link href={`/statement/${el._id}`}>
                           <a>
                             <img src={el.images[0]} alt="" />
@@ -210,7 +218,7 @@ class myStatements extends Component {
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 );

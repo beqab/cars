@@ -17,3 +17,7 @@
 .about_text p::first-letter {
   font-size: 34px;
 }
+
+.about_fluid {
+  min-height: calc(100vh - 245px);
+}

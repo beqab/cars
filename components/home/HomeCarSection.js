@@ -13,9 +13,10 @@ class HomeCar extends Component {
         params: {},
       })
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
+
         this.setState({
-          statements: res.data,
+          statements: [...res.data],
         });
       })
       .catch((err) => {
@@ -28,7 +29,7 @@ class HomeCar extends Component {
       <div className="home-car_section">
         <div className="container">
           <div className="row">
-            {this.state.statements && !this.state.statements.length ? (
+            {this.state.statements && this.state.statements.length ? (
               this.state.statements.map((el, i) => {
                 return (
                   <div className="col-12 col-md-3">

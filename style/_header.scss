@@ -91,6 +91,13 @@ nav {
           transform: translateX(-50%);
           transition: all 0.2s;
         }
+        &.active {
+          color: #f5bd1f;
+          &:after {
+            width: 100%;
+          }
+        }
+
         &:hover {
           color: #f5bd1f;
 
