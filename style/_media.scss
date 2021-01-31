@@ -1,3 +1,28 @@
+@media only screen and (min-width: 1400px) {
+  .home_main_text {
+    max-width: 479px;
+  }
+  .home_main_text h2 {
+    font-size: 20px;
+    color: #2a2a2a;
+  }
+  .home_main_text h2 span:last-child {
+    max-width: 260px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .home_main_text {
+    max-width: 580px;
+  }
+  .home_main_text h2 {
+    font-size: 25px;
+    color: #2a2a2a;
+  }
+  .home_main_text h2 span:last-child {
+    max-width: 300px;
+  }
+}
+
 @media only screen and (min-width: 992px) {
   .menu-btn {
     display: none;
@@ -8,7 +33,31 @@
     padding: 30px 25px 0;
   }
 }
+@media only screen and (max-width: 1300px) {
+  .home_main_text {
+    max-width: 380px;
+  }
+
+  .home_main_text h2 span:last-child {
+    max-width: 180px;
+  }
+}
 @media only screen and (max-width: 992px) {
+  .menu-btn {
+    top: 9px;
+    right: 3px;
+  }
+  .home_main_text {
+    margin-left: 1%;
+    margin-top: 2%;
+    background-size: contain;
+    height: 170px;
+    background-repeat: no-repeat;
+    background-position: top;
+    max-width: 420px;
+    width: 100%;
+    padding: 40px 3px 12px 35px;
+  }
   .search_results_fluid .filters form {
     background-color: #fff;
     border-radius: 9px;
@@ -64,7 +113,7 @@
   }
 
   .home_main_text h2 {
-    font-size: 25px;
+    font-size: 18px;
     margin: 15px 0 5px;
   }
   footer {
@@ -129,7 +178,7 @@
     position: absolute;
     background: #2a2a2a;
     width: 100vw;
-    top: 64px;
+    top: 86px;
     left: 0;
     padding-bottom: 24px;
     z-index: 3333;

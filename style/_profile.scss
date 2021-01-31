@@ -1089,6 +1089,10 @@ input[type="number"] {
   .search_filter {
     max-width: 300px;
     width: 100%;
+    .filters {
+      position: sticky;
+      top: 0;
+    }
   }
 
   .search_results {
@@ -1278,12 +1282,16 @@ input[type="number"] {
   padding: 50px 0;
 
   .letter_fluid {
-    max-width: 500px;
+    max-width: 700px;
     width: 100%;
     margin-right: 50px;
     border-radius: 5px;
     border: 2px solid $main-color;
+    padding: 0 20px;
 
+    .common_title {
+      margin-bottom: 10px;
+    }
     form {
       padding: 0 15px;
       text-align: center;

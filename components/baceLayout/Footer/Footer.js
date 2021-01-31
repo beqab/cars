@@ -6,7 +6,7 @@ const Footer = ({ isAuth }) => {
   return (
     <footer>
       <div className="footer_logo">
-        <img src="/imgs/footer_logo.png" />
+        <img src="/imgs/white-06.png" />
       </div>
       <div className="footer_nav">
         <ul>
@@ -29,7 +29,7 @@ const Footer = ({ isAuth }) => {
         </ul>
       </div>
       <div className="footer_contact">
-        <a href="tel:555 25 24 59">555 25 24 59</a>
+        <a href="tel:579 29 66 56">579 29 66 56</a>
         <span> infogcar@gmail.com</span>
       </div>
     </footer>
