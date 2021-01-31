@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import classnames from "classnames";
+import { useRouter } from "next/router";
 
 import { authLogout } from "../../../redux/auth/authActions";
 import {
@@ -19,6 +20,10 @@ const Header = () => {
   const { user, isAuth } = useSelector(
     createStructuredSelector({ user: userSelector, isAuth: isAuthSelector })
   );
+
+  const router = useRouter();
+
+  console.log(router, "routerrouter");
 
   return (
     <header>
@@ -79,12 +84,16 @@ const Header = () => {
           <ul>
             <li>
               <Link href="/">
-                <a className="active">მთავარი გვერდი</a>
+                <a className={router.pathname === "/" ? "active" : ""}>
+                  მთავარი გვერდი
+                </a>
               </Link>
             </li>
             <li>
               <Link href="/about">
-                <a className="active">ჩვენს შესახებ</a>
+                <a className={router.pathname === "/about" ? "active" : ""}>
+                  ჩვენს შესახებ
+                </a>
               </Link>
             </li>
             <li>
@@ -94,12 +103,20 @@ const Header = () => {
             </li>
             <li>
               <Link href={isAuth ? "/profile/addStatement" : "/login"}>
-                <a>ჩემი გვერდი</a>
+                <a
+                  className={
+                    router.pathname === "/profile/addStatement" ? "active" : ""
+                  }
+                >
+                  ჩემი გვერდი
+                </a>
               </Link>
             </li>
             <li>
               <Link href="/contact">
-                <a>კონტაქტი</a>
+                <a className={router.pathname === "/contact" ? "active" : ""}>
+                  კონტაქტი
+                </a>
               </Link>
             </li>
           </ul>

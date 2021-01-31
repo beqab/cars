@@ -337,7 +337,7 @@ class ProfileFluid extends Component {
               <a href="" className="active">
                 მანქანების გაქირავება
               </a>
-              <a href="">მანქანით მომსახურება</a>
+              {/* <a href="">მანქანით მომსახურება</a> */}
             </div>
           </div>
 

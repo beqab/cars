@@ -36,10 +36,15 @@ class searchComponent extends Component {
     startIndex: 1,
 
     statemetnsInPage: 24,
+    loadStatements: false,
   };
 
   fetchStatemetns = async () => {
+    this.setState({
+      loadStatements: true,
+    });
     let token = Cookies.get("token");
+
     try {
       const { data: Data } = await axios.get("statement/search", {
         headers: {
@@ -49,9 +54,13 @@ class searchComponent extends Component {
       });
       this.setState({
         statements: Data,
+        loadStatements: false,
       });
     } catch (err) {
       console.log(err);
+      this.setState({
+        loadStatements: false,
+      });
     }
   };
 
@@ -118,7 +127,7 @@ class searchComponent extends Component {
 
   getStatmentsByPage = (startIndex) => {
     // let index = 0;
-    if (this.state.statements.length > 0) {
+    if (!this.state.loadStatements && this.state.statements.length > 0) {
       return this.state.statements
         .slice(
           (this.state.startIndex - 1) * this.state.statemetnsInPage,
@@ -137,7 +146,34 @@ class searchComponent extends Component {
             </div>
           );
         });
+    } else if (this.state.loadStatements) {
+      return (
+        <div
+          style={{ minHeight: "70vh" }}
+          className="text-center w-100 d-flex justify-content-center align-items-center flex-column"
+        >
+          <img src="https://gifprint.s3.amazonaws.com/p/gif/80037/e62c3f40a25701360b561e9875f84da0.gif" />
+          <div>იტვირთება...</div>
+        </div>
+      );
     }
+    return (
+      <div
+        className="d-flex align-items-center w-100 justify-content-center"
+        style={{ height: "400px" }}
+      >
+        <div
+          className="p-4"
+          style={{
+            background: "#f5bd1f",
+            fontSize: "23px",
+            borderRadius: "5px",
+          }}
+        >
+          განცხადება ვერ მოიძებნა :/
+        </div>
+      </div>
+    );
     // this.state.statements.length > 0 &&
   };
 

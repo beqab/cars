@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import Link from "next/link";
 import Moment from "react-moment";
+import { connect } from "react-redux";
 
 const Card = ({
   data: {
@@ -24,6 +25,9 @@ const Card = ({
     creationDate,
     _id,
     producer,
+    userName,
+    location,
+    phone,
     Creat,
   },
 }) => {
@@ -74,9 +78,9 @@ const Card = ({
 
   return (
     <div className="common_car_box">
-      <div className="vip">
+      {/* <div className="vip">
         <img src="/imgs/vip.png" alt="" />
-      </div>
+      </div> */}
       <div className="common_box_img">
         <Link href={`/statement/${_id}`}>
           <a>
@@ -102,8 +106,10 @@ const Card = ({
             })}
           </div>
           <div className="d-flex cardContactInfo ">
-            <div>gela 555678789</div>
-            <div>თბილისი</div>
+            <div>
+              {userName} {phone && phone !== "undefined" ? phone : ""}
+            </div>
+            <div>{location}</div>
           </div>
         </div>
         <div className="common_car_price_fluid">
@@ -126,4 +132,6 @@ const Card = ({
   );
 };
 
-export default Card;
+const mapStateProps = (state) => ({ state });
+
+export default connect(mapStateProps, null)(Card);

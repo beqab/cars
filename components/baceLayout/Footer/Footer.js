@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
+import { connect } from "react-redux";
 
-const Footer = () => {
+const Footer = ({ isAuth }) => {
   return (
     <footer>
       <div className="footer_logo">
@@ -15,28 +16,24 @@ const Footer = () => {
             </Link>
           </li>
           <li>
-            <Link href="/profile/addStatement">
+            <Link href={isAuth ? "/profile/addStatement" : "/login"}>
               <a>მანქანების გაქირავება</a>
             </Link>
           </li>
+
           <li>
-            <Link href="/profile/addStatement">
-              <a>მანქანით მომსახურება</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/profile/addStatement">
+            <Link href={isAuth ? "/profile/addStatement" : "/login"}>
               <a href="">ჩემი გვერდი</a>
             </Link>
           </li>
         </ul>
       </div>
       <div className="footer_contact">
-      <a href="tel:555 23 32 32">579 29 66 56</a>
+        <a href="tel:555 25 24 59">555 25 24 59</a>
         <span> infogcar@gmail.com</span>
       </div>
     </footer>
   );
 };
 
-export default Footer;
+export default connect((state) => ({ isAuth: state.auth.isAuth }))(Footer);

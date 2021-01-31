@@ -165,7 +165,7 @@ class carrInnerFluid extends Component {
               {curentStatement.engin ? (
                 <li>
                   <span>
-                    <img src="/imgs/Untitled-1gh.png"></img>
+                    <img src="/imgs/1-04.png"></img>
 
                     <span>ძრავის მოცულობა</span>
                   </span>
@@ -176,7 +176,7 @@ class carrInnerFluid extends Component {
               {curentStatement.carAge && (
                 <li>
                   <span>
-                    <img src="/imgs/Untitled-1gh.png"></img>
+                    {/* <img src="/imgs/1-05.png"></img> */}
 
                     <span>გამოშვების წელი</span>
                   </span>
@@ -186,7 +186,7 @@ class carrInnerFluid extends Component {
               {curentStatement.category && (
                 <li>
                   <span>
-                    <img src="/imgs/Untitled-1gh.png"></img>
+                    <img src="/imgs/1-05.png"></img>
 
                     <span>კატეგორია</span>
                   </span>
@@ -197,7 +197,7 @@ class carrInnerFluid extends Component {
               {curentStatement.doors && (
                 <li>
                   <span>
-                    <img src="/imgs/Untitled-1gh.png"></img>
+                    <img src="/imgs/1-19.png"></img>
 
                     <span>კარის რაოდენობა</span>
                   </span>

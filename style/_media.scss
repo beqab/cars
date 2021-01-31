@@ -9,6 +9,14 @@
   }
 }
 @media only screen and (max-width: 992px) {
+  .search_results_fluid .filters form {
+    background-color: #fff;
+    border-radius: 9px;
+    padding: 14px 0px 10px 20px;
+    position: inherit;
+    width: 100%;
+  }
+
   .contact_box {
     padding: 20px 15px;
     flex-direction: column;
@@ -227,6 +235,19 @@
   }
   .personal_info_container input {
     border: 1px solid #f5bd1f;
+  }
+
+  .header_navigation nav.active {
+    max-width: 100%;
+    text-align: center;
+  }
+  nav ul li:not(:last-child) {
+    margin-right: 0px;
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+  nav ul {
+    margin-top: 0px;
   }
 }
 
