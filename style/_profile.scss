@@ -1086,6 +1086,10 @@ input[type="number"] {
   .search_filter {
     max-width: 300px;
     width: 100%;
+    .filters {
+      position: sticky;
+      top: 0;
+    }
   }
 
   .search_results {

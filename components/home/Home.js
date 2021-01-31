@@ -75,7 +75,7 @@ class Home extends Component {
             <form action="/search">
               <div className="top_search">
                 <div className="text-center w-100" style={{ color: "#f5bd1f" }}>
-                  იპოვე შენი ავტომობილი ^_^
+                  იპოვე შენი ავტომობილი
                 </div>
                 {/* <input
                   name="searchString"

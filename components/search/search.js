@@ -170,7 +170,7 @@ class searchComponent extends Component {
             borderRadius: "5px",
           }}
         >
-          განცხადება ვერ მოიძებნა :/
+          განცხადება ვერ მოიძებნა
         </div>
       </div>
     );
