@@ -1,15 +1,14 @@
 #home_main {
   width: 100%;
   height: calc(100vh - 90px);
-  background-color: antiquewhite;
-  background-image: url("/imgs/car.jfif");
+  background-image: url("/imgs/cover-01.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5% 10%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 3% 10%;
 }
 
 .filters {
@@ -153,16 +152,14 @@
 }
 
 .home_main_text {
-  flex-grow: 1;
-  margin-left: 7%;
+  margin-left: 2%;
+  margin-top: 2%;
 
   h2 {
-    font-size: 27px;
-    // font-family: "Abril Fatface";
-    color: #fff;
+    font-size: 16px;
+    color: #2a2a2a;
     span {
       display: block;
-      // font-family: "Abril Fatface";
       &:first-child {
         border-bottom: 2px solid $main-color;
       }
