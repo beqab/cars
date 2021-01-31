@@ -204,7 +204,7 @@ footer {
 .menu-btn__burger {
   width: 30px;
   height: 3px;
-  background: #fff;
+  background: $main-color;
   border-radius: 5px;
   transition: all 0.2s ease-in-out;
 }
@@ -215,7 +215,7 @@ footer {
   position: absolute;
   width: 30px;
   height: 3px;
-  background: #fff;
+  background: $main-color;
   left: 3px;
   top: 17px;
   border-radius: 5px;
