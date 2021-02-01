@@ -30,7 +30,7 @@ const Header = () => {
       <div id="logo_socials">
         <Link href="/">
           <a>
-            <img src="/imgs/yelow-06.png" alt="" />
+            <img src="/imgs/logosSVGyelow.svg" alt="" />
           </a>
         </Link>
       </div>
