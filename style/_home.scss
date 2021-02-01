@@ -252,3 +252,21 @@
 .google_auth_social {
   display: none;
 }
+
+.filter_icon {
+  background: #fff;
+  border-bottom: 1px solid $main-color;
+  width: 90%;
+  margin: 20px auto 20px;
+  text-align: right;
+  padding-bottom: 10px;
+  img {
+    width: 20px;
+    margin-left: 10px;
+  }
+
+  span {
+    color: #2a2a2a;
+    font-size: 14px;
+  }
+}
