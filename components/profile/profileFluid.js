@@ -6,6 +6,7 @@ import cars from "./carsApi.json";
 import axios from "axios";
 import Router from "next/router";
 import Cookies from "js-cookie";
+import Loader from "../UI/loader";
 
 import {
   Doors,
@@ -20,6 +21,7 @@ import {
 
 class ProfileFluid extends Component {
   state = {
+    loadStatement: false,
     images: [],
     defaultImgIndex: 0,
     producer: null,
@@ -185,6 +187,9 @@ class ProfileFluid extends Component {
   };
 
   saveStatement = () => {
+    this.setState({
+      loadStatement: true,
+    });
     let image = new FormData();
 
     if (this.state.images.length) {
@@ -262,6 +267,10 @@ class ProfileFluid extends Component {
           loader: true,
         });
 
+        this.setState({
+          loadStatement: false,
+        });
+
         setTimeout(() => {
           this.setState({
             loader: false,
@@ -270,6 +279,9 @@ class ProfileFluid extends Component {
         }, 2000);
       })
       .catch((error) => {
+        this.setState({
+          loadStatement: false,
+        });
         console.log(error.response);
         if (error.response) {
           console.log(error.response);
@@ -777,12 +789,12 @@ class ProfileFluid extends Component {
                 </div>
               </div>
               <div className="profile_textarea">
-                <span>სხვა მახასიათებლები</span>
+                <span>დაამატე აღწერა</span>
                 <textarea
                   name="text"
                   onChange={this.changeHandler}
                   value={this.state.text}
-                  placeholder="სხვა მახასიათებლები"
+                  placeholder="დაამატე აღწერა"
                 ></textarea>
                 {this.state.textError ? (
                   <span className="error_msg">{this.state.textError}</span>
@@ -790,8 +802,14 @@ class ProfileFluid extends Component {
               </div>
             </div>
             <div className="up_button_fluid">
-              <button onClick={this.saveStatement} className="up_button">
-                {this.state.statementId
+              <button
+                disabled={this.state.loadStatement}
+                onClick={this.saveStatement}
+                className="up_button add statementBtn d-flex aling-items-center"
+              >
+                {this.state.loadStatement
+                  ? "გზავნება.."
+                  : this.state.statementId
                   ? " განცხადების რედაქტირება"
                   : "გამოქვეყნება"}
               </button>
