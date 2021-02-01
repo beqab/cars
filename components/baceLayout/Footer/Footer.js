@@ -6,7 +6,7 @@ const Footer = ({ isAuth }) => {
   return (
     <footer>
       <div className="footer_logo">
-        <img src="/imgs/white-06.png" />
+        <img src="/imgs/logosSVGwhite.svg" />
       </div>
       <div className="footer_nav">
         <ul>
