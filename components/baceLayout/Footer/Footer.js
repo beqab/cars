@@ -29,7 +29,7 @@ const Footer = ({ isAuth }) => {
         </ul>
       </div>
       <div className="footer_contact">
-        <a href="tel:579 29 66 56">579 29 66 56</a>
+        {/* <a href="tel:579 29 67 56">579 29 67 56</a> */}
         <span> infogcar@gmail.com</span>
       </div>
     </footer>
