@@ -11,6 +11,7 @@ class myStatements extends Component {
     hide: false,
     curenCardId: null,
     onfirmModal: false,
+    loadStatemnts: false,
   };
 
   componentDidMount() {
@@ -21,6 +22,9 @@ class myStatements extends Component {
     // });
 
     let token = Cookies.get("token");
+    this.setState({
+      loadStatemnts: true,
+    });
     axios
       .get("statement/myall", {
         headers: {
@@ -31,6 +35,12 @@ class myStatements extends Component {
         console.log(res);
         this.setState({
           myStatements: res.data.reverse(),
+          loadStatemnts: false,
+        });
+      })
+      .catch((e) => {
+        this.setState({
+          loadStatemnts: false,
         });
       });
   }
@@ -96,44 +106,74 @@ class myStatements extends Component {
         <div className="our_statement_fluid">
           <div className="container">
             <div className="row">
-              {this.state.myStatements.map((el) => {
-                return (
-                  <div className="col-12 col-md-4">
-                    <div style={{ border: "none" }} className="common_car_box">
-                      <div className="delete_edit">
-                        <a
-                          className="delete_href"
-                          onClick={(e) => {
-                            this.setState({
-                              curenCardId: el._id,
-                            });
-                            this.openConirmModal(e, true);
-                          }}
-                          href=""
-                        >
-                          წაშლა
-                        </a>
-                        <a
-                          class="edit_href"
-                          onClick={(e) => {
-                            e.preventDefault();
+              {this.state.loadStatemnts ? (
+                <div
+                  style={{ minHeight: "40vh" }}
+                  className="text-center w-100 d-flex justify-content-center align-items-center flex-column"
+                >
+                  <img src="https://gifprint.s3.amazonaws.com/p/gif/80037/e62c3f40a25701360b561e9875f84da0.gif" />
+                  <div>იტვირთება...</div>
+                </div>
+              ) : !this.state.myStatements ||
+                !this.state.myStatements.length ? (
+                <div className="text-center w-100 mt-5">
+                  განცხადებიბი არ გაქვთ
+                  <Link href="/profile/addStatement">
+                    <a
+                      style={{
+                        backgroundColor: "#f5bd1f",
+                        color: "#fff",
+                        padding: "8px",
+                        borderRadius: "3px",
+                        marginLeft: "10px",
+                      }}
+                    >
+                      დაამატე განცხადება
+                    </a>
+                  </Link>
+                </div>
+              ) : (
+                this.state.myStatements.map((el) => {
+                  return (
+                    <div className="col-12 col-md-4">
+                      <div
+                        style={{ border: "none" }}
+                        className="common_car_box"
+                      >
+                        <div className="delete_edit">
+                          <a
+                            className="delete_href"
+                            onClick={(e) => {
+                              this.setState({
+                                curenCardId: el._id,
+                              });
+                              this.openConirmModal(e, true);
+                            }}
+                            href=""
+                          >
+                            წაშლა
+                          </a>
+                          <a
+                            class="edit_href"
+                            onClick={(e) => {
+                              e.preventDefault();
 
-                            Router.push({
-                              pathname: "/profile/addStatement/",
-                              query: {
-                                id: el._id,
-                              },
-                            });
-                          }}
-                        >
-                          რედაქტირება
-                        </a>
-                      </div>
-                      {/* <div className="vip">
+                              Router.push({
+                                pathname: "/profile/addStatement/",
+                                query: {
+                                  id: el._id,
+                                },
+                              });
+                            }}
+                          >
+                            რედაქტირება
+                          </a>
+                        </div>
+                        {/* <div className="vip">
                         <img src="/imgs/vip.png" alt="" />
                       </div> */}
-                      <Card data={el} />
-                      {/* <div className="common_box_img">
+                        <Card data={el} />
+                        {/* <div className="common_box_img">
                         <Link href={`/statement/${el._id}`}>
                           <a>
                             <img src={el.images[0]} alt="" />
@@ -219,10 +259,11 @@ class myStatements extends Component {
                           </div>
                         </div>
                       </div> */}
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })
+              )}
             </div>
           </div>
         </div>

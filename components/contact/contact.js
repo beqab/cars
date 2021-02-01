@@ -51,7 +51,7 @@ class contact extends Component {
                 <label>
                   <img src="/imgs/phone.png" />
                 </label>
-                <a href="tel:579 29 66 56">579 29 66 56</a>
+                {/* <a href="tel:579 29 66 56">579 29 66 56</a> */}
               </div>
               <div class="contact_label">
                 <label>

@@ -116,7 +116,7 @@
 .profile_main_content {
   flex-grow: 1;
   .profile_main_content_header {
-    margin-top: 3px;
+    margin-top: 7px;
     & > div {
       display: flex;
     }
@@ -423,9 +423,12 @@ input[type="number"] {
 }
 
 .our_statement_fluid {
-  margin-top: 44px;
+  margin-top: 48px;
   border-top: 2px solid $main-color;
   padding-top: 15px;
+  > .container {
+    min-height: calc(100vh - 350px);
+  }
 }
 
 .common_car_box {

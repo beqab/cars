@@ -301,6 +301,26 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .home_main_text h2 span:last-child {
+    width: 100%;
+    max-width: 100%;
+  }
+  .home-car_section {
+    .container {
+      margin-top: 30px;
+    }
+  }
+
+  .search_results_fluid .search_filter {
+    margin: auto;
+  }
+
+  .search_results_fluid .filter_body {
+    margin-top: -10px;
+  }
+  .filters {
+    margin: auto;
+  }
   .search_results_fluid {
     flex-direction: column;
     .search_filter {
