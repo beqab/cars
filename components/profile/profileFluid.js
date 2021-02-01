@@ -808,7 +808,7 @@ class ProfileFluid extends Component {
                 className="up_button add statementBtn d-flex aling-items-center"
               >
                 {this.state.loadStatement
-                  ? "გზავნება.."
+                  ? "იგზავნება..."
                   : this.state.statementId
                   ? " განცხადების რედაქტირება"
                   : "გამოქვეყნება"}
