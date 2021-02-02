@@ -45,6 +45,10 @@
 }
 
 @media only screen and (max-width: 992px) {
+  .search_results_fluid .search_results {
+    padding-top: 0;
+  }
+
   .search_filter {
     transition: all 0.2s;
     // position: fixed;
@@ -215,7 +219,7 @@
   .header_navigation nav {
     ul {
       flex-direction: column;
-      padding-left: 15px;
+      padding-left: 0px;
       padding-bottom: 20px;
     }
   }
