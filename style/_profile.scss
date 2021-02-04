@@ -242,15 +242,36 @@ select {
   background-image: url("/imgs/Untitled-1.png");
 }
 .engine_select {
-  background-image: url("/imgs/Untitled-1hf.png");
+  background-image: url("/imgs/icons-04.svg");
 }
-.flue_select {
-  background-image: url("/imgs/Untitled-1gh.png");
+.passangers {
+  background-image: url("/imgs/icons-06.svg");
 }
-.flue_select {
-  background-image: url("/imgs/door_select.png");
+.iconModel {
+  background-image: url("/imgs/icons-08.svg");
+}
+.iconLocation {
+  background-image: url("/imgs/icons-12.svg");
+}
+.iconManufactorer {
+  background-image: url("/imgs/icons-07.svg");
 }
 
+.iconCategory {
+  background-image: url("/imgs/icons-05.svg");
+}
+
+.iconDoors {
+  background-image: url("/imgs/icons-19.svg");
+}
+
+.iconLocationl {
+  background-image: url("/imgs/icons-12.svg");
+  background-size: 12px !important;
+}
+.iconOil {
+  background-image: url("/imgs/icons-13.svg");
+}
 .contact_info_fluid {
   margin-top: 50px;
   & > div {

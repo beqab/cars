@@ -362,7 +362,9 @@ class ProfileFluid extends Component {
           <div className="profile_main_inputs">
             <div className="profile_input_box">
               <div>
-                <label>კატეგორია</label>
+                <label className="select_with_img iconCategory">
+                  კატეგორია
+                </label>
                 <Category
                   value={this.state.category}
                   changeHandlerfn={this.changeHandler}
@@ -387,7 +389,9 @@ class ProfileFluid extends Component {
             </div>
             <div className="profile_input_box">
               <div>
-                <label>მწარმოებელი</label>
+                <label className="select_with_img iconManufactorer">
+                  მწარმოებელი
+                </label>
                 <Producer
                   value={this.state.producer}
                   changeHandlerfn={this.changeHandler}
@@ -400,7 +404,9 @@ class ProfileFluid extends Component {
 
             <div className="profile_input_box">
               <div>
-                <label>ადგილმდებარეობა</label>
+                <label className="select_with_img iconLocationl">
+                  ადგილმდებარეობა
+                </label>
                 <Location
                   value={this.state.location}
                   changeHandlerfn={this.changeHandler}
@@ -412,7 +418,7 @@ class ProfileFluid extends Component {
             </div>
             <div className="profile_input_box">
               <div>
-                <label>მოდელი</label>
+                <label className="select_with_img iconModel">მოდელი</label>
                 <CarModel
                   value={this.state.carModel}
                   changeHandlerfn={this.changeHandler}
@@ -426,7 +432,9 @@ class ProfileFluid extends Component {
 
             <div className="profile_input_box">
               <div>
-                <label> პირთა ტევადობა</label>
+                <label className="select_with_img passangers">
+                  პირთა ტევადობა
+                </label>
                 <Pessengers
                   value={this.state.Pessengers}
                   changeHandlerfn={this.changeHandler}
@@ -448,7 +456,7 @@ class ProfileFluid extends Component {
 
             <div className="profile_input_box">
               <div>
-                <label className="flue_select">საწვავის ტიპი</label>
+                <label className="select_with_img iconOil">საწვავის ტიპი</label>
 
                 <OilType
                   value={this.state.oilType}
@@ -459,7 +467,10 @@ class ProfileFluid extends Component {
 
             <div className="profile_input_box">
               <div>
-                <label className="door_select"> კარის რაოდენობა</label>
+                <label className="select_with_img iconDoors">
+                  {" "}
+                  კარის რაოდენობა
+                </label>
                 <Doors
                   value={this.state.doors}
                   changeHandlerfn={this.changeHandler}

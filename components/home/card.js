@@ -39,15 +39,22 @@ const Card = ({
     }
 
     if (oilType && oilType !== "null") {
-      detailInfoArray.push({ name: oilType, img: "/imgs/Untitled-1gh.png" });
+      detailInfoArray.push({ name: oilType, img: "/imgs/icons-13.svg" });
+    }
+
+    if (engin && engin !== "null") {
+      detailInfoArray.push({
+        name: Number(engin) / 1000,
+        img: "/imgs/icons-04.svg",
+      });
     }
 
     if (doors && doors !== "null") {
-      detailInfoArray.push({ name: doors, img: "/imgs/ffff.png" });
+      detailInfoArray.push({ name: doors, img: "/imgs/icons-19.svg" });
     }
 
     if (Pessengers && Pessengers !== "null") {
-      detailInfoArray.push({ name: Pessengers, img: "/imgs/ffff.png" });
+      detailInfoArray.push({ name: Pessengers, img: "/imgs/icons-06.svg" });
     }
 
     if (navigation && navigation !== "null") {
@@ -55,7 +62,10 @@ const Card = ({
     }
 
     if (insured && insured !== "null") {
-      detailInfoArray.push({ name: "დაზღვეული", img: null });
+      detailInfoArray.push({
+        name: "დაზღვეული",
+        img: "/imgs/icons-07.svg",
+      });
     }
     if (gearbox && gearbox !== "null") {
       detailInfoArray.push({ name: gearbox, img: "/imgs/loc.png" });
@@ -64,13 +74,17 @@ const Card = ({
       detailInfoArray.push({ name: wheels, img: "/imgs/loc.png" });
     }
     if (conditioner && conditioner !== "null") {
-      detailInfoArray.push({ name: "კონდიციიონერი", img: null });
+      detailInfoArray.push({
+        name: "კონდიციიონერი",
+        img: "/imgs/icons-20.svg",
+      });
+    }
+
+    if (bortComp && bortComp !== "null") {
+      detailInfoArray.push({ name: "ბორტ-კომპიუტერი", img: null });
     }
     if (parcingConttrol && parcingConttrol !== "null") {
       detailInfoArray.push({ name: "პარკინგ კონტროლი", img: null });
-    }
-    if (bortComp && bortComp !== "null") {
-      detailInfoArray.push({ name: "ბორტ-კომპიუტერი", img: null });
     }
 
     return detailInfoArray;
@@ -100,7 +114,10 @@ const Card = ({
               if (i < 8)
                 return (
                   <div>
-                    {el.img && <img src={el.img} />} <span>{el.name} </span>
+                    {el.img && (
+                      <img style={{ maxHeight: "13px" }} src={el.img} />
+                    )}{" "}
+                    <span>{el.name} </span>
                   </div>
                 );
             })}
