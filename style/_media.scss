@@ -24,7 +24,8 @@
 }
 
 @media only screen and (min-width: 992px) {
-  .menu-btn {
+  .menu-btn,
+  .full_hide {
     display: none;
   }
 }
@@ -42,7 +43,36 @@
     max-width: 180px;
   }
 }
+
 @media only screen and (max-width: 992px) {
+  .search_results_fluid .search_results {
+    padding-top: 0;
+  }
+
+  .search_filter {
+    transition: all 0.2s;
+    // position: fixed;
+    top: 155px;
+    left: 0px;
+
+    z-index: 2000;
+    overflow-y: scroll;
+    height: calc(100vh - 200px);
+    display: none;
+  }
+  .search_filter {
+    &.active {
+      display: block;
+    }
+  }
+
+  .not_found {
+    height: auto !important;
+    div {
+      font-size: 18px !important;
+      height: auto !important;
+    }
+  }
   .menu-btn {
     top: 9px;
     right: 3px;
@@ -51,19 +81,20 @@
     margin-left: 1%;
     margin-top: 2%;
     background-size: contain;
-    height: 170px;
+    height: 120px;
     background-repeat: no-repeat;
     background-position: top;
     max-width: 420px;
     width: 100%;
-    padding: 40px 3px 12px 35px;
+    padding: 23px 3px 14px 11px;
   }
   .search_results_fluid .filters form {
     background-color: #fff;
     border-radius: 9px;
-    padding: 14px 0px 10px 20px;
+    padding: 14px 20px 10px 20px;
     position: inherit;
     width: 100%;
+    max-width: 100%;
   }
 
   .contact_box {
@@ -113,7 +144,7 @@
   }
 
   .home_main_text h2 {
-    font-size: 18px;
+    font-size: 16px;
     margin: 15px 0 5px;
   }
   footer {
@@ -188,7 +219,7 @@
   .header_navigation nav {
     ul {
       flex-direction: column;
-      padding-left: 15px;
+      padding-left: 0px;
       padding-bottom: 20px;
     }
   }
@@ -313,8 +344,12 @@
 
   .search_results_fluid .search_filter {
     margin: auto;
+    max-width: 100%;
   }
-
+  .search_results_fluid .button button {
+    border-radius: 5px;
+    padding: 9px 46px 6px;
+  }
   .search_results_fluid .filter_body {
     margin-top: -10px;
   }

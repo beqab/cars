@@ -37,6 +37,7 @@ class searchComponent extends Component {
 
     statemetnsInPage: 24,
     loadStatements: false,
+    searchTrueFalse:false
   };
 
   fetchStatemetns = async () => {
@@ -159,7 +160,7 @@ class searchComponent extends Component {
     }
     return (
       <div
-        className="d-flex align-items-center w-100 justify-content-center"
+        className="d-flex not_found align-items-center w-100 justify-content-center"
         style={{ height: "400px" }}
       >
         <div
@@ -210,11 +211,34 @@ class searchComponent extends Component {
 
     return getPagination;
   };
-
+  searchTrueFalseHandler = () => {
+    this.setState({
+      searchTrueFalse:!this.state.searchTrueFalse
+    })
+  }
   render() {
+
+    var closeHandler;
+      if(this.state.searchTrueFalse) {
+        closeHandler = (
+
+          <img src="/imgs/close.svg" alt="filter"/>
+        )
+        
+      }else {
+        closeHandler = (
+        <img src="/imgs/filter.svg" alt="close"/>
+        )
+      }
     return (
       <div class="search_results_fluid">
-        <div className="search_filter">
+
+        <div className="filter_icon full_hide" onClick={this.searchTrueFalseHandler}>
+          <span>ფილტრი</span>
+          {closeHandler}
+         
+        </div>
+        <div className={"search_filter " + (this.state.searchTrueFalse ? 'active' : null)}>
           <div className="filters">
             <form>
               {/* <div class="top_search">

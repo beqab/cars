@@ -1,7 +1,7 @@
 #home_main {
   width: 100%;
   height: calc(100vh - 90px);
-  background-image: url("/imgs/caveri-01.png");
+  background-image: url("/imgs/covers-01.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -251,4 +251,22 @@
 
 .google_auth_social {
   display: none;
+}
+
+.filter_icon {
+  background: #fff;
+  border-bottom: 1px solid $main-color;
+  width: 90%;
+  margin: 20px auto 20px;
+  text-align: right;
+  padding-bottom: 10px;
+  img {
+    width: 20px;
+    margin-left: 10px;
+  }
+
+  span {
+    color: #2a2a2a;
+    font-size: 14px;
+  }
 }
