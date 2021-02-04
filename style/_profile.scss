@@ -1380,7 +1380,8 @@ input[type="number"] {
   text-align: center;
   opacity: 0;
   transition: all 0.3s;
-  background: rgba(255, 255, 255, 0.6);
+  background: #f5bd1f;
+  color: $brand-color;
 }
 
 .search_results {
