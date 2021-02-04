@@ -162,7 +162,7 @@ class ProfileFluid extends Component {
     // console.log(e.target.name, e.target.value, ":chng");
 
     if (e.target.type === "checkbox") {
-      debugger;
+      // debugger;
       this.setState({
         [e.target.name]: e.target.checked,
       });
@@ -250,13 +250,19 @@ class ProfileFluid extends Component {
       typeof this.state.phone === "string"
         ? this.state.phone
         : this.props.user && this.props.user.phone
+        ? this.props.user.phone
+        : ""
     );
+
+    // debugger;
     image.append(
       "email",
       typeof this.state.email === "string"
         ? this.state.email
         : this.props.user && this.props.user.email
     );
+    console.log(this.state.email);
+    // debugger;
     image.append("address", this.state.address);
 
     axios
@@ -275,6 +281,7 @@ class ProfileFluid extends Component {
           this.setState({
             loader: false,
           });
+          debugger;
           Router.push("/profile/allStatement");
         }, 2000);
       })
@@ -308,6 +315,10 @@ class ProfileFluid extends Component {
                 } else if (el.param == "carModel") {
                   this.setState({
                     carModelError: el.msg,
+                  });
+                } else if (el.param == "phone") {
+                  this.setState({
+                    phoneError: el.msg,
                   });
                 } else if (el.param == "location") {
                   this.setState({
@@ -751,10 +762,14 @@ class ProfileFluid extends Component {
                     />
                   </div>
 
-                  <div className="contact_label">
+                  <div
+                    style={{ position: "relative" }}
+                    className="contact_label "
+                  >
                     <label>
                       <img src="/imgs/phone.png" />
                     </label>
+
                     <input
                       type="number"
                       name="phone"
@@ -766,6 +781,19 @@ class ProfileFluid extends Component {
                       }
                       placeholder="ტელეფონი"
                     />
+
+                    {this.state.phoneError ? (
+                      <span
+                        style={{
+                          position: "absolute",
+                          bottom: "-14px",
+                          fontSize: "10px",
+                        }}
+                        className="error_msg"
+                      >
+                        {this.state.phoneError}
+                      </span>
+                    ) : null}
                   </div>
 
                   <div className="contact_label">
