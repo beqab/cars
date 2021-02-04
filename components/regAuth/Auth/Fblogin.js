@@ -43,7 +43,8 @@ class FbLoginButton extends Component {
     // console.log(process.env.FB_APP_ID);
     return (
       <FacebookLogin
-        appId={581660732471800}
+        // appId={581660732471800}
+        appId={247405556767961}
         // autoLoad={true}
         fields="name,email,picture"
         callback={this.responseFacebook}
