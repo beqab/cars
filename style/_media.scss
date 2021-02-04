@@ -45,6 +45,10 @@
 }
 
 @media only screen and (max-width: 992px) {
+  .image-gallery-content .image-gallery-slide .image-gallery-image {
+    max-height: unset;
+    height: auto;
+  }
   .search_results_fluid .search_results {
     padding-top: 0;
   }

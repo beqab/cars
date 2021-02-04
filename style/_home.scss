@@ -270,3 +270,18 @@
     font-size: 14px;
   }
 }
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $brand-color;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $main-color;
+  border-radius: 2px;
+}
