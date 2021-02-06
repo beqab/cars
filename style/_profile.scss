@@ -540,7 +540,7 @@ input[type="number"] {
   & > div:first-child {
     padding: 0px 10px;
     height: 160px;
-    overflow-y: auto;
+    overflow-y: hidden;
   }
   h2 {
     a {

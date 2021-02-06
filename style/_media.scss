@@ -45,6 +45,9 @@
 }
 
 @media only screen and (max-width: 992px) {
+  .search_results_fluid {
+    display: block;
+  }
   .image-gallery-content .image-gallery-slide .image-gallery-image {
     max-height: unset;
     height: auto;
@@ -381,7 +384,13 @@
   .image-gallery-slide.center {
     height: 184px;
   }
-
+  .image-gallery-slide.center > div {
+    height: unset;
+  }
+  .image-gallery-swipe > div > div {
+    display: flex;
+    align-items: center;
+  }
   .image-gallery {
     min-height: unset;
   }
