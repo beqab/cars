@@ -161,9 +161,9 @@ class Home extends Component {
             </h1>
             <p
               style={{
-                opacity: 0,
+                opacity: "0",
                 position: "absolute",
-                zIndex: -1,
+                zIndex: "-1",
                 top: "-10000px",
               }}
             >

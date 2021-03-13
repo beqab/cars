@@ -26,7 +26,7 @@ const Footer = ({ isAuth }) => {
               <a href="">ჩემი გვერდი</a>
             </Link>
           </li>
-          <li style="d-none">
+          <li className="d-none">
             <a href="http://myauto.ge/">Anchor text</a>
           </li>
         </ul>
