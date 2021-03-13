@@ -32,7 +32,7 @@ class HomeCar extends Component {
             {this.state.statements && this.state.statements.length ? (
               this.state.statements.map((el, i) => {
                 return (
-                  <div className="col-12 col-md-3">
+                  <div className="col-12 col-lg-3 col-md-4 col-sm-6">
                     <Card data={el} />
                   </div>
                 );

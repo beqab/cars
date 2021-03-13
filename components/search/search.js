@@ -143,7 +143,7 @@ class searchComponent extends Component {
           // if (index > 6) return;
 
           return (
-            <div className="col-md-4 col-lg-3">
+            <div className="col-12 col-lg-4 col-md-4 col-sm-6 col-xl-3">
               {" "}
               <Card data={el} />{" "}
             </div>
