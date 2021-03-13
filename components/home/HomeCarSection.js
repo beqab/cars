@@ -42,7 +42,10 @@ class HomeCar extends Component {
                 style={{ minHeight: "70vh" }}
                 className="text-center w-100 d-flex justify-content-center align-items-center flex-column"
               >
-                <img src="https://gifprint.s3.amazonaws.com/p/gif/80037/e62c3f40a25701360b561e9875f84da0.gif" />
+                <img
+                  src="https://gifprint.s3.amazonaws.com/p/gif/80037/e62c3f40a25701360b561e9875f84da0.gif"
+                  alt="s"
+                />
                 <div>იტვირთება...</div>
               </div>
             )}

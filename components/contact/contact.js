@@ -49,13 +49,13 @@ class contact extends Component {
             <div class="contact_info">
               <div class="contact_label">
                 <label>
-                  <img src="/imgs/phone.png" />
+                  <img src="/imgs/phone.png" alt="s" />
                 </label>
                 {/* <a href="tel:579 29 66 56">579 29 66 56</a> */}
               </div>
               <div class="contact_label">
                 <label>
-                  <img src="/imgs/ma.png" />
+                  <img src="/imgs/ma.png" alt="s" />
                 </label>
                 <span> infogcar@gmail.com</span>
               </div>
@@ -65,7 +65,7 @@ class contact extends Component {
                   href="https://www.facebook.com/Gcarge-105939904792665"
                   target="_blank"
                 >
-                  <img src="/imgs/facebook.png" />
+                  <img src="/imgs/facebook.png" alt="s" />
                   <span>Contact Us On Facebook</span>
                 </a>
               </div>

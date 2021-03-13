@@ -31,13 +31,14 @@ class searchComponent extends Component {
     endPrice: null,
     startPrice: null,
     withDriver: null,
+    Pessengers: null,
     statements: [],
     engin: null,
     startIndex: 1,
 
     statemetnsInPage: 24,
     loadStatements: false,
-    searchTrueFalse:false
+    searchTrueFalse: false,
   };
 
   fetchStatemetns = async () => {
@@ -109,6 +110,7 @@ class searchComponent extends Component {
         startPrice: this.state.startPrice,
         endPrice: this.state.endPrice,
         withDriver: this.state.withDriver,
+        Pessengers: this.state.Pessengers,
         engin: this.state.engin,
         startIndex: this.state.startIndex,
       },
@@ -213,32 +215,30 @@ class searchComponent extends Component {
   };
   searchTrueFalseHandler = () => {
     this.setState({
-      searchTrueFalse:!this.state.searchTrueFalse
-    })
-  }
+      searchTrueFalse: !this.state.searchTrueFalse,
+    });
+  };
   render() {
-
     var closeHandler;
-      if(this.state.searchTrueFalse) {
-        closeHandler = (
-
-          <img src="/imgs/close.svg" alt="filter"/>
-        )
-        
-      }else {
-        closeHandler = (
-        <img src="/imgs/filter.svg" alt="close"/>
-        )
-      }
+    if (this.state.searchTrueFalse) {
+      closeHandler = <img src="/imgs/close.svg" alt="filter" />;
+    } else {
+      closeHandler = <img src="/imgs/filter.svg" alt="close" />;
+    }
     return (
       <div class="search_results_fluid">
-
-        <div className="filter_icon full_hide" onClick={this.searchTrueFalseHandler}>
+        <div
+          className="filter_icon full_hide"
+          onClick={this.searchTrueFalseHandler}
+        >
           <span>ფილტრი</span>
           {closeHandler}
-         
         </div>
-        <div className={"search_filter " + (this.state.searchTrueFalse ? 'active' : null)}>
+        <div
+          className={
+            "search_filter " + (this.state.searchTrueFalse ? "active" : null)
+          }
+        >
           <div className="filters">
             <form>
               {/* <div class="top_search">

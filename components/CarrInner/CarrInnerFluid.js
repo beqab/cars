@@ -71,7 +71,7 @@ class carrInnerFluid extends Component {
                 {curentStatement.userName ? (
                   <div className="contact_label">
                     <label>
-                      <img src="/imgs/pp.png" />
+                      <img src="/imgs/pp.png" alt="s" />
                     </label>
                     <span>{curentStatement.userName}</span>
                   </div>
@@ -79,7 +79,7 @@ class carrInnerFluid extends Component {
                 {curentStatement.phone ? (
                   <div className="contact_label">
                     <label>
-                      <img src="/imgs/phone.png" />
+                      <img src="/imgs/phone.png" alt="s" />
                     </label>
                     <a href="tel:555 23 32 32">{curentStatement.phone}</a>
                   </div>
@@ -88,7 +88,7 @@ class carrInnerFluid extends Component {
                 {curentStatement.email ? (
                   <div className="contact_label">
                     <label>
-                      <img src="/imgs/ma.png" />
+                      <img src="/imgs/ma.png" alt="s" />
                     </label>
                     <span> {curentStatement.email}</span>
                   </div>
@@ -97,7 +97,7 @@ class carrInnerFluid extends Component {
                 {curentStatement.address ? (
                   <div className="contact_label">
                     <label>
-                      <img src="/imgs/loc.png" />
+                      <img src="/imgs/loc.png" alt="s" />
                     </label>
                     <span>{curentStatement.address}</span>
                   </div>
@@ -165,7 +165,7 @@ class carrInnerFluid extends Component {
               {curentStatement.engin ? (
                 <li>
                   <span>
-                    <img src="/imgs/icons-04.svg"></img>
+                    <img src="/imgs/icons-04.svg" alt="s"></img>
 
                     <span>ძრავის მოცულობა</span>
                   </span>
@@ -206,7 +206,7 @@ class carrInnerFluid extends Component {
               {curentStatement.category && (
                 <li>
                   <span>
-                    <img src="/imgs/icons-05.svg"></img>
+                    <img src="/imgs/icons-05.svg" alt="s"></img>
 
                     <span>კატეგორია</span>
                   </span>
@@ -217,7 +217,7 @@ class carrInnerFluid extends Component {
               {curentStatement.doors && (
                 <li>
                   <span>
-                    <img src="/imgs/icons-05.svg" />
+                    <img src="/imgs/icons-05.svg" alt="s" />
 
                     <span>კარის რაოდენობა</span>
                   </span>
@@ -228,7 +228,7 @@ class carrInnerFluid extends Component {
               {curentStatement.doors && (
                 <li>
                   <span>
-                    <img src="/imgs/icons-19.svg" />
+                    <img src="/imgs/icons-19.svg" alt="s" />
 
                     <span>კარის რაოდენობა</span>
                   </span>

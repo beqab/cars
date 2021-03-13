@@ -7,7 +7,16 @@ const BaceLayout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Home</title>
+        <title>მანქანის გაქირავება ქირაობა დღიურად</title>
+        <meta http-equiv="content-language" content="geo"></meta>
+        <meta
+          name="description"
+          content="ატომობილის გაქირავება, ავტომობილის ქირაობა, მანაქნის გაქირავება , მანქანის ქირაობა, მანქანით მომსახურება, ქირავდება ავრომობილი , ავტომობილი დღიურად, ფასი დღიურად"
+        />
+        <meta
+          name="keywords"
+          content="მანქანა, ავტომობილი,  ავტომობილის ქირაობა,  მანაქნის გაქირავება, გაქირავება, ავტომობილის გაქირავება, მანქანის გაქირავება, მანქანით მომსახურება, manqanis qiraoba, manqanis gaqiraveba, avtomobili, maqnanit momsaxureba, fasi , ფასი, დღიურად, dgiurad "
+        />
         <link rel="icon" href="/favicon.ico" />
         <link
           href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"

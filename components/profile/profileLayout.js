@@ -87,7 +87,7 @@ class profileLayout extends Component {
                     })}
                   >
                     <span>განცადების დამატება</span>
-                    <img src="/imgs/pp.png" alt />
+                    <img src="/imgs/pp.png" alt="s" />
                   </a>
                   {/* </Link> */}
                 </li>

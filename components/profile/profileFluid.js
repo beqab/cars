@@ -125,12 +125,19 @@ class ProfileFluid extends Component {
   };
 
   setEsDefault = (i) => {
-    this.setState((prev) => ({
-      images: [
-        prev.images[i],
-        ...prev.images.filter((el, index) => (index !== i ? el : null)),
-      ],
-    }));
+    // debugger;
+    this.setState(
+      (prev) => ({
+        images: [
+          prev.images[i],
+          ...prev.images.filter((el, index) => (index !== i ? el : null)),
+        ],
+      }),
+      () => {
+        console.log(this.state.images);
+        debugger;
+      }
+    );
   };
 
   getImgs = () => {
