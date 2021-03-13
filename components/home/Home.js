@@ -159,6 +159,19 @@ class Home extends Component {
               <span>იქირავე ან გააქირავე </span>
               <span>სასურველი მანქანა Gcar.ge - სთან ერთად</span>
             </h1>
+            <p
+              style={{
+                opacity: 0,
+                position: "absolute",
+                zIndex: -1,
+                top: "-10000px",
+              }}
+            >
+              მანქანა, ავტომობილი, ავტომობილის ქირაობა, მანაქნის გაქირავება,
+              გაქირავება, ავტომობილის გაქირავება, მანქანის გაქირავება, მანქანით
+              მომსახურება, manqanis qiraoba, manqanis gaqiraveba, avtomobili,
+              maqnanit momsaxureba, fasi , ფასი, დღიურად, dgiurad
+            </p>
           </div>
         </main>
 

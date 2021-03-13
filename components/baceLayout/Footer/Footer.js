@@ -6,7 +6,7 @@ const Footer = ({ isAuth }) => {
   return (
     <footer>
       <div className="footer_logo">
-        <img src="/imgs/logosSVGwhite.svg" />
+        <img src="/imgs/logosSVGwhite.svg" alt="logo" />
       </div>
       <div className="footer_nav">
         <ul>
@@ -25,6 +25,9 @@ const Footer = ({ isAuth }) => {
             <Link href={isAuth ? "/profile/addStatement" : "/login"}>
               <a href="">ჩემი გვერდი</a>
             </Link>
+          </li>
+          <li style="d-none">
+            <a href="http://myauto.ge/">Anchor text</a>
           </li>
         </ul>
       </div>
